@@ -17,7 +17,7 @@
     Plugin Name: Woocommerce Quick Buy
     Plugin URI: http://varunsridharan.in/
     Description: Woocommerce Quick Buy
-    Version: 0.1
+    Version: 0.2
     Author: Varun Sridharan
     Author URI: http://varunsridharan.in/
     License: GPL2
@@ -67,6 +67,7 @@ class wc_quick_buy {
 		add_option('wc_quick_buy_position','after');
 		add_option('wc_quick_buy_lable','Quick Buy');
 		add_option('wc_quick_buy_class','quick_buy_button'); 
+        add_option('wc_quick_buy_redirect','checkout'); 
 	}
 	
 	
@@ -80,6 +81,15 @@ class wc_quick_buy {
 									   	'type' => 'title',
 									   	'desc' => __( 'The following options are used to configure WC Quick Buy', 'text-domain' ), 
 									   	'id' => 'wc_quick_buy' );
+            $wc_quick_buy[] = array(
+				'name' => __( 'Redirect Location', 'text-domain' ),
+				'desc_tip' => __( 'After Add To Cart Where To Redirect The user', 'text-domain' ),
+				'id' => 'wc_quick_buy_redirect',
+				'type' => 'select', 
+				'class' =>'chosen_select',
+				'options' => array('cart' => 'Cart Page','checkout'=>'Checkout Page')
+			);
+            
 			$wc_quick_buy[] = array(
 				'name' => __( 'Automatically Add Button ', 'text-domain' ),
 				'desc_tip' => __( 'Automaticaly Adds Button After Add To Cart In Single Product View', 'text-domain' ),
@@ -123,10 +133,20 @@ class wc_quick_buy {
 		}
 	} 
 	
-	
+	/**
+	 * @since 0.1
+     * @updated 0.2
+	 */
 	public function wc_quick_buy_add_to_cart_redirect_check(){
 		if(isset($_REQUEST['quick_buy']) && $_REQUEST['quick_buy'] == true){
-			wp_safe_redirect(WC()->cart->get_cart_url() );
+            $redirect_op = get_option('wc_quick_buy_redirect');
+            var_dump($redirect_op);
+            if($redirect_op == 'cart'){
+                wp_safe_redirect(WC()->cart->get_cart_url() );
+            } else if($redirect_op == 'checkout'){
+                wp_safe_redirect(WC()->cart->get_checkout_url() );
+            }
+			
 			exit;
 		}
 		return '';

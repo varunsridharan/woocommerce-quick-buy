@@ -17,7 +17,7 @@
 if ( !defined( 'WP_UNINSTALL_PLUGIN' ) ) 
     exit();
 
-$options = array('wc_quick_buy_auto','wc_quick_buy_position','wc_quick_buy_lable','wc_quick_buy_class','quick_buy_button');
+$options = array('wc_quick_buy_auto','wc_quick_buy_position','wc_quick_buy_lable','wc_quick_buy_class','quick_buy_button','wc_quick_buy_redirect');
 foreach($options as $option_name){
 	delete_option( $option_name );
 	delete_site_option( $option_name );  
