@@ -6,7 +6,7 @@ Tags: Woocommerce,wc,Quick buy,add to cart
 Donate link: http://varunsridharan.in
 Requires at least: 3.0 plus WooCommerce 2.x
 Tested up to: 4.0.1 + WooCommerce 2.x
-Stable tag: 0.2
+Stable tag: 0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,12 +46,15 @@ When User Clicks This Button. The Current product Will Be Added To Cart And The 
 
 == Frequently Asked Questions ==
 **I have an idea for your plugin!**  
-That\\'s great. We are always open to your input, and we would like to add anything we think will be useful to a lot of people. Please send your comment/idea to varunsridharan23@gmail.com
+That's great. We are always open to your input, and we would like to add anything we think will be useful to a lot of people. Please send your comment/idea to varunsridharan23@gmail.com
 
 **I found a bug!**  
 Oops. Please User github / WordPress to post bugs.  <a href="https://github.com/technofreaky/woocomerce-quick-buy/"> Open an Issue </a>
 
 == Changelog ==
+
+= 0.3 =
+* Code Bug Fix
 
 = 0.2. =
 * Option To Configure Redirect [Cart / Checkout Page]

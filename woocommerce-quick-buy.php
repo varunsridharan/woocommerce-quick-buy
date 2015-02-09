@@ -17,7 +17,7 @@
     Plugin Name: Woocommerce Quick Buy
     Plugin URI: http://varunsridharan.in/
     Description: Woocommerce Quick Buy
-    Version: 0.2
+    Version: 0.3
     Author: Varun Sridharan
     Author URI: http://varunsridharan.in/
     License: GPL2
@@ -140,7 +140,6 @@ class wc_quick_buy {
 	public function wc_quick_buy_add_to_cart_redirect_check(){
 		if(isset($_REQUEST['quick_buy']) && $_REQUEST['quick_buy'] == true){
             $redirect_op = get_option('wc_quick_buy_redirect');
-            var_dump($redirect_op);
             if($redirect_op == 'cart'){
                 wp_safe_redirect(WC()->cart->get_cart_url() );
             } else if($redirect_op == 'checkout'){
