@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2014  Varun Sridharan  (email : varunsridharan23@gmail.com)
+/*  Copyright 2015  Varun Sridharan  (email : varunsridharan23@gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -17,7 +17,7 @@
     Plugin Name: Woocommerce Quick Buy
     Plugin URI: http://varunsridharan.in/
     Description: Woocommerce Quick Buy
-    Version: 0.3
+    Version: 0.4
     Author: Varun Sridharan
     Author URI: http://varunsridharan.in/
     License: GPL2
@@ -25,9 +25,12 @@
 defined('ABSPATH') or die("No script kiddies please!"); 
 
 
-
 class wc_quick_buy {
 	private $settings;
+	
+	/**
+	 * Base Call Construct
+	 */
 	function __construct() {
 		add_filter( 'woocommerce_get_sections_products', array($this,'wc_quick_buy_add_section' ));
 		add_filter( 'woocommerce_get_settings_products', array($this,'wc_quick_buy_all_settings'), 10, 2 );
@@ -38,44 +41,72 @@ class wc_quick_buy {
 		$this->get_db_data();
 	}
 	
+	/**
+	 * Retrives Stored Values From DB
+	 */
 	private function get_db_data(){
 		$this->settings['lable'] = get_option('wc_quick_buy_lable');
 		$this->settings['position'] = get_option('wc_quick_buy_position');
 		$this->settings['class'] = get_option('wc_quick_buy_class');
 		$this->settings['automatic'] = get_option('wc_quick_buy_auto');
-		
+		$this->settings['where_to_show'] = get_option('wc_quick_buy_product_types');
+		$this->settings['simple_product_form_class'] = get_option('wc_quick_buy_simple_product_form_class');
+		$this->settings['variable_product_form_class'] = get_option('wc_quick_buy_variable_product_form_class');
 		if(isset($this->settings['automatic']) && $this->settings['automatic'] == 'true'){
 			if(! empty($this->settings['position']) && ! $this->settings['position'] == null){
 				add_action ('woocommerce_'.$this->settings['position'].'_add_to_cart_form',array($this,'wc_quick_buy_after_add_to_cart_form_add'),99);
 			}	
 		}
+		if(empty($this->settings['where_to_show'])){
+			add_action( 'admin_notices', array($this,'wc_quick_buy_failed_settings' ));	
+		}
 		
 	}
 	
+	/**
+	 * Plugin Settings Config Issue
+	 * @since 0.4
+	 */
+	function wc_quick_buy_failed_settings() {
+	echo '<div class="error"><p><strong> Woocommerce Quick Buy </strong> Settings Is Not Configured...  <a href="'.admin_url( 'admin.php?page=wc-settings&tab=products&section=wc_quick_buy').'"> <strong> <u>click here</u></strong>  </a> to configure </p></div>';
+	} 
 	
-	
-	/***
-	* Create the section beneath the products tab
-	*/
+ 	/**
+ 	 * Creates Woocommerce Section
+ 	 * @since 0.1
+ 	 * @param  Array $sections List Of Sections In WC Settings Page
+ 	 * @return Array  List Of Sections In WC Settings Page
+ 	 */
  	public function wc_quick_buy_add_section( $sections ) {
 		$sections['wc_quick_buy'] = __( 'WC Quick Buy', 'text-domain' );
 		return $sections;
 	} 	
 	
+	/**
+	 * Function Called When Install Hook Is Called
+	 */
 	public function install(){
 		add_option('wc_quick_buy_auto','true');
 		add_option('wc_quick_buy_position','after');
 		add_option('wc_quick_buy_lable','Quick Buy');
 		add_option('wc_quick_buy_class','quick_buy_button'); 
         add_option('wc_quick_buy_redirect','checkout'); 
+		add_option('wc_quick_buy_product_types','');
+		add_option('wc_quick_buy_simple_product_form_class','form.cart');
+		add_option('wc_quick_buy_variable_product_form_class','form.variations_form');
+		return true;
 	}
 	
 	
-	/***
-	* Add settings to the specific section we created before
-	*/
+	/**
+	 * Adds Settings Page With Settings UI
+	 * @param  String $settings        Refer WC.ORG
+	 * @param  String $current_section Refer WC.ORG
+	 * @return String Refer WC.ORG
+	 */
 	public function wc_quick_buy_all_settings( $settings, $current_section ) {
 		if ( $current_section == 'wc_quick_buy' ) {
+			
 			$wc_quick_buy = array();
 			$wc_quick_buy[] = array( 'name' => __( 'WC Quick Buy Settings', 'text-domain' ), 
 									   	'type' => 'title',
@@ -107,6 +138,14 @@ class wc_quick_buy {
 				'options' => array('after' => 'After Add To Cart','before'=>'Before Add To Cart')
 			);	
 			$wc_quick_buy[] = array(
+				'name' => __( 'Show Quick Buy Button For ', 'text-domain' ),
+				'desc_tip' => __( 'For Which Products To Show Quick Buy Button [eg to show for simple products select only simple products]', 'text-domain' ),
+				'id' => 'wc_quick_buy_product_types',
+				'type' => 'multiselect', 
+				'class' =>'chosen_select',
+				'options' => array('simple' => 'Simple Products','variable'=>'Variable Products')
+			);	
+			$wc_quick_buy[] = array(
 				'name' => __( 'Quick Buy Button Text', 'text-domain' ),
 				'desc_tip' => __( 'You Can Change The Quick Buy Button Lable', 'text-domain' ),
 				'id' => 'wc_quick_buy_lable',
@@ -127,15 +166,42 @@ class wc_quick_buy {
 										
 										', 'text-domain' ), 
 									   	'id' => 'wc_quick_buy_shortcode' );
+			
+			$wc_quick_buy[] = array( 'name' => '','type' => 'title','desc' => '<hr style="margin-top:25px;" />', 'id' => 'wc_quick_buy_troubleshoot' );
+			$wc_quick_buy[] = array( 'type' => 'sectionstart', 'id' => 'wc_quick_buy' );
+			$wc_quick_buy[] = array( 'name' => 'Debug / Troubleshoot', 
+									'type' => 'title',
+									'desc' => 'if JS is not running please use the below fields to fix it.', 
+									'id' => 'wc_quick_buy_troubleshoot' );
+
+			$wc_quick_buy[] = array(
+				'name' => __( 'Simple Product Form Class', 'text-domain' ),
+				'desc_tip' => __( 'Enter The Form Class for simple product add to cart form', 'text-domain' ),
+				'id' => 'wc_quick_buy_simple_product_form_class',
+				'type' => 'text', 
+			); 
+			
+			
+			$wc_quick_buy[] = array(
+				'name' => __( 'Variable Product Form Class', 'text-domain' ),
+				'desc_tip' => __( 'Enter The Form Class for Variable product add to cart form', 'text-domain' ),
+				'id' => 'wc_quick_buy_variable_product_form_class',
+				'type' => 'text', 
+			);
+			$wc_quick_buy[] = array( 'type' => 'sectionend', 'id' => 'wc_quick_buy' );
+			 
 			return $wc_quick_buy;
 		} else {
 			return $settings;
 		}
 	} 
 	
+
 	/**
+	 * Function to redirect user after qucik buy button is submitted
 	 * @since 0.1
-     * @updated 0.2
+	 * @updated 0.2
+	 * @return string [[Description]]
 	 */
 	public function wc_quick_buy_add_to_cart_redirect_check(){
 		if(isset($_REQUEST['quick_buy']) && $_REQUEST['quick_buy'] == true){
@@ -151,46 +217,105 @@ class wc_quick_buy {
 		return '';
 	}	
 	
+	/**
+	 * Function to redirect user after qucik buy button is submitted
+	 * @since 0.1
+	 * @updated 0.2
+	 * @return string [[Description]]
+	 */
 	public function wc_quick_buy_after_add_to_cart_form_add(){
 		global $product; 
-		
-		if($product->is_type( 'simple' )){ 
-			echo $this->wc_quick_buy_add_quick_buy_form($product->id);
+		if($product->is_type( 'simple' ) && in_array('simple',$this->settings['where_to_show'])){
+			echo $this->wc_quick_buy_add_form_simple_product($product->id); 
+		} 
+		if($product->is_type( 'variable' ) && in_array('variable',$this->settings['where_to_show'])){
+			echo $this->wc_quick_buy_add_form_variable_product($product->id); 
 		}
 		
 	}
 	
 	
-	
+	/**
+	 * Short Code Handler
+	 * @since 0.1
+	 * @updated 0.4
+	 * @param [[Type]] $product [[Description]]
+	 */
 	public function wc_quick_buy_shortcode_handler($product) {
 		$prod = shortcode_atts( array('product' => null), $product );
 		if($prod['product'] == null){
 			global $product;
-			
-			if($product->is_type( 'simple' )){ 
-				echo $this->wc_quick_buy_add_quick_buy_form($product->id);
-			}			
-		} else {
+			if($product->is_type( 'simple' )){ echo $this->wc_quick_buy_add_form_simple_product($product->id);  }	
+			if($product->is_type( 'variable' )){ echo $this->wc_quick_buy_add_form_variable_product($product->id);  }				
+		} else {			
 			$product = get_product($a['product']);
-			if($product->is_type( 'simple' )){ 
-				echo $this->wc_quick_buy_add_quick_buy_form($product->id);
-			}
+			if($product->is_type( 'simple' )){echo $this->wc_quick_buy_add_form_simple_product($product->id);}
+			if($product->is_type( 'variable' )){echo $this->wc_quick_buy_add_form_variable_product($product->id); }
 		} 
 	}
 	
-	
-	
-	public function wc_quick_buy_add_quick_buy_form($productid){
+	/**
+	 * Custom form For Simple product
+	 * @since 0.4
+	 * @param  String $productid [[Description]]
+	 * @return String [[Description]]
+	 */
+	public function wc_quick_buy_add_form_simple_product($productid){
 		
-		$form = '<form class="cart" method="post" enctype="multipart/form-data">
-		<input  type="hidden" value="1" name="quantity">
+		$form = '<form id="wc_quick_buy_'.$productid.'" id="wc_quick_buy_form wc_quick_buy_form_'.$productid.'" method="post" enctype="multipart/form-data">
+		<input  type="hidden" value="1" name="quantity" id="quantity">
 		<input  type="hidden" value="true" name="quick_buy" />
 		<input  type="hidden" name="add-to-cart" value="'.esc_attr($productid).'" />
 		<button type="submit" class="'.$this->settings['class'].'">'.$this->settings['lable'].'</button>
-		</form> '; 
+		<div class="variable_details" id="variable_details" ></div>
+		</form> 
+			<script>
+				jQuery("document").ready(function(){
+					jQuery("'.$this->settings['simple_product_form_class'].' input[name=quantity]").change(function(){
+						var value = jQuery("input.input-text.qty.text").val();
+						jQuery("form#wc_quick_buy_'.$productid.' > #quantity").val(value);
+					}); 
+				});
+					
+			</script>
+		'; 
 		return $form;
 	}	
 	
+	
+	/**
+	 * Custom Quick Buy Form For Variable Product
+	 * @since 0.4
+	 * @param  String $productid [[Description]]
+	 * @return String [[Description]]
+	 */
+	public function wc_quick_buy_add_form_variable_product($productid){
+		
+		$form = '<form id="wc_quick_buy_'.$productid.'" id="wc_quick_buy_form wc_quick_buy_form_'.$productid.'" method="post" enctype="multipart/form-data">
+		<input  type="hidden" value="1" name="quantity" id="quantity">
+		<input  type="hidden" value="true" name="quick_buy" />
+		<input  type="hidden" name="add-to-cart" value="'.esc_attr($productid).'" />
+		<button type="submit" class="'.$this->settings['class'].'">'.$this->settings['lable'].'</button>
+		<div class="variable_details" id="variable_details" ></div>
+		</form> 
+			<script>
+				jQuery("document").ready(function(){ 
+					jQuery("'.$this->settings['variable_product_form_class'].'").change(function(){
+						var value = jQuery("input.input-text.qty.text").val();
+						jQuery("form#wc_quick_buy_'.$productid.' > #quantity").val(value);
+						var datas = jQuery(".variations_form").serializeArray();
+						jQuery("form#wc_quick_buy_'.$productid.' > div#variable_details").html(\'\');
+						jQuery.each( datas, function( key, value ) { 
+						 		if(value["name"] != "quantity" && value["name"] != "add-to-cart"){
+								jQuery("form#wc_quick_buy_'.$productid.' > div#variable_details").append(\'<input type="hidden" name="\' +value["name"] +\'"  value="\' +value["value"] +\'" /> \');
+								}
+						});
+					});
+				});					
+			</script>
+		'; 
+		return $form;
+	}		
 	
 	public function update_settings() {
 		woocommerce_update_options( get_settings() );
@@ -209,7 +334,11 @@ class wc_quick_buy {
 if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 	register_activation_hook( __FILE__, array( 'wc_quick_buy', 'install' ) );
 	$wc_quick_buy = new wc_quick_buy; 
+} else {
+	add_action( 'admin_notices', 'wc_quick_buy_notice' );
 }
 
- 
+function wc_quick_buy_notice() {
+	echo '<div class="error"><p><strong> <i> Woocommerce Quick Buy </i> </strong> Requires <a href="'.admin_url( 'plugin-install.php?tab=plugin-information&plugin=woocommerce').'"> <strong> <u>Woocommerce</u></strong>  </a> To Be Installed And Activated </p></div>';
+} 
 ?>
