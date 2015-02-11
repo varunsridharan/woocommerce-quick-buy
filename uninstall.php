@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2014  Varun Sridharan  (email : varunsridharan23@gmail.com)
+/*  Copyright 2015  Varun Sridharan  (email : varunsridharan23@gmail.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -17,7 +17,7 @@
 if ( !defined( 'WP_UNINSTALL_PLUGIN' ) ) 
     exit();
 
-$options = array('wc_quick_buy_auto','wc_quick_buy_position','wc_quick_buy_lable','wc_quick_buy_class','quick_buy_button','wc_quick_buy_redirect');
+$options = array('wc_quick_buy_auto','wc_quick_buy_position','wc_quick_buy_lable','wc_quick_buy_class','wc_quick_buy_redirect','wc_quick_buy_product_types','wc_quick_buy_simple_product_form_class','wc_quick_buy_variable_product_form_class');
 foreach($options as $option_name){
 	delete_option( $option_name );
 	delete_site_option( $option_name );  
