@@ -17,7 +17,7 @@
     Plugin Name: Woocommerce Quick Buy
     Plugin URI: http://varunsridharan.in/
     Description: Woocommerce Quick Buy
-    Version: 0.5
+    Version: 0.6
     Author: Varun Sridharan
     Author URI: http://varunsridharan.in/
     License: GPL2
@@ -84,8 +84,9 @@ class wc_quick_buy {
 	
 	/**
 	 * Function Called When Install Hook Is Called
+     * @updated 0.6
 	 */
-	public function install(){
+	public static function install(){
 		add_option('wc_quick_buy_auto','true');
 		add_option('wc_quick_buy_position','after');
 		add_option('wc_quick_buy_lable','Quick Buy');
@@ -162,7 +163,11 @@ class wc_quick_buy {
 			
 			$wc_quick_buy[] = array( 'name' => __( 'WC Quick Buy Short Code', 'text-domain' ), 
 									   	'type' => 'title',
-									   	'desc' => __( 'You can also use <code>[wc_quick_buy]</code> short code to call where ever you want in your template <br/>  you can also set product id manually by <code>[wc_quick_buy product="2"]</code>									
+									   	'desc' => __( 'You can also use <code>[wc_quick_buy]</code> short code to call where ever you want in your template <br/> 
+                                                       You can also set product id manually by <code>[wc_quick_buy product="2"]</code> <br/>
+                                                       To remove the js embeded by shortcode use  <code> [wc_quick_buy product="2" show_js="false"] </code> <br/>
+                                                        <h3>Note <small>  Do not add this shortcode in a form. as this shortcode itself generates a html form </small></h3>.
+                                                       
 										
 										', 'text-domain' ), 
 									   	'id' => 'wc_quick_buy_shortcode' );
@@ -238,38 +243,43 @@ class wc_quick_buy {
 	/**
 	 * Short Code Handler
 	 * @since 0.1
-	 * @updated 0.5
+	 * @updated 0.6
 	 * @param [[Type]] $product [[Description]]
 	 */
-	public function wc_quick_buy_shortcode_handler($product) {
-		$prod = shortcode_atts( array('product' => null), $product );
+	public function wc_quick_buy_shortcode_handler($attrs) {
+		$prod = shortcode_atts( array(
+            'product' => null,
+            'show_js' => false
+        ), $attrs );
+        
 		if($prod['product'] == null){
 			global $product;
-			if($product->is_type( 'simple' )){ echo $this->wc_quick_buy_add_form_simple_product($product->id);  }	
-			if($product->is_type( 'variable' )){ echo $this->wc_quick_buy_add_form_variable_product($product->id);  }				
+			if($product->is_type( 'simple' )){ echo $this->wc_quick_buy_add_form_simple_product($product->id, $prod['show_js']);  }	
+			if($product->is_type( 'variable' )){ echo $this->wc_quick_buy_add_form_variable_product($product->id, $prod['show_js']);  }				
 		} else {			
 			$product = get_product($prod['product']);
-			if($product->is_type( 'simple' )){echo $this->wc_quick_buy_add_form_simple_product($product->id);}
-			if($product->is_type( 'variable' )){echo $this->wc_quick_buy_add_form_variable_product($product->id); }
+			if($product->is_type( 'simple' )){echo $this->wc_quick_buy_add_form_simple_product($product->id, $prod['show_js']);}
+			if($product->is_type( 'variable' )){echo $this->wc_quick_buy_add_form_variable_product($product->id, $prod['show_js']); }
 		} 
 	}
 	
 	/**
 	 * Custom form For Simple product
 	 * @since 0.4
+     * @updated 0.6
 	 * @param  String $productid [[Description]]
 	 * @return String [[Description]]
 	 */
-	public function wc_quick_buy_add_form_simple_product($productid){
+	public function wc_quick_buy_add_form_simple_product($productid,$add_js=true){
 		
 		$form = '<form id="wc_quick_buy_'.$productid.'" id="wc_quick_buy_form wc_quick_buy_form_'.$productid.'" method="post" enctype="multipart/form-data">
 		<input  type="hidden" value="1" name="quantity" id="quantity">
 		<input  type="hidden" value="true" name="quick_buy" />
 		<input  type="hidden" name="add-to-cart" value="'.esc_attr($productid).'" />
-		<button type="submit" class="'.$this->settings['class'].'">'.$this->settings['lable'].'</button>
-		<div class="variable_details" id="variable_details" ></div>
-		</form> 
-			<script>
+		<button type="submit" class="'.$this->settings['class'].'">'.$this->settings['lable'].'</button>';
+        if($add_js === true){$form .= '<div class="variable_details" id="variable_details" ></div>';}
+		$form .= '</form>';
+		if($add_js === true){$form .= '	<script>
 				jQuery("document").ready(function(){
 					jQuery("'.$this->settings['simple_product_form_class'].' input[name=quantity]").change(function(){
 						var value = jQuery("input.input-text.qty.text").val();
@@ -278,7 +288,7 @@ class wc_quick_buy {
 				});
 					
 			</script>
-		'; 
+		'; }
 		return $form;
 	}	
 	
@@ -286,19 +296,20 @@ class wc_quick_buy {
 	/**
 	 * Custom Quick Buy Form For Variable Product
 	 * @since 0.4
+     * @updated 0.6
 	 * @param  String $productid [[Description]]
 	 * @return String [[Description]]
 	 */
-	public function wc_quick_buy_add_form_variable_product($productid){
+	public function wc_quick_buy_add_form_variable_product($productid,$add_js=true){
 		
 		$form = '<form id="wc_quick_buy_'.$productid.'" id="wc_quick_buy_form wc_quick_buy_form_'.$productid.'" method="post" enctype="multipart/form-data">
 		<input  type="hidden" value="1" name="quantity" id="quantity">
 		<input  type="hidden" value="true" name="quick_buy" />
 		<input  type="hidden" name="add-to-cart" value="'.esc_attr($productid).'" />
-		<button type="submit" class="'.$this->settings['class'].'">'.$this->settings['lable'].'</button>
-		<div class="variable_details" id="variable_details" ></div>
-		</form> 
-			<script>
+		<button type="submit" class="'.$this->settings['class'].'">'.$this->settings['lable'].'</button>';
+		if($add_js === true){$form .= '<div class="variable_details" id="variable_details" ></div>';}
+		$form .= '</form> ';
+			if($add_js === true){$form .= '<script>
 				jQuery("document").ready(function(){ 
 					jQuery("'.$this->settings['variable_product_form_class'].'").change(function(){
 						var value = jQuery("input.input-text.qty.text").val();
@@ -313,7 +324,7 @@ class wc_quick_buy {
 					});
 				});					
 			</script>
-		'; 
+		'; }
 		return $form;
 	}		
 	

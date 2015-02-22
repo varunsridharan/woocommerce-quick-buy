@@ -5,10 +5,10 @@ Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
 Tags: Woocommerce,wc,Quick buy,add to cart
 Donate link: http://varunsridharan.in
 Requires at least: 3.0
-Tested up to: 4.1
+Tested up to: 4.1.1
 WC requires at least: 1.0
-WC tested up to: 2.3.3
-Stable tag: 0.5
+WC tested up to: 2.3.5
+Stable tag: 0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -36,9 +36,19 @@ When User Clicks This Button. The Current product Will Be Added To Cart And The 
 **Add Short Code With Product ID**
 `[wc_quick_buy product="1"]`
 
+**Add Short Code Without js embeded**
+`[wc_quick_buy product="1" show_js="false"]`
+
 We would like to thank <strong> <a href="https://profiles.wordpress.org/pshekas" >Ernestas Zekas</a> </strong> for Suggesting below features
+
 * Quick Buy For Product Variations
 * Quick Buy With Product Quantity
+
+
+= Plugin Contributers =
+* <a href="https://profiles.wordpress.org/pshekas" >Ernestas Zekas</a>
+* <a href="https://github.com/robertbobmattocks">Robert Mattocks </a>
+
 
 == Upgrade Notice ==
 Please update the settings once you have updated the plugin. if not this plugin many not work.
@@ -48,6 +58,23 @@ Please update the settings once you have updated the plugin. if not this plugin 
 1. WC Quick Buy Settings
 
 == Installation ==
+
+= Minimum Requirements =
+
+* WordPress 3.8 or greater
+* PHP version 5.2.4 or greater
+* MySQL version 5.0 or greater
+
+= Automatic installation =
+
+Automatic installation is the easiest option as WordPress handles the file transfers itself and you don't need to leave your web browser. To do an automatic install of WooCommerce Quick Buy, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
+
+In the search field type "WooCommerce Quick Buy" and click Search Plugins. Once you've found our plugin you can view details about it such as the the point release, rating and description. Most importantly of course, you can install it by simply clicking "Install Now"
+
+= Manual installation =
+
+The manual installation method involves downloading our plugin and uploading it to your Web Server via your favourite FTP application. The WordPress codex contains [instructions on how to do this here](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
+
 1. Installing alternatives:
  * via Admin Dashboard:
  * Go to 'Plugins > Add New', search for "WooCommerce Quick Buy", click "install"
@@ -66,7 +93,21 @@ That's great. We are always open to your input, and we would like to add anythin
 **I found a bug!**  
 Oops. Please User github / WordPress to post bugs.  <a href="https://github.com/technofreaky/woocomerce-quick-buy/"> Open an Issue </a>
 
+**How To Call This Plugin in a template ?**  
+This Plugin Can Be Called Using `[wc_quick_buy]` shortcode
+
+
+**Where can I request new features**
+Please open an issue at <a href="https://github.com/technofreaky/woocomerce-quick-buy"> GitHub </a> and we will look into it
+
+
 == Changelog ==
+
+= 0.6 =
+* Fixed activation issue.
+* Added a new shortcode option <code>[wc_quick_buy show_js="false/true"]</code>
+* Minor bug fixes.
+
 = 0.5 =
 * Fixed Shortcode Issue
 
