@@ -23,3 +23,5 @@ foreach($options as $option_name){
 	delete_site_option( $option_name );  
 }
 ?>
+
+

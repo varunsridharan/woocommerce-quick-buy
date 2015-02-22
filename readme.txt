@@ -4,9 +4,11 @@ Author URI: http://varunsridharan.in/
 Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
 Tags: Woocommerce,wc,Quick buy,add to cart
 Donate link: http://varunsridharan.in
-Requires at least: 3.0 plus WooCommerce 2.x
-Tested up to: 4.1 + WooCommerce 2.x
-Stable tag: 0.4
+Requires at least: 3.0
+Tested up to: 4.1
+WC requires at least: 1.0
+WC tested up to: 2.3.3
+Stable tag: 0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -65,6 +67,9 @@ That's great. We are always open to your input, and we would like to add anythin
 Oops. Please User github / WordPress to post bugs.  <a href="https://github.com/technofreaky/woocomerce-quick-buy/"> Open an Issue </a>
 
 == Changelog ==
+= 0.5 =
+* Fixed Shortcode Issue
+
 = 0.4 =
 * Quick Buy Options Is Now Available For Variant Product
 * Quick Buy Now Takes Entered Qty and add it to cart.
