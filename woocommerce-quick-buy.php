@@ -17,7 +17,7 @@
     Plugin Name: Woocommerce Quick Buy
     Plugin URI: http://varunsridharan.in/
     Description: Woocommerce Quick Buy
-    Version: 0.7
+    Version: 0.8
     Author: Varun Sridharan
     Author URI: http://varunsridharan.in/
     License: GPL2
@@ -264,7 +264,7 @@ class wc_quick_buy {
 			if($product->is_type( 'variable' )){$output =  $this->wc_quick_buy_add_form_variable_product($product->id, $prod['show_js']); }
 		} 
         
-        if($prod['echo']){
+        if($prod['echo'] === true){
             echo $output;
             return true;
         }

@@ -8,7 +8,7 @@ Requires at least: 3.0
 Tested up to: 4.1.1
 WC requires at least: 1.0
 WC tested up to: 2.3.5
-Stable tag: 0.7
+Stable tag: 0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -100,6 +100,9 @@ Please open an issue at <a href="https://github.com/technofreaky/woocomerce-quic
 
 
 == Changelog ==
+== 0.8 =
+* Fixed Shortcode Display Issue
+
 = 0.7 =
 * Fixed Shortcode Echo Issue.
 * Added a new shortcode option <code>[wc_quick_buy echo="false/true"]</code>
