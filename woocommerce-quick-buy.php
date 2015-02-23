@@ -17,7 +17,7 @@
     Plugin Name: Woocommerce Quick Buy
     Plugin URI: http://varunsridharan.in/
     Description: Woocommerce Quick Buy
-    Version: 0.6
+    Version: 0.7
     Author: Varun Sridharan
     Author URI: http://varunsridharan.in/
     License: GPL2
@@ -243,24 +243,32 @@ class wc_quick_buy {
 	/**
 	 * Short Code Handler
 	 * @since 0.1
-	 * @updated 0.6
+	 * @updated 0.7
 	 * @param [[Type]] $product [[Description]]
 	 */
 	public function wc_quick_buy_shortcode_handler($attrs) {
+        $output = '';
 		$prod = shortcode_atts( array(
             'product' => null,
-            'show_js' => false
+            'show_js' => false,
+            'echo' => true
         ), $attrs );
         
 		if($prod['product'] == null){
 			global $product;
-			if($product->is_type( 'simple' )){ echo $this->wc_quick_buy_add_form_simple_product($product->id, $prod['show_js']);  }	
-			if($product->is_type( 'variable' )){ echo $this->wc_quick_buy_add_form_variable_product($product->id, $prod['show_js']);  }				
+			if($product->is_type( 'simple' )){ $output =  $this->wc_quick_buy_add_form_simple_product($product->id, $prod['show_js']);  }	
+			if($product->is_type( 'variable' )){ $output =  $this->wc_quick_buy_add_form_variable_product($product->id, $prod['show_js']);  }				
 		} else {			
 			$product = get_product($prod['product']);
-			if($product->is_type( 'simple' )){echo $this->wc_quick_buy_add_form_simple_product($product->id, $prod['show_js']);}
-			if($product->is_type( 'variable' )){echo $this->wc_quick_buy_add_form_variable_product($product->id, $prod['show_js']); }
+			if($product->is_type( 'simple' )){$output =  $this->wc_quick_buy_add_form_simple_product($product->id, $prod['show_js']);}
+			if($product->is_type( 'variable' )){$output =  $this->wc_quick_buy_add_form_variable_product($product->id, $prod['show_js']); }
 		} 
+        
+        if($prod['echo']){
+            echo $output;
+            return true;
+        }
+        return $output;
 	}
 	
 	/**

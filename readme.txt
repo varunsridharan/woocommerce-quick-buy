@@ -8,7 +8,7 @@ Requires at least: 3.0
 Tested up to: 4.1.1
 WC requires at least: 1.0
 WC tested up to: 2.3.5
-Stable tag: 0.6
+Stable tag: 0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -19,25 +19,23 @@ Add Quick buy button to redirect user to checkout / cart immediately when he cli
 
 When User Clicks This Button. The Current product Will Be Added To Cart And The User Will Be Redirected To Cart Page
 
-<h4> New Feature In 0.4</h4>
-* Quick Buy Options Is Now Available For Variant Product
-* Quick Buy Now Takes Entered Qty and add it to cart.
-* Option to configure to show quick buy based on product type [Simple,Variant/Variable]
-* Minor Bug Fixes
-
-
 **Settings Available Under**
-
 `Woocommerce Settings ==> Products ==> WC Quick Buy`
 
-**Add Short Code While In Product Loop**
+**Short Code While In Product Loop**
 `[wc_quick_buy]`
 
-**Add Short Code With Product ID**
+**Short Code With Product ID**
 `[wc_quick_buy product="1"]`
 
-**Add Short Code Without js embeded**
+**Short Code Without js embeded**
 `[wc_quick_buy product="1" show_js="false"]`
+
+**Short Code with echo **
+`[wc_quick_buy product="1" echo="true"]`
+
+**Short Code with return {To Save Value In A Variable} **
+`[wc_quick_buy product="1" echo="false"]`
 
 We would like to thank <strong> <a href="https://profiles.wordpress.org/pshekas" >Ernestas Zekas</a> </strong> for Suggesting below features
 
@@ -102,6 +100,9 @@ Please open an issue at <a href="https://github.com/technofreaky/woocomerce-quic
 
 
 == Changelog ==
+= 0.7 =
+* Fixed Shortcode Echo Issue.
+* Added a new shortcode option <code>[wc_quick_buy echo="false/true"]</code>
 
 = 0.6 =
 * Fixed activation issue.
