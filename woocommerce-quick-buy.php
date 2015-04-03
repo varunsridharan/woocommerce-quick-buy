@@ -16,8 +16,8 @@
  
     Plugin Name: Woocommerce Quick Buy
     Plugin URI: http://varunsridharan.in/
-    Description: Woocommerce Quick Buy
-    Version: 0.10
+    Description: Add Quick buy button to redirect user to checkout / cart immediately when he click quick buy button 
+    Version: 0.11
     Author: Varun Sridharan
     Author URI: http://varunsridharan.in/
     License: GPL2
@@ -39,6 +39,7 @@ class wc_quick_buy {
 		add_filter('add_to_cart_redirect',array($this,'wc_quick_buy_add_to_cart_redirect_check'));
 		add_action( 'woocommerce_update_options_settings_tab_demo', array($this,'update_settings' ));
 		add_shortcode( 'wc_quick_buy', array($this,'wc_quick_buy_shortcode_handler' ));
+        add_filter( 'plugin_row_meta', array( $this, 'plugin_row_links' ), 10, 2 );
 		$this->settings = array();
 		$this->get_db_data();
 	}
@@ -158,7 +159,9 @@ class wc_quick_buy {
 				'name' => __( 'Quick Buy Button Style', 'text-domain' ),
 				'desc_tip' => __( 'Directly Add Button CSS', 'text-domain' ),
 				'id' => 'wc_quick_buy_btn_css',
-				'type' => 'textarea', 
+				'type' => 'textarea',
+                'class'=>'large-text',
+                'css'=>'height:200px;'
 			); 
             
 			$wc_quick_buy[] = array(
@@ -301,17 +304,17 @@ class wc_quick_buy {
 	/**
 	 * Custom form For Simple product
 	 * @since 0.4
-     * @updated 0.6
+     * @updated 0.11
 	 * @param  String $productid [[Description]]
 	 * @return String [[Description]]
 	 */
 	public function wc_quick_buy_add_form_simple_product($productid,$add_js=true){
 		
-		$form = '<form id="wc_quick_buy_'.$productid.'" class="wc_quick_buy_form wc_quick_buy_form_'.$productid.'" method="post" enctype="multipart/form-data">
+		$form = '<form data-productid="'.$productid.'" id="wc_quick_buy_'.$productid.'" class="wc_quick_buy_form wc_quick_buy_form_'.$productid.'" method="post" enctype="multipart/form-data">
 		<input  type="hidden" value="1" name="quantity" id="quantity">
 		<input  type="hidden" value="true" name="quick_buy" />
 		<input  type="hidden" name="add-to-cart" value="'.esc_attr($productid).'" />
-		<button type="submit" class="wc_quick_buy_btn '.$this->settings['class'].'">'.$this->settings['lable'].'</button>';
+		<button data-productid="'.$productid.'" type="submit" class="wc_quick_buy_product_'.$productid.' quick_buy_'.$productid.'  wc_quick_buy_btn '.$this->settings['class'].'">'.$this->settings['lable'].'</button>';
         if($add_js === true){$form .= '<div class="variable_details" id="variable_details" ></div>';}
 		$form .= '</form>';
         add_action('wp_footer',array($this,'wc_quick_buy_button_style'));
@@ -332,17 +335,17 @@ class wc_quick_buy {
 	/**
 	 * Custom Quick Buy Form For Variable Product
 	 * @since 0.4
-     * @updated 0.6
+     * @updated 0.11
 	 * @param  String $productid [[Description]]
 	 * @return String [[Description]]
 	 */
 	public function wc_quick_buy_add_form_variable_product($productid,$add_js=true){
 		
-		$form = '<form id="wc_quick_buy_'.$productid.'" class="wc_quick_buy_form wc_quick_buy_form_'.$productid.'" method="post" enctype="multipart/form-data">
+		$form = '<form data-productid="'.$productid.'" id="wc_quick_buy_'.$productid.'" class="wc_quick_buy_form wc_quick_buy_form_'.$productid.'" method="post" enctype="multipart/form-data">
 		<input  type="hidden" value="1" name="quantity" id="quantity">
 		<input  type="hidden" value="true" name="quick_buy" />
 		<input  type="hidden" name="add-to-cart" value="'.esc_attr($productid).'" />
-		<button type="submit" class="wc_quick_buy_btn '.$this->settings['class'].'">'.$this->settings['lable'].'</button>';
+		<button data-productid="'.$productid.'" type="submit" class="wc_quick_buy_product_'.$productid.' quick_buy_'.$productid.'  wc_quick_buy_btn '.$this->settings['class'].'">'.$this->settings['lable'].'</button>';
 		if($add_js === true){$form .= '<div class="variable_details" id="variable_details" ></div>';}
 		$form .= '</form> ';
         add_action('wp_footer',array($this,'wc_quick_buy_button_style'));
@@ -365,10 +368,56 @@ class wc_quick_buy {
 		return $form;
 	}		
 	
+    
+    /**
+     * Saves WC Settings In DB
+     * @since 0.1
+     * @access public
+     */
 	public function update_settings() {
 		woocommerce_update_options( get_settings() );
+	}
+    
+    
+	/**
+	 * Adds Some Plugin Options
+	 * @param  array  $plugin_meta
+	 * @param  string $plugin_file
+	 * @since 0.11
+	 * @return array
+	 */
+	public function plugin_row_links( $plugin_meta, $plugin_file ) {
+		if ( plugin_basename( __FILE__ ) == $plugin_file ) {
+            $plugin_meta[ ] = sprintf(
+                ' <a href="%s">%s</a>',
+                admin_url('admin.php?page=wc-settings&tab=products&section=wc_quick_buy'),
+                'Settings'
+            );
+            
+            $plugin_meta[ ] = sprintf(
+				'<a href="%s">%s</a>',
+				'https://wordpress.org/plugins/woocommerce-quick-buy/faq/',
+				'F.A.Q'
+			);
+            $plugin_meta[ ] = sprintf(
+				'<a href="%s">%s</a>',
+				'https://github.com/technofreaky/woocomerce-quick-buy',
+				'View On Github'
+			);
+            
+            $plugin_meta[ ] = sprintf(
+				'<a href="%s">%s</a>',
+				'https://github.com/technofreaky/woocomerce-quick-buy/issues/new',
+				'Report Issue'
+			);
+            $plugin_meta[ ] = sprintf(
+				'&hearts; <a href="%s">%s</a>',
+				'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YUBNEPWZMGTTQ',
+				'Donate'
+			);
+		}
+		return $plugin_meta;
 	}	
-	
 }
 
 

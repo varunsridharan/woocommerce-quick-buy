@@ -2,22 +2,23 @@
 Contributors: varunms
 Author URI: http://varunsridharan.in/
 Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
-Tags: Woocommerce,wc,Quick buy,add to cart
+Tags: Woocommerce,wc,Quick buy,add to cart,affiliate, cart, checkout, commerce, configurable, digital, download, downloadable, e-commerce, ecommerce, inventory, reports, sales, sell, shipping, shop, shopping, stock, store, tax, variable, widgets, woothemes, wordpress ecommerce
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YUBNEPWZMGTTQ
 Requires at least: 3.0
 Tested up to: 4.1.1
 WC requires at least: 1.0
 WC tested up to: 2.3.7
-Stable tag: 0.10
+Stable tag: 0.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
 Add Quick buy button to redirect user to checkout / cart immediately when he click quick buy button 
 
 == Description ==
-Add Quick buy button to redirect user to checkout / cart immediately when he click quick buy button 
-
+Add Quick buy button to redirect user to checkout / cart immediately when he click quick buy button.
 When User Clicks This Button. The Current product Will Be Added To Cart And The User Will Be Redirected To Cart Page
+
+[youtube https://www.youtube.com/watch?v=z_RgdNVZvj4]
 
 **Settings Available Under**
 `Woocommerce Settings ==> Products ==> WC Quick Buy`
@@ -54,9 +55,10 @@ Please update the settings once you have updated the plugin. if not this plugin 
 
 = Minimum Requirements =
 
-* WordPress 3.8 or greater
+* WordPress version 3.8 or greater
 * PHP version 5.2.4 or greater
 * MySQL version 5.0 or greater
+* WooCommerce version 1.0 or greater
 
 = Automatic installation =
 
@@ -110,6 +112,16 @@ Please open an issue at <a href="https://github.com/technofreaky/woocomerce-quic
 
 
 == Changelog ==
+= 0.11 - 03/04/2015 =
+* Adds Product ID As a html attribute in Quick Buy Button : <code>data-productid</code>
+* Adds Dynimic Class Based On Product ID in Quick Buy Button : <code>wc_quick_buy_product_{product_id}</code> & <code> quick_buy_{product_id}</code> 
+* Adds Product Id in Form Attribute : <code>data-productid</code> 
+* Minor Bug Fix
+* Added Paypal Donation Link
+* Added Github Link
+* Added Report Issue Link
+* Added Settings Link
+
 = 0.10 - 01/04/2015 =
 * Fixed Quick Buy Button Css Loop [Now Adds At WP FOOTER]
 * Minor Bug Fix
