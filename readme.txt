@@ -8,7 +8,7 @@ Requires at least: 3.0
 Tested up to: 4.1.1
 WC requires at least: 1.0
 WC tested up to: 2.3.7
-Stable tag: 0.9
+Stable tag: 0.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html 
 
@@ -110,39 +110,44 @@ Please open an issue at <a href="https://github.com/technofreaky/woocomerce-quic
 
 
 == Changelog ==
-= 0.9 =
+= 0.10 - 01/04/2015 =
+* Fixed Quick Buy Button Css Loop [Now Adds At WP FOOTER]
+* Minor Bug Fix
+
+= 0.9 - 01/04/2015 =
 * Fixed Form Class Issue.
 * Added Default Form Class <code>wc_quick_buy_form </code> And <code> wc_quick_buy_form_{product_id}</code>
 * Added Option Add CSS Directly
 * Minor Bug Fix
 * Made Compatible With latest WordPress and Woo Commerce Version
 
-= 0.8 =
+= 0.8 - 23/02/2015  =
 * Fixed Short code Display Issue
 
-= 0.7 =
+= 0.7 - 22/02/2015  =
 * Fixed Short code Echo Issue.
 * Added a new short code option <code>[wc_quick_buy echo="false/true"]</code>
 
-= 0.6 =
+= 0.6 - 22/02/2015 =
 * Fixed activation issue.
 * Added a new short code option <code>[wc_quick_buy show_js="false/true"]</code>
 * Minor bug fixes.
 
-= 0.5 =
+= 0.5 - 16/02/2015 =
 * Fixed Short code Issue
 
-= 0.4 =
+= 0.4 - 11/02/2015 =
 * Quick Buy Options Is Now Available For Variant Product
 * Quick Buy Now Takes Entered Qty and add it to cart.
 * Option to configure to show quick buy based on product type [Simple,Variant/Variable]
 * Minor Bug Fixes
 
-= 0.3 =
+= 0.3 - 04/02/2015 =
 * Code Bug Fix
 
-= 0.2. =
+= 0.2 - 07/12/2014 =
 * Option To Configure Redirect [Cart / Checkout Page]
 
-= 0.1 =
+= 0.1 - 04/12/2014 =
 * Base Version
+ 

@@ -17,7 +17,7 @@
     Plugin Name: Woocommerce Quick Buy
     Plugin URI: http://varunsridharan.in/
     Description: Woocommerce Quick Buy
-    Version: 0.9
+    Version: 0.10
     Author: Varun Sridharan
     Author URI: http://varunsridharan.in/
     License: GPL2
@@ -291,9 +291,10 @@ class wc_quick_buy {
      * @since 0.9
      * @return null / value
      */
-    private function wc_quick_buy_button_style(){
+    public function wc_quick_buy_button_style(){
         if(!empty($this->settings['wc_quick_buy_btn_css'])){
-            return '<style> '.$this->settings['wc_quick_buy_btn_css'].'</style>';
+            echo '<style> '.html_entity_decode( $this->settings['wc_quick_buy_btn_css']).'</style>';
+            
         }
     }
     
@@ -313,7 +314,7 @@ class wc_quick_buy {
 		<button type="submit" class="wc_quick_buy_btn '.$this->settings['class'].'">'.$this->settings['lable'].'</button>';
         if($add_js === true){$form .= '<div class="variable_details" id="variable_details" ></div>';}
 		$form .= '</form>';
-        $form .= $this->wc_quick_buy_button_style();
+        add_action('wp_footer',array($this,'wc_quick_buy_button_style'));
 		if($add_js === true){$form .= '	<script>
 				jQuery("document").ready(function(){
 					jQuery("'.$this->settings['simple_product_form_class'].' input[name=quantity]").change(function(){
@@ -344,7 +345,7 @@ class wc_quick_buy {
 		<button type="submit" class="wc_quick_buy_btn '.$this->settings['class'].'">'.$this->settings['lable'].'</button>';
 		if($add_js === true){$form .= '<div class="variable_details" id="variable_details" ></div>';}
 		$form .= '</form> ';
-        $form .= $this->wc_quick_buy_button_style();
+        add_action('wp_footer',array($this,'wc_quick_buy_button_style'));
 			if($add_js === true){$form .= '<script>
 				jQuery("document").ready(function(){ 
 					jQuery("'.$this->settings['variable_product_form_class'].'").change(function(){
