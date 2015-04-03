@@ -17,12 +17,14 @@
     Plugin Name: Woocommerce Quick Buy
     Plugin URI: http://varunsridharan.in/
     Description: Woocommerce Quick Buy
-    Version: 0.8
+    Version: 0.9
     Author: Varun Sridharan
     Author URI: http://varunsridharan.in/
     License: GPL2
+    GitHub Plugin URI: https://github.com/technofreaky/woocomerce-quick-buy
 */
 defined('ABSPATH') or die("No script kiddies please!"); 
+ 
 
 
 class wc_quick_buy {
@@ -52,6 +54,8 @@ class wc_quick_buy {
 		$this->settings['where_to_show'] = get_option('wc_quick_buy_product_types');
 		$this->settings['simple_product_form_class'] = get_option('wc_quick_buy_simple_product_form_class');
 		$this->settings['variable_product_form_class'] = get_option('wc_quick_buy_variable_product_form_class');
+        $this->settings['wc_quick_buy_btn_css'] = get_option('wc_quick_buy_btn_css');
+        
 		if(isset($this->settings['automatic']) && $this->settings['automatic'] == 'true'){
 			if(! empty($this->settings['position']) && ! $this->settings['position'] == null){
 				add_action ('woocommerce_'.$this->settings['position'].'_add_to_cart_form',array($this,'wc_quick_buy_after_add_to_cart_form_add'),99);
@@ -95,6 +99,9 @@ class wc_quick_buy {
 		add_option('wc_quick_buy_product_types','');
 		add_option('wc_quick_buy_simple_product_form_class','form.cart');
 		add_option('wc_quick_buy_variable_product_form_class','form.variations_form');
+        add_option('wc_quick_buy_btn_css','.wc_quick_buy_btn {} 
+                                           .wc_quick_buy_btn:hover {}
+        ');
 		return true;
 	}
 	
@@ -146,6 +153,14 @@ class wc_quick_buy {
 				'class' =>'chosen_select',
 				'options' => array('simple' => 'Simple Products','variable'=>'Variable Products')
 			);	
+            
+            $wc_quick_buy[] = array(
+				'name' => __( 'Quick Buy Button Style', 'text-domain' ),
+				'desc_tip' => __( 'Directly Add Button CSS', 'text-domain' ),
+				'id' => 'wc_quick_buy_btn_css',
+				'type' => 'textarea', 
+			); 
+            
 			$wc_quick_buy[] = array(
 				'name' => __( 'Quick Buy Button Text', 'text-domain' ),
 				'desc_tip' => __( 'You Can Change The Quick Buy Button Lable', 'text-domain' ),
@@ -158,7 +173,7 @@ class wc_quick_buy {
 				'id' => 'wc_quick_buy_class',
 				'type' => 'text', 
 			); 		
-			
+				
 			$wc_quick_buy[] = array( 'type' => 'sectionend', 'id' => 'wc_quick_buy' );
 			
 			$wc_quick_buy[] = array( 'name' => __( 'WC Quick Buy Short Code', 'text-domain' ), 
@@ -271,6 +286,17 @@ class wc_quick_buy {
         return $output;
 	}
 	
+    /**
+     * Returns if any style in db.
+     * @since 0.9
+     * @return null / value
+     */
+    private function wc_quick_buy_button_style(){
+        if(!empty($this->settings['wc_quick_buy_btn_css'])){
+            return '<style> '.$this->settings['wc_quick_buy_btn_css'].'</style>';
+        }
+    }
+    
 	/**
 	 * Custom form For Simple product
 	 * @since 0.4
@@ -280,13 +306,14 @@ class wc_quick_buy {
 	 */
 	public function wc_quick_buy_add_form_simple_product($productid,$add_js=true){
 		
-		$form = '<form id="wc_quick_buy_'.$productid.'" id="wc_quick_buy_form wc_quick_buy_form_'.$productid.'" method="post" enctype="multipart/form-data">
+		$form = '<form id="wc_quick_buy_'.$productid.'" class="wc_quick_buy_form wc_quick_buy_form_'.$productid.'" method="post" enctype="multipart/form-data">
 		<input  type="hidden" value="1" name="quantity" id="quantity">
 		<input  type="hidden" value="true" name="quick_buy" />
 		<input  type="hidden" name="add-to-cart" value="'.esc_attr($productid).'" />
-		<button type="submit" class="'.$this->settings['class'].'">'.$this->settings['lable'].'</button>';
+		<button type="submit" class="wc_quick_buy_btn '.$this->settings['class'].'">'.$this->settings['lable'].'</button>';
         if($add_js === true){$form .= '<div class="variable_details" id="variable_details" ></div>';}
 		$form .= '</form>';
+        $form .= $this->wc_quick_buy_button_style();
 		if($add_js === true){$form .= '	<script>
 				jQuery("document").ready(function(){
 					jQuery("'.$this->settings['simple_product_form_class'].' input[name=quantity]").change(function(){
@@ -310,13 +337,14 @@ class wc_quick_buy {
 	 */
 	public function wc_quick_buy_add_form_variable_product($productid,$add_js=true){
 		
-		$form = '<form id="wc_quick_buy_'.$productid.'" id="wc_quick_buy_form wc_quick_buy_form_'.$productid.'" method="post" enctype="multipart/form-data">
+		$form = '<form id="wc_quick_buy_'.$productid.'" class="wc_quick_buy_form wc_quick_buy_form_'.$productid.'" method="post" enctype="multipart/form-data">
 		<input  type="hidden" value="1" name="quantity" id="quantity">
 		<input  type="hidden" value="true" name="quick_buy" />
 		<input  type="hidden" name="add-to-cart" value="'.esc_attr($productid).'" />
-		<button type="submit" class="'.$this->settings['class'].'">'.$this->settings['lable'].'</button>';
+		<button type="submit" class="wc_quick_buy_btn '.$this->settings['class'].'">'.$this->settings['lable'].'</button>';
 		if($add_js === true){$form .= '<div class="variable_details" id="variable_details" ></div>';}
 		$form .= '</form> ';
+        $form .= $this->wc_quick_buy_button_style();
 			if($add_js === true){$form .= '<script>
 				jQuery("document").ready(function(){ 
 					jQuery("'.$this->settings['variable_product_form_class'].'").change(function(){
