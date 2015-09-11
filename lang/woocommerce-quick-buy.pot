@@ -1,0 +1,151 @@
+# Copyright (C) 2015 Woocommerce Quick Buy
+# This file is distributed under the same license as the Woocommerce Quick Buy package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Woocommerce Quick Buy 0.12\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-quick-"
+"buy\n"
+"POT-Creation-Date: 2015-06-29 04:36:32+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: woocommerce-quick-buy.php:106
+msgid "WC Quick Buy"
+msgstr ""
+
+#: woocommerce-quick-buy.php:139
+msgid "WC Quick Buy Settings"
+msgstr ""
+
+#: woocommerce-quick-buy.php:141
+msgid "The following options are used to configure WC Quick Buy"
+msgstr ""
+
+#: woocommerce-quick-buy.php:144
+msgid "Redirect Location"
+msgstr ""
+
+#: woocommerce-quick-buy.php:145
+msgid "After Add To Cart Where To Redirect The user"
+msgstr ""
+
+#: woocommerce-quick-buy.php:149
+msgid "Cart Page"
+msgstr ""
+
+#: woocommerce-quick-buy.php:149
+msgid "Checkout Page"
+msgstr ""
+
+#: woocommerce-quick-buy.php:153
+msgid "Automatically Add Button "
+msgstr ""
+
+#: woocommerce-quick-buy.php:154
+msgid "Automaticaly Adds Button After Add To Cart In Single Product View"
+msgstr ""
+
+#: woocommerce-quick-buy.php:161
+msgid "Position"
+msgstr ""
+
+#: woocommerce-quick-buy.php:162
+msgid "Where the button need to be added in single page .. before / after"
+msgstr ""
+
+#: woocommerce-quick-buy.php:169
+msgid "Show Quick Buy Button For "
+msgstr ""
+
+#: woocommerce-quick-buy.php:170
+msgid ""
+"For Which Products To Show Quick Buy Button [eg to show for simple products "
+"select only simple products]"
+msgstr ""
+
+#: woocommerce-quick-buy.php:178
+msgid "Quick Buy Button Style"
+msgstr ""
+
+#: woocommerce-quick-buy.php:179
+msgid "Directly Add Button CSS"
+msgstr ""
+
+#: woocommerce-quick-buy.php:187
+msgid "Quick Buy Button Text"
+msgstr ""
+
+#: woocommerce-quick-buy.php:188
+msgid "You Can Change The Quick Buy Button Lable"
+msgstr ""
+
+#: woocommerce-quick-buy.php:193
+msgid "Quick Buy Button Class"
+msgstr ""
+
+#: woocommerce-quick-buy.php:194
+msgid "You Can Change The Quick Buy Button Class"
+msgstr ""
+
+#: woocommerce-quick-buy.php:201
+msgid "Debug / Troubleshoot"
+msgstr ""
+
+#: woocommerce-quick-buy.php:203
+msgid "if JS is not running please use the below fields to fix it."
+msgstr ""
+
+#: woocommerce-quick-buy.php:207
+msgid "Simple Product Form Class"
+msgstr ""
+
+#: woocommerce-quick-buy.php:208
+msgid "Enter The Form Class for simple product add to cart form"
+msgstr ""
+
+#: woocommerce-quick-buy.php:215
+msgid "Variable Product Form Class"
+msgstr ""
+
+#: woocommerce-quick-buy.php:216
+msgid "Enter The Form Class for Variable product add to cart form"
+msgstr ""
+
+#: woocommerce-quick-buy.php:223
+msgid "WC Quick Buy Short Code"
+msgstr ""
+
+#: woocommerce-quick-buy.php:225
+msgid ""
+"<code>[wc_quick_buy]</code> Use Inside of product loop \n"
+"                                                       <code>[wc_quick_buy "
+"product=\"2\"]</code> Outside loop With manual Product ID  <br/> To remove "
+"the js embeded by shortcode use  <code> [wc_quick_buy product=\"2\" show_js="
+"\"false\"] </code> <br/> <h3>Note : <small>  Do not add this shortcode in a "
+"form. as this shortcode itself generates a html form </small></h3>."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Woocommerce Quick Buy"
+msgstr ""
+
+#. #-#-#-#-#  plugin.pot (Woocommerce Quick Buy 0.12)  #-#-#-#-#
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  plugin.pot (Woocommerce Quick Buy 0.12)  #-#-#-#-#
+#. Author URI of the plugin/theme
+msgid "http://varunsridharan.in/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Add Quick buy button to redirect user to checkout / cart immediately when he "
+"click quick buy button"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Varun Sridharan"
+msgstr ""

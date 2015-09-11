@@ -5,18 +5,20 @@ Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
 Tags: Woocommerce,wc,Quick buy,add to cart,affiliate, cart, checkout, commerce, configurable, digital, download, downloadable, e-commerce, ecommerce, inventory, reports, sales, sell, shipping, shop, shopping, stock, store, tax, variable, widgets, woothemes, wordpress ecommerce
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YUBNEPWZMGTTQ
 Requires at least: 3.0
-Tested up to: 4.1.1
+Tested up to: 4.2.2
 WC requires at least: 1.0
-WC tested up to: 2.3.7
-Stable tag: 0.11
+WC tested up to: 2.3.11
+Stable tag: 0.12.1
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html 
+License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
 Add Quick buy button to redirect user to checkout / cart immediately when he click quick buy button 
 
 == Description ==
 Add Quick buy button to redirect user to checkout / cart immediately when he click quick buy button.
 When User Clicks This Button. The Current product Will Be Added To Cart And The User Will Be Redirected To Cart Page
+
+***Now we support language translation. if you are intreasted. please contact us*** <a href="http://varunsridharan.in/plugin-support/"> Translate Now </a>
 
 [youtube https://www.youtube.com/watch?v=z_RgdNVZvj4]
 
@@ -82,16 +84,24 @@ The manual installation method involves downloading our plugin and uploading it 
 3. For Settings Look at your `Woocommerce => Settings => Product => WC Quick Buy`
 
 == Frequently Asked Questions ==
+
+** How I Can Get Support For This Plugin** 
+http://varunsridharan.in/plugin-support/ 
+https://wordpress.org/support/plugin/woocommerce-quick-buy 
+https://github.com/technofreaky/WooCommerce-Quick-Buy
+Email : varunsridharan23@gmail.com 
+Email : plugin@varunsridharan.in
+
 **I have an idea for your plugin!**  
 That's great. We are always open to your input, and we would like to add anything we think will be useful to a lot of people. Please send your comment/idea to varunsridharan23@gmail.com
 
 **I found a bug!**  
 Oops. Please User github / WordPress to post bugs.  <a href="https://github.com/technofreaky/woocomerce-quick-buy/"> Open an Issue </a>
 
-**How To Call This Plugin in a template ?**  
-This Plugin Can Be Called Using `[wc_quick_buy]` short code
+**How To Call This Plugin in a template File ?**  
+This Plugin Can Be Called Using `<?php do_shortcode([wc_quick_buy]) ?>` short code
 
-**Settings Available Under**
+**Where Are The Plugin Settings Available ?**
 `Woo Commerce Settings ==> Products ==> WC Quick Buy`
 
 **Short Code With Product ID**
@@ -107,11 +117,19 @@ This Plugin Can Be Called Using `[wc_quick_buy]` short code
 `[wc_quick_buy product="1" echo="false"]`
 
 **Where can I request new features**
-
 Please open an issue at <a href="https://github.com/technofreaky/woocomerce-quick-buy"> GitHub </a> and we will look into it
 
 
 == Changelog ==
+= 0.12.1 - 29/06/2015 =
+* Notice in single product page [https://wordpress.org/support/topic/undefined-index-show_js?replies=1]
+
+= 0.12 - 29/06/2015 =
+* Fixed Javascript Issue With Variable Product Quick Buy  [Conflict With Some Theme / Other Plugin]
+* Update To latest WooCommerce [WC 2.3.11] And Latest WordPress [WP 4.2.2]
+* Minor Bug Fix.
+* Added Support For i18n <code>Text Domain: woocommerce-quick-buy</code>
+
 = 0.11 - 03/04/2015 =
 * Adds Product ID As a html attribute in Quick Buy Button : <code>data-productid</code>
 * Adds Dynimic Class Based On Product ID in Quick Buy Button : <code>wc_quick_buy_product_{product_id}</code> & <code> quick_buy_{product_id}</code> 
@@ -162,4 +180,3 @@ Please open an issue at <a href="https://github.com/technofreaky/woocomerce-quic
 
 = 0.1 - 04/12/2014 =
 * Base Version
- 

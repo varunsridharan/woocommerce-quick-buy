@@ -22,14 +22,12 @@
     * @copyright 2015 Varun Sridharan [TechNoFreaky]
 */
 
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
-exit;
-} 
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) { exit; } 
+
 $options = array('wc_quick_buy_auto','wc_quick_buy_position','wc_quick_buy_lable','wc_quick_buy_class','wc_quick_buy_redirect','wc_quick_buy_product_types','wc_quick_buy_simple_product_form_class','wc_quick_buy_variable_product_form_class','wc_quick_buy_btn_css');
 foreach($options as $option_name){
 	delete_option( $option_name );
 	delete_site_option( $option_name );  
 }
+
 ?>
-
-
