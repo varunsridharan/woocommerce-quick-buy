@@ -5,10 +5,10 @@ Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
 Tags: Woocommerce,wc,Quick buy,add to cart,affiliate, cart, checkout, commerce, configurable, digital, download, downloadable, e-commerce, ecommerce, inventory, reports, sales, sell, shipping, shop, shopping, stock, store, tax, variable, widgets, woothemes, wordpress ecommerce
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YUBNEPWZMGTTQ
 Requires at least: 3.0
-Tested up to: 4.2.2
-WC requires at least: 1.0
-WC tested up to: 2.3.11
-Stable tag: 0.12.1
+Tested up to: 4.3
+WC requires at least: 2.0
+WC tested up to: 2.4.6
+Stable tag: 0.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -32,14 +32,10 @@ When User Clicks This Button. The Current product Will Be Added To Cart And The 
 `[wc_quick_buy product="1"]`
 
 **Short Code Without js embeded**
-`[wc_quick_buy product="1" show_js="false"]`
-
-**Short Code with echo**
-`[wc_quick_buy product="1" echo="true"]`
-
-**Short Code with return {To Save Value In A Variable}**
-`[wc_quick_buy product="1" echo="false"]`
+`[wc_quick_buy product="1" show_js="false"]` 
  
+ **Short Code With Button Label Changed**
+`[wc_quick_buy product="1" name="InstanBuy"]`
 
 = Plugin Contributers =
 * <a href="https://profiles.wordpress.org/pshekas" >Ernestas Zekas</a>
@@ -85,12 +81,13 @@ The manual installation method involves downloading our plugin and uploading it 
 
 == Frequently Asked Questions ==
 
-** How I Can Get Support For This Plugin** 
-http://varunsridharan.in/plugin-support/ 
-https://wordpress.org/support/plugin/woocommerce-quick-buy 
-https://github.com/technofreaky/WooCommerce-Quick-Buy
-Email : varunsridharan23@gmail.com 
-Email : plugin@varunsridharan.in
+** How I Can Get Support For This Plugin**
+
+* http://varunsridharan.in/plugin-support/ 
+* https://wordpress.org/support/plugin/woocommerce-quick-buy 
+* https://github.com/technofreaky/WooCommerce-Quick-Buy
+* Email : varunsridharan23@gmail.com 
+* Email : plugin@varunsridharan.in
 
 **I have an idea for your plugin!**  
 That's great. We are always open to your input, and we would like to add anything we think will be useful to a lot of people. Please send your comment/idea to varunsridharan23@gmail.com
@@ -110,17 +107,21 @@ This Plugin Can Be Called Using `<?php do_shortcode([wc_quick_buy]) ?>` short co
 **Short Code Without js embedded**
 `[wc_quick_buy product="1" show_js="false"]`
 
-**Short Code with echo**
-`[wc_quick_buy product="1" echo="true"]`
+**Short Code With Button Label Changed**
+`[wc_quick_buy product="1" name="InstanBuy"]`
 
-**Short Code with return {To Save Value In A Variable}**
-`[wc_quick_buy product="1" echo="false"]`
 
 **Where can I request new features**
 Please open an issue at <a href="https://github.com/technofreaky/woocomerce-quick-buy"> GitHub </a> and we will look into it
 
 
 == Changelog ==
+= 0.13 - 09/11/2015 = 
+* Added Option To Change Button Label Via Short Code <code>[wc_quick_buy name="Instant Buy"]</code>
+* Changed <code>add_to_cart_redirect</code> to <code>woocommerce_add_to_cart_redirect</code> filter
+* Update To latest WooCommerce [WC 2.4.6] And Latest WordPress [WP 4.3]
+* Minor Bug Fix.
+
 = 0.12.1 - 29/06/2015 =
 * Notice in single product page [https://wordpress.org/support/topic/undefined-index-show_js?replies=1]
 

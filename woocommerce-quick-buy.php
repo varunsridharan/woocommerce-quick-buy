@@ -17,7 +17,7 @@
     Plugin Name: Woocommerce Quick Buy
     Plugin URI: http://varunsridharan.in/
     Description: Add Quick buy button to redirect user to checkout / cart immediately when he click quick buy button 
-    Version: 0.12.1
+    Version: 0.13
     Author: Varun Sridharan
     Author URI: http://varunsridharan.in/
     License: GPL2
@@ -40,7 +40,7 @@ class wc_quick_buy {
         
 		add_filter( 'woocommerce_get_sections_products', array($this,'wc_quick_buy_add_section' ));
 		add_filter( 'woocommerce_get_settings_products', array($this,'wc_quick_buy_all_settings'), 10, 2 );
-		add_filter( 'add_to_cart_redirect',array($this,'wc_quick_buy_add_to_cart_redirect_check'));
+		add_filter( 'woocommerce_add_to_cart_redirect',array($this,'wc_quick_buy_add_to_cart_redirect_check'));
         add_filter( 'plugin_row_meta', array( $this, 'plugin_row_links' ), 10, 2 );
         
 		add_action( 'woocommerce_update_options_settings_tab_demo', array($this,'update_settings' ));
@@ -240,18 +240,17 @@ class wc_quick_buy {
 	 * @updated 0.2
 	 * @return string [[Description]]
 	 */
-	public function wc_quick_buy_add_to_cart_redirect_check(){
+	public function wc_quick_buy_add_to_cart_redirect_check($url){
 		if(isset($_REQUEST['quick_buy']) && $_REQUEST['quick_buy'] == true){
             $redirect_op = get_option('wc_quick_buy_redirect');
             if($redirect_op == 'cart'){
-                wp_safe_redirect(WC()->cart->get_cart_url() );
+                return WC()->cart->get_cart_url();
             } else if($redirect_op == 'checkout'){
-                wp_safe_redirect(WC()->cart->get_checkout_url() );
+                return WC()->cart->get_checkout_url();
             }
-			
-			exit;
+			 
 		}
-		return '';
+		return $url;
 	}	
 	
 	/**
@@ -283,23 +282,19 @@ class wc_quick_buy {
 		$prod = shortcode_atts( array(
             'product' => null,
             'show_js' => false,
-            'echo' => true
+            'name' => null, 
         ), $attrs );
         
 		if($prod['product'] == null){
 			global $product;
-			if($product->is_type( 'simple' )){ $output =  $this->wc_quick_buy_add_form_simple_product($product->id, $prod['show_js']);  }	
-			if($product->is_type( 'variable' )){ $output =  $this->wc_quick_buy_add_form_variable_product($product->id, $prod['show_js']);  }				
+			if($product->is_type( 'simple' )){ $output =  $this->wc_quick_buy_add_form_simple_product($product->id, $prod['show_js'],$prod['name']);  }	
+			if($product->is_type( 'variable' )){ $output =  $this->wc_quick_buy_add_form_variable_product($product->id, $prod['show_js'],$prod['name']);  }				
 		} else {			
 			$product = get_product($prod['product']);
-			if($product->is_type( 'simple' )){$output =  $this->wc_quick_buy_add_form_simple_product($product->id, $prod['show_js']);}
-			if($product->is_type( 'variable' )){$output =  $this->wc_quick_buy_add_form_variable_product($product->id, $prod['show_js']); }
+			if($product->is_type( 'simple' )){$output =  $this->wc_quick_buy_add_form_simple_product($product->id, $prod['show_js'],$prod['name']);}
+			if($product->is_type( 'variable' )){$output =  $this->wc_quick_buy_add_form_variable_product($product->id, $prod['show_js'],$prod['name']); }
 		} 
-        
-        if($prod['echo'] === true){
-            echo $output;
-            return true;
-        }
+ 
         return $output;
 	}
 	
@@ -322,14 +317,18 @@ class wc_quick_buy {
 	 * @param  String $productid [[Description]]
 	 * @return String [[Description]]
 	 */
-	public function wc_quick_buy_add_form_simple_product($productid,$add_js=true){
-		
+	public function wc_quick_buy_add_form_simple_product($productid,$add_js=true,$btn_name=null){
+		$button_name = $this->settings['lable'];
+        
+        if($btn_name != null){
+            $button_name = $btn_name;
+        }
 		$form = '<form data-productid="'.$productid.'" id="wc_quick_buy_'.$productid.'" class="wc_quick_buy_form wc_quick_buy_form_'.$productid.'" method="post" enctype="multipart/form-data">
 		<input  type="hidden" value="1" name="quantity" id="quantity">
 		<input  type="hidden" value="true" name="quick_buy" />
 		<input  type="hidden" name="add-to-cart" value="'.esc_attr($productid).'" />
 		<button data-productid="'.$productid.'" type="submit" class="wc_quick_buy_product_'.$productid.' quick_buy_'.$productid.'  
-                                                                     wc_quick_buy_btn '.$this->settings['class'].'">'.$this->settings['lable'].'</button>';
+                                                                     wc_quick_buy_btn '.$this->settings['class'].'">'.$button_name.'</button>';
 		$form .= '</form>';
         
         add_action('wp_footer',array($this,'wc_quick_buy_button_style'));
@@ -359,15 +358,20 @@ class wc_quick_buy {
 	 * @param  String $productid [[Description]]
 	 * @return String [[Description]]
 	 */
-	public function wc_quick_buy_add_form_variable_product($productid,$add_js=true){
-		
+	public function wc_quick_buy_add_form_variable_product($productid,$add_js=true,$btn_name = null){
+		$button_name = $this->settings['lable'];
+        
+        if($btn_name != null){
+            $button_name = $btn_name;
+        }  
+        
 		$form = '<form data-productid="'.$productid.'" id="wc_quick_buy_'.$productid.'" 
                   class="wc_quick_buy_form wc_quick_buy_form_'.$productid.'" method="post" enctype="multipart/form-data">
 		<input  type="hidden" value="1" name="quantity" id="quantity">
 		<input  type="hidden" value="true" name="quick_buy" />
 		<input  type="hidden" name="add-to-cart" value="'.esc_attr($productid).'" />
 		<button data-productid="'.$productid.'" type="submit" class="wc_quick_buy_product_'.$productid.' quick_buy_'.$productid.'  
-        wc_quick_buy_btn '.$this->settings['class'].'">'.$this->settings['lable'].'</button>';
+        wc_quick_buy_btn '.$this->settings['class'].'">'.$button_name.'</button>';
         
 		if($add_js === true){ $form .= '<div class="variable_details" id="variable_details" ></div>'; }
 		
