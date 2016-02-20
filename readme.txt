@@ -5,10 +5,10 @@ Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
 Tags: Woocommerce,wc,Quick buy,add to cart,affiliate, cart, checkout, commerce, configurable, digital, download, downloadable, e-commerce, ecommerce, inventory, reports, sales, sell, shipping, shop, shopping, stock, store, tax, variable, widgets, woothemes, wordpress ecommerce
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YUBNEPWZMGTTQ
 Requires at least: 3.0
-Tested up to: 4.3
+Tested up to: 4.4
 WC requires at least: 2.0
-WC tested up to: 2.4.6
-Stable tag: 0.13
+WC tested up to: 2.5.x
+Stable tag: 0.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -116,7 +116,12 @@ Please open an issue at <a href="https://github.com/technofreaky/woocomerce-quic
 
 
 == Changelog ==
-= 0.13 - 09/11/2015 = 
+= 0.14 - 11/-9/2015 = 
+* hide quick buy button when no stock
+* Update To latest WooCommerce [WC 2.4.7] And Latest WordPress [WP 4.3.1]
+* Minor Bug Fix.
+
+= 0.13 - 11/09/2015 = 
 * Added Option To Change Button Label Via Short Code <code>[wc_quick_buy name="Instant Buy"]</code>
 * Changed <code>add_to_cart_redirect</code> to <code>woocommerce_add_to_cart_redirect</code> filter
 * Update To latest WooCommerce [WC 2.4.6] And Latest WordPress [WP 4.3]

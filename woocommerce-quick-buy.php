@@ -17,7 +17,7 @@
     Plugin Name: Woocommerce Quick Buy
     Plugin URI: http://varunsridharan.in/
     Description: Add Quick buy button to redirect user to checkout / cart immediately when he click quick buy button 
-    Version: 0.13
+    Version: 0.14
     Author: Varun Sridharan
     Author URI: http://varunsridharan.in/
     License: GPL2
@@ -279,22 +279,27 @@ class wc_quick_buy {
 	 */
 	public function wc_quick_buy_shortcode_handler($attrs) {
         $output = '';
-		$prod = shortcode_atts( array(
-            'product' => null,
-            'show_js' => false,
-            'name' => null, 
-        ), $attrs );
-        
-		if($prod['product'] == null){
-			global $product;
-			if($product->is_type( 'simple' )){ $output =  $this->wc_quick_buy_add_form_simple_product($product->id, $prod['show_js'],$prod['name']);  }	
-			if($product->is_type( 'variable' )){ $output =  $this->wc_quick_buy_add_form_variable_product($product->id, $prod['show_js'],$prod['name']);  }				
-		} else {			
-			$product = get_product($prod['product']);
-			if($product->is_type( 'simple' )){$output =  $this->wc_quick_buy_add_form_simple_product($product->id, $prod['show_js'],$prod['name']);}
-			if($product->is_type( 'variable' )){$output =  $this->wc_quick_buy_add_form_variable_product($product->id, $prod['show_js'],$prod['name']); }
-		} 
+        $show_button = false;
+		$prod = shortcode_atts(array('product' => null, 'show_js' => false, 'name' => null), $attrs );
+		if($prod['product'] == null){ global $product;} else {$product = get_product($prod['product']); } 
  
+        if( ! $product->backorders_allowed()){
+            $show_button = false;
+        }else if($product->is_in_stock()){
+            $show_button = true;
+        }
+           
+        //var_dump($product->backorders_allowed()); var_dump($product->is_in_stock());
+        if($show_button){
+            if($shortcode_product->is_type( 'simple' )){ 
+                $output =  $this->wc_quick_buy_add_form_simple_product($shortcode_product->id, $prod['show_js'],$prod['name']);  
+            }	
+
+            if($shortcode_product->is_type( 'variable' )){ 
+                $output =  $this->wc_quick_buy_add_form_variable_product($shortcode_product->id, $prod['show_js'],$prod['name']);  
+            }	
+        }
+        
         return $output;
 	}
 	
@@ -384,6 +389,23 @@ class wc_quick_buy {
                 $form .= '<script>
 				jQuery("document").ready(function(){ 
 					jQuery("'.$variable_form_class.'").change(function(){
+                        jQuery("form#wc_quick_buy_'.$productid.'").show();
+                        var wc_qb_product_variations = jQuery("'.$variable_form_class.'").attr("data-product_variations");
+                        wc_qb_product_variations = JSON.parse(wc_qb_product_variations);
+                        var wc_qb_product_id = jQuery("'.$variable_form_class.' input[name=\"variation_id\"").val();
+
+                        for(var i = 0; i < wc_qb_product_variations.length; i++){
+                            if(wc_qb_product_id == wc_qb_product_variations[i]["variation_id"]){
+                            console.log(wc_qb_product_variations[i]["is_in_stock"]);
+                                if(wc_qb_product_variations[i]["is_in_stock"] === false){
+                                    jQuery("form#wc_quick_buy_'.$productid.'").hide();
+                                }
+                            }
+                            
+                        }
+                    
+                    
+                    
 						var value = jQuery("input.input-text.qty.text").val();
 						jQuery("form#wc_quick_buy_'.$productid.' > #quantity").val(value);
 						var datas = jQuery("'.$variable_form_class.'").serializeArray();
