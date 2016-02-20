@@ -17,7 +17,7 @@
     Plugin Name: Woocommerce Quick Buy
     Plugin URI: http://varunsridharan.in/
     Description: Add Quick buy button to redirect user to checkout / cart immediately when he click quick buy button 
-    Version: 0.16
+    Version: 0.17
     Author: Varun Sridharan
     Author URI: http://varunsridharan.in/
     License: GPL2
@@ -25,7 +25,7 @@
     GitHub Plugin URI: https://github.com/technofreaky/woocomerce-quick-buy
 */
 defined('ABSPATH') or die("No script kiddies please!");  
-define('lang_dom','woocommerce-quick-buy',true); #plugin lang Domain
+define('wc_qb_lang_dom','woocommerce-quick-buy',true); #plugin lang Domain
 
 class wc_quick_buy {
 	private $settings;
@@ -54,11 +54,11 @@ class wc_quick_buy {
 	}
 	
     public function langs(){
-        load_plugin_textdomain(lang_dom, false, dirname(plugin_basename(__FILE__)).'/lang/' );
+        load_plugin_textdomain(wc_qb_lang_dom, false, dirname(plugin_basename(__FILE__)).'/lang/' );
     }
     
     public function replace_my_plugin_default_language_files($mofile, $domain) {
-        if (lang_dom === $domain)
+        if (wc_qb_lang_dom === $domain)
             return dirname(plugin_basename(__FILE__)).'/lang/'.get_locale().'.mo';
 
         return $mofile;
@@ -93,7 +93,7 @@ class wc_quick_buy {
 	 * @since 0.4
 	 */
 	function wc_quick_buy_failed_settings() {
-       echo  __( '<div class="error"><p><strong> Woocommerce Quick Buy </strong> Settings Is Not Configured...  <a href="'.admin_url( 'admin.php?page=wc-settings&tab=products&section=wc_quick_buy').'"> <strong> <u>click here</u></strong>  </a> to configure </p></div>',lang_dom) ;
+       echo  __( '<div class="error"><p><strong> Woocommerce Quick Buy </strong> Settings Is Not Configured...  <a href="'.admin_url( 'admin.php?page=wc-settings&tab=products&section=wc_quick_buy').'"> <strong> <u>click here</u></strong>  </a> to configure </p></div>',wc_qb_lang_dom) ;
 	} 
 	
  	/**
@@ -103,7 +103,7 @@ class wc_quick_buy {
  	 * @return Array  List Of Sections In WC Settings Page
  	 */
  	public function wc_quick_buy_add_section( $sections ) {
-		$sections['wc_quick_buy'] = __( 'WC Quick Buy',lang_dom);
+		$sections['wc_quick_buy'] = __( 'WC Quick Buy',wc_qb_lang_dom);
 		return $sections;
 	} 	
 	
@@ -118,8 +118,8 @@ class wc_quick_buy {
 		add_option('wc_quick_buy_class','quick_buy_button'); 
         add_option('wc_quick_buy_redirect','checkout'); 
 		add_option('wc_quick_buy_product_types',array('simple','variable'));
-		add_option('wc_quick_buy_simple_product_form_class',' form.cart[data-product_id={product_id}]');
-		add_option('wc_quick_buy_variable_product_form_class','   form.variations_form[data-product_id={product_id}]');
+		add_option('wc_quick_buy_simple_product_form_class',' form.cart[data-product_id=\'{product_id}\']');
+		add_option('wc_quick_buy_variable_product_form_class','form.variations_form[data-product_id=\'{product_id}\']');
         add_option('wc_quick_buy_btn_css','.wc_quick_buy_btn {}
 .wc_quick_buy_btn:hover {}'); 
        
@@ -136,38 +136,38 @@ class wc_quick_buy {
 	public function wc_quick_buy_all_settings( $settings, $current_section ) {
 		if ( $current_section == 'wc_quick_buy' ) { 
 			$wc_quick_buy = array();
-			$wc_quick_buy[] = array( 'name' => __( 'WC Quick Buy Settings', lang_dom ), 
+			$wc_quick_buy[] = array( 'name' => __( 'WC Quick Buy Settings', wc_qb_lang_dom ), 
 									   	'type' => 'title',
-									   	'desc' => __( 'The following options are used to configure WC Quick Buy',lang_dom ), 
+									   	'desc' => __( 'The following options are used to configure WC Quick Buy',wc_qb_lang_dom ), 
 									   	'id' => 'wc_quick_buy' );
             $wc_quick_buy[] = array(
-				'name' => __( 'Redirect Location', lang_dom ),
-				'desc_tip' => __( 'After Add To Cart Where To Redirect The user',lang_dom ),
+				'name' => __( 'Redirect Location', wc_qb_lang_dom ),
+				'desc_tip' => __( 'After Add To Cart Where To Redirect The user',wc_qb_lang_dom ),
 				'id' => 'wc_quick_buy_redirect',
 				'type' => 'select', 
 				'class' =>'chosen_select',
-				'options' => array('cart' =>  __( 'Cart Page', lang_dom ) ,'checkout'=> __( 'Checkout Page', lang_dom ) )
+				'options' => array('cart' =>  __( 'Cart Page', wc_qb_lang_dom ) ,'checkout'=> __( 'Checkout Page', wc_qb_lang_dom ) )
 			);
             
 			$wc_quick_buy[] = array(
-				'name' => __( 'Automatically Add Button ', lang_dom ),
-				'desc_tip' => __( 'Automaticaly Adds Button After Add To Cart In Single Product View', lang_dom ),
+				'name' => __( 'Automatically Add Button ', wc_qb_lang_dom ),
+				'desc_tip' => __( 'Automaticaly Adds Button After Add To Cart In Single Product View', wc_qb_lang_dom ),
 				'id' => 'wc_quick_buy_auto',
 				'type' => 'select', 
 				'class' =>'chosen_select',
 				'options' => array('true' => 'Yes','false'=>'No')
 			);	
 			$wc_quick_buy[] = array(
-				'name' => __( 'Position', lang_dom ),
-				'desc_tip' => __( 'Where the button need to be added in single page .. before / after',lang_dom ),
+				'name' => __( 'Position', wc_qb_lang_dom ),
+				'desc_tip' => __( 'Where the button need to be added in single page .. before / after',wc_qb_lang_dom ),
 				'id' => 'wc_quick_buy_position',
 				'type' => 'select', 
 				'class' =>'chosen_select',
 				'options' => array('after' => 'After Add To Cart','before'=>'Before Add To Cart')
 			);	
 			$wc_quick_buy[] = array(
-				'name' => __( 'Show Quick Buy Button For ', lang_dom ),
-				'desc_tip' => __( 'For Which Products To Show Quick Buy Button [eg to show for simple products select only simple products]',lang_dom ),
+				'name' => __( 'Show Quick Buy Button For ', wc_qb_lang_dom ),
+				'desc_tip' => __( 'For Which Products To Show Quick Buy Button [eg to show for simple products select only simple products]',wc_qb_lang_dom ),
 				'id' => 'wc_quick_buy_product_types',
 				'type' => 'multiselect', 
 				'class' =>'chosen_select',
@@ -175,8 +175,8 @@ class wc_quick_buy {
 			);	
             
             $wc_quick_buy[] = array(
-				'name' => __( 'Quick Buy Button Style', lang_dom),
-				'desc_tip' => __( 'Directly Add Button CSS', lang_dom),
+				'name' => __( 'Quick Buy Button Style', wc_qb_lang_dom),
+				'desc_tip' => __( 'Directly Add Button CSS', wc_qb_lang_dom),
 				'id' => 'wc_quick_buy_btn_css',
 				'type' => 'textarea',
                 'class'=>'large-text',
@@ -184,46 +184,46 @@ class wc_quick_buy {
 			); 
             
 			$wc_quick_buy[] = array(
-				'name' => __( 'Quick Buy Button Text',lang_dom ),
-				'desc_tip' => __( 'You Can Change The Quick Buy Button Lable',lang_dom ),
+				'name' => __( 'Quick Buy Button Text',wc_qb_lang_dom ),
+				'desc_tip' => __( 'You Can Change The Quick Buy Button Lable',wc_qb_lang_dom ),
 				'id' => 'wc_quick_buy_lable',
 				'type' => 'text', 
 			);
 			$wc_quick_buy[] = array(
-				'name' => __( 'Quick Buy Button Class',lang_dom ),
-				'desc_tip' => __( 'You Can Change The Quick Buy Button Class', lang_dom ),
+				'name' => __( 'Quick Buy Button Class',wc_qb_lang_dom ),
+				'desc_tip' => __( 'You Can Change The Quick Buy Button Class', wc_qb_lang_dom ),
 				'id' => 'wc_quick_buy_class',
 				'type' => 'text', 
 			); 		
             
             $wc_quick_buy[] = array( 'type' => 'sectionend', 'id' => 'wc_quick_buy' );
             
-			$wc_quick_buy[] = array( 'name' => __( 'Debug / Troubleshoot', lang_dom ), 
+			$wc_quick_buy[] = array( 'name' => __( 'Debug / Troubleshoot', wc_qb_lang_dom ), 
 									'type' => 'title',
-									'desc' => __( 'if JS is not running please use the below fields to fix it.', lang_dom ), 
+									'desc' => __( 'if JS is not running please use the below fields to fix it.', wc_qb_lang_dom ), 
 									'id' => 'wc_quick_buy_troubleshoot' );
 
 			$wc_quick_buy[] = array(
-				'name' => __( 'Simple Product Form Class',lang_dom ),
-				'desc_tip' => __( 'Enter The Form Class for simple product add to cart form',lang_dom ),
+				'name' => __( 'Simple Product Form Class',wc_qb_lang_dom ),
+				'desc_tip' => __( 'Enter The Form Class for simple product add to cart form',wc_qb_lang_dom ),
 				'id' => 'wc_quick_buy_simple_product_form_class',
 				'type' => 'text', 
 			); 
 			
 			
 			$wc_quick_buy[] = array(
-				'name' => __( 'Variable Product Form Class', lang_dom ),
-				'desc_tip' => __( 'Enter The Form Class for Variable product add to cart form', lang_dom ),
+				'name' => __( 'Variable Product Form Class', wc_qb_lang_dom ),
+				'desc_tip' => __( 'Enter The Form Class for Variable product add to cart form', wc_qb_lang_dom ),
 				'id' => 'wc_quick_buy_variable_product_form_class',
 				'type' => 'text', 
 			);	
 			
 			$wc_quick_buy[] = array( 'type' => 'sectionend', 'id' => 'wc_quick_buy' );
             
-			$wc_quick_buy[] = array( 'name' => __( 'WC Quick Buy Short Code', lang_dom ), 
+			$wc_quick_buy[] = array( 'name' => __( 'WC Quick Buy Short Code', wc_qb_lang_dom ), 
 									   	'type' => 'title',
 									   	'desc' => __( '<code>[wc_quick_buy]</code> Use Inside of product loop 
-                                                       <code>[wc_quick_buy product="2"]</code> Outside loop With manual Product ID  <br/> To remove the js embeded by shortcode use  <code> [wc_quick_buy product="2" show_js="false"] </code> <br/> <h3>Note : <small>  Do not add this shortcode in a form. as this shortcode itself generates a html form </small></h3>.', lang_dom ), 
+                                                       <code>[wc_quick_buy product="2"]</code> Outside loop With manual Product ID  <br/> To remove the js embeded by shortcode use  <code> [wc_quick_buy product="2" show_js="false"] </code> <br/> <h3>Note : <small>  Do not add this shortcode in a form. as this shortcode itself generates a html form </small></h3>.', wc_qb_lang_dom ), 
 									   	'id' => 'wc_quick_buy_shortcode' ); 
 			 
 			 
@@ -409,6 +409,7 @@ class wc_quick_buy {
 						jQuery("form#wc_quick_buy_'.$productid.' > div#variable_details").html(\'\');
 						jQuery.each( datas, function( key, value ) { 
 						 		if(value["name"] != "quantity" && value["name"] != "add-to-cart"){
+								jQuery("form#wc_quick_buy_'.$productid.' > div#variable_details").append(\'<input type="hidden" name="\' +value["name"] +\'"  value="\' +value["value"] +\'" /> \');
 								jQuery("form#wc_quick_buy_'.$productid.' > div#variable_details").append(\'<input type="hidden" name="\' +value["name"] +\'"  value="\' +value["value"] +\'" /> \');
 								}
 						});

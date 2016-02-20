@@ -8,7 +8,7 @@ Requires at least: 3.0
 Tested up to: 4.4
 WC requires at least: 2.0
 WC tested up to: 2.5.x
-Stable tag: 0.16
+Stable tag: 0.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -48,6 +48,8 @@ Please update the settings once you have updated the plugin. if not this plugin 
 
 == Screenshots ==
 1. WC Quick Buy Settings
+2. Simple Product View
+3. Variable Product View
 
 == Installation ==
 
@@ -116,6 +118,9 @@ Please open an issue at <a href="https://github.com/technofreaky/woocomerce-quic
 
 
 == Changelog ==
+= 0.17 - 04/11/2015 = 
+* Fixed variation product add to cart error 
+
 = 0.16 - 08/10/2015 = 
 * Fixed the reported issue  [https://wordpress.org/support/topic/hide-quick-buy-button?replies=5]
 
