@@ -17,7 +17,7 @@
     Plugin Name: Woocommerce Quick Buy
     Plugin URI: http://varunsridharan.in/
     Description: Add Quick buy button to redirect user to checkout / cart immediately when he click quick buy button 
-    Version: 0.15
+    Version: 0.16
     Author: Varun Sridharan
     Author URI: http://varunsridharan.in/
     License: GPL2
@@ -281,9 +281,9 @@ class wc_quick_buy {
         $output = '';
         $show_button = false;
 		$prod = shortcode_atts(array('product' => null, 'show_js' => false, 'name' => null), $attrs );
-		if($prod['product'] == null){ global $product; $shortcode_product = $product;} else {$shortcode_product = get_product($prod['product']); } 
+		if($prod['product'] == null) { global $product; $shortcode_product = $product;} else {$shortcode_product = get_product($prod['product']); } 
  
-        if($product->is_in_stock()){
+        if($shortcode_product->is_in_stock()){
             $show_button = true;
         }
 
