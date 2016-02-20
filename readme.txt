@@ -8,7 +8,7 @@ Requires at least: 3.0
 Tested up to: 4.4
 WC requires at least: 2.0
 WC tested up to: 2.5.x
-Stable tag: 0.14
+Stable tag: 0.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -116,7 +116,11 @@ Please open an issue at <a href="https://github.com/technofreaky/woocomerce-quic
 
 
 == Changelog ==
-= 0.14 - 11/-9/2015 = 
+= 0.15 - 06/10/2015 = 
+* quick buy button was hidden even if stock exist. fixed
+* Minor Bug Fix.
+
+= 0.14 - 06/10/2015 = 
 * hide quick buy button when no stock
 * Update To latest WooCommerce [WC 2.4.7] And Latest WordPress [WP 4.3.1]
 * Minor Bug Fix.
