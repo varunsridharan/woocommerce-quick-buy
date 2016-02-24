@@ -12,27 +12,27 @@
 if ( ! defined( 'WPINC' ) ) { die; }
 
 class WooCommerce_Quick_Buy_FrontEnd {
+	static public $settings;
     /**
      * Class Constructor
      */
     public function __construct() {
-        $this->settings = array();
-        $this->get_settings();
-        
-        if(isset($this->settings['auto']) && $this->settings['auto'] == 'true'){
-            if(! empty($this->settings['position']) && ! $this->settings['position'] == null){
-                $pos = '';
-                if($this->settings['position'] == 'before_form'){$pos = 'woocommerce_before_add_to_cart_form';}
-                if($this->settings['position'] == 'after_form'){$pos = 'woocommerce_after_add_to_cart_form';}
-                if($this->settings['position'] == 'after_button'){$pos = 'woocommerce_after_add_to_cart_button';}
-                if($this->settings['position'] == 'before_button'){$pos = 'woocommerce_before_add_to_cart_button';}
-                add_action($pos,array($this,'add_quick_buy_button'),99);
-            }	
-        }
         add_action( 'wp_enqueue_scripts', array($this,'enqueue_style_script') );
         add_action('woocommerce_before_add_to_cart_button',array($this,'add_wc_quick_buy_chain'));
         add_filter( 'woocommerce_add_to_cart_redirect',array($this,'quick_buy_redirect'));
+		add_action( 'wp_ajax_wc_quick_buy_style', array($this,'render_quick_buy_style') );
+		add_action( 'wp_ajax_nopriv_wc_quick_buy_style', array($this,'render_quick_buy_style' ));		
     }
+	
+	public function render_quick_buy_style(){
+		$style = wc_qb_option('btn_css');
+		$style = str_replace('<style>','',$style);
+		$style = str_replace('</style>','',$style);
+		header( 'Content-Type: text/css' );
+		echo $style; 
+		wp_die();
+	}
+	
     
     public function add_wc_quick_buy_chain(){
         global $product;
@@ -45,21 +45,34 @@ class WooCommerce_Quick_Buy_FrontEnd {
      * Adds Plugins Script To Site Front End
      */
     public function enqueue_style_script(){
+		$style_url = admin_url('admin-ajax.php');
+		$style_url = add_query_arg('action','wc_quick_buy_style',$style_url);
+		wp_register_style(WCQB_DB.'_plugin_style',$style_url,'',WCQB_V);
+		
         wp_enqueue_script(WCQB_DB.'_frontend', WCQB_JS.'frontend.js', array( 'jquery'),WCQB_V );
+		wp_enqueue_style(WCQB_DB.'_plugin_style') ;
     }
 
     
-    public function get_settings(){
-        $this->settings['redirect'] = get_option(WCQB_DB.'redirect');
-        $this->settings['custom_redirect'] = get_option(WCQB_DB.'custom_redirect');
-        $this->settings['product_types'] = get_option(WCQB_DB.'product_types');
-        $this->settings['auto'] = get_option(WCQB_DB.'auto');
-        $this->settings['position'] = get_option(WCQB_DB.'position');
-        $this->settings['lable'] = get_option(WCQB_DB.'lable');
-        $this->settings['class'] = get_option(WCQB_DB.'class');
-        $this->settings['btn_css'] = get_option(WCQB_DB.'btn_css');
+    public function get_from_db(){
+		self::$settings = array();
+        self::$settings['redirect'] = get_option(WCQB_DB.'redirect');
+        self::$settings['custom_redirect'] = get_option(WCQB_DB.'custom_redirect');
+        self::$settings['product_types'] = get_option(WCQB_DB.'product_types');
+        self::$settings['auto'] = get_option(WCQB_DB.'auto');
+        self::$settings['position'] = get_option(WCQB_DB.'position');
+        self::$settings['lable'] = get_option(WCQB_DB.'lable');
+        self::$settings['class'] = get_option(WCQB_DB.'class');
+        self::$settings['btn_css'] = get_option(WCQB_DB.'btn_css');
     }
     
+	public function get_option($key = ''){
+		if(isset(self::$settings[$key])){
+			return self::$settings[$key];
+		}
+		return false;
+	}
+	
     public function add_quick_buy_button(){ 
         global $product;
         $args = array( 'product' => $product );
@@ -71,33 +84,52 @@ class WooCommerce_Quick_Buy_FrontEnd {
     public function generate_button($args){
         $default_args = array(
             'product' => null,
-            'lable' => $this->settings['lable'],
-            'class' => $this->settings['class'],
+            'lable' => wc_qb_option('lable'),
+            'class' => wc_qb_option('class'),
+			'tag' => 'button',
         );
         
         $args = wp_parse_args( $args, $default_args );
         extract($args);
-        if($product == null){return;}
         $return = '';
+		if($product == null){return;}
         $type = $product->product_type;
-
-        if(!in_array('all',$this->settings['product_types']) && !in_array($type,$this->settings['product_types'])){return;}
+		if(wc_qb_option('product_types') == null){return;}
+		if(!in_array('all',wc_qb_option('product_types')) && !in_array($type,wc_qb_option('product_types'))){return;}
+		$pid = $product->id;
+		
+		$defined_class = 'wc_quick_buy_button quick_buy_button quick_buy_'.$type.' quick_buy_'.$pid.'_button quick_buy_'.$pid.''.$class;
+        $defined_id = 'quick_buy_'.$pid.'_button';
+		$defined_attrs = 'name=""  data-product-type="'.$type.'" data-product-id="'.$pid.'"';
+		
         
-        $pid = $product->id;
         $return .= '<div class="quick_buy_container quick_buy_'.$pid.'_container" id="quick_buy_'.$pid.'_container" >';
-        $return .= '<input 
-        value="'.$lable.'" 
-        type="button"
-        name="" 
-        id="quick_buy_'.$pid.'_button"
-        data-product-type="'.$type.'"
-        data-product-id="'.$pid.'" 
-        class="wcqb_button wc_quick_buy_button quick_buy_button quick_buy_'.$pid.'_button quick_buy_'.$pid.' '.$class.'"
-        >';
+		
+		if($tag == 'button'){
+			$return .= '<input value="'.$lable.'" type="button" id="'.$defined_id.'" '.$defined_attrs.'  class="wcqb_button '.$defined_class.'">';
+		} 
+		
+		if($tag == 'link'){
+			$qty = wc_qb_option('product_qty');
+			$link = $this->get_product_addtocartLink($product,$qty);
+			$return .= '<a href="'.$link.'" id="'.$defined_id.'" '.$defined_attrs.'  class="wcqb_button '.$defined_class.'">';
+			$return .= $lable;
+			$return .= '</a>';
+		}
         
-        $return .= '</div>';
+        
+        $return .= '</div>'; 
         return $return;
     }
+	
+	public function get_product_addtocartLink($product,$qty = 1){
+		if($product->product_type == 'simple'){
+			$link = $product->add_to_cart_url();
+			$link = add_query_arg('quantity',$qty,$link);
+			$link = add_query_arg('quick_buy',true,$link);
+			return $link;
+		}
+	}
     
 	/**
 	 * Function to redirect user after qucik buy button is submitted
@@ -107,13 +139,14 @@ class WooCommerce_Quick_Buy_FrontEnd {
 	 */
 	public function quick_buy_redirect($url){
 		if(isset($_REQUEST['quick_buy']) && $_REQUEST['quick_buy'] == true){
-            if($this->settings['redirect'] == 'cart'){
+			$redirect = wc_qb_option('redirect');
+            if($redirect == 'cart'){
                 return WC()->cart->get_cart_url();
-            } else if($this->settings['redirect'] == 'checkout'){
+            } else if($redirect == 'checkout'){
                 return WC()->cart->get_checkout_url();
-            } else if($this->settings['redirect'] == 'custom'){
-                if(!empty($this->settings['custom_redirect'])){
-                    return $this->settings['custom_redirect'];
+            } else if($redirect == 'custom'){
+                if(!empty(wc_qb_option('custom_redirect'))){
+                    return wc_qb_option('custom_redirect');
                 }
             }
 		}
@@ -121,10 +154,3 @@ class WooCommerce_Quick_Buy_FrontEnd {
 	}	
 
 }
-
-
-
-
-
-
-

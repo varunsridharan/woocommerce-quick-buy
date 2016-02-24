@@ -17,7 +17,7 @@ class WooCommerce_Quick_Buy_Admin extends WooCommerce_Quick_Buy {
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ),99);
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
         add_action( 'admin_init', array( $this, 'admin_init' ));
-
+		add_filter( 'woocommerce_get_settings_pages',  array($this,'settings_page') ); 
         add_filter( 'plugin_row_meta', array($this, 'plugin_row_links' ), 10, 2 );  
 	}
 
@@ -27,6 +27,12 @@ class WooCommerce_Quick_Buy_Admin extends WooCommerce_Quick_Buy {
     public function admin_init(){
     } 
     
+	public function settings_page( $integrations ) {
+        foreach(glob(WCQB_ADMIN.'woocommerce-settings*.php' ) as $file){
+            $integrations[] = require_once($file);
+        }
+		return $integrations;
+	}	
     /**
 	 * Register the stylesheets for the admin area.
 	 */

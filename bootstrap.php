@@ -8,8 +8,8 @@ class WooCommerce_Quick_Buy {
 	
 	protected static $_instance = null; # Required Plugin Class Instance
     protected static $frontend = null; # Required Plugin Class Instance
+	protected static $auto_add = null; # Required Plugin Class Instance
 	protected static $admin = null;     # Required Plugin Class Instance
-
     
     /**
      * Creates or returns an instance of this class.
@@ -27,6 +27,7 @@ class WooCommerce_Quick_Buy {
     public function __construct() {
         $this->define_constant();
         $this->load_required_files();
+		wc_quick_buy_db_settings();
         $this->init_class();
         add_action('plugins_loaded', array( $this, 'after_plugins_loaded' ));
         add_filter('load_textdomain_mofile',  array( $this, 'load_plugin_mo_files' ), 10, 2);
@@ -37,7 +38,6 @@ class WooCommerce_Quick_Buy {
      */
     private function load_required_files(){
        $this->load_files(WCQB_INC.'class-*.php');
-        
        if($this->is_request('admin')){
            $this->load_files(WCQB_ADMIN.'class-*.php');
        } 
@@ -48,21 +48,19 @@ class WooCommerce_Quick_Buy {
      */
     private function init_class(){
         self::$frontend = new WooCommerce_Quick_Buy_FrontEnd;
-
-        if($this->is_request('admin')){
-            self::$admin = new WooCommerce_Quick_Buy_Admin;
-        }
+		self::$auto_add = new WooCommerce_Quick_Buy_Auto_Add;
+        
+		if($this->is_request('admin')){ self::$admin = new WooCommerce_Quick_Buy_Admin; }
     }
     
 	# Returns Plugin's Functions Instance
-	public function func(){
-		return self::$frontend;
-	}
+	public function func(){ return self::$frontend; }
+	
+	# Returns Plugin's Functions Instance
+	public function auto_add(){ return self::$auto_add; }
 	
 	# Returns Plugin's Admin Instance
-	public function admin(){
-		return self::$admin;
-	}
+	public function admin(){ return self::$admin; }
     
     /**
      * Loads Files Based On Give Path & regex
@@ -122,8 +120,6 @@ class WooCommerce_Quick_Buy {
             define($key,$value);
         }
     }
-    
-	 
 									 
 	/**
 	 * What type of request is this?
