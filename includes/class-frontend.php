@@ -145,8 +145,9 @@ class WooCommerce_Quick_Buy_FrontEnd {
             } else if($redirect == 'checkout'){
                 return WC()->cart->get_checkout_url();
             } else if($redirect == 'custom'){
-                if(!empty(wc_qb_option('custom_redirect'))){
-                    return wc_qb_option('custom_redirect');
+            	$cr = wc_qb_option('custom_redirect');
+                if(!empty($cr)){
+                    return $cr;
                 }
             }
 		}
