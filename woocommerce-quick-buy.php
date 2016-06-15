@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       WooCommerce Quick Buy
  * Plugin URI:        https://wordpress.org/plugins/woocommerce-quick-buy/
- * Description:       Sample Plugin For WooCommerce
+ * Description:       Add Quick buy button to redirect user to checkout / cart immediately when he click quick buy button
  * Version:           1.0
  * Author:            Varun Sridharan
  * Author URI:        http://varunsridharan.in
@@ -27,5 +27,3 @@ if(WooCommerce_Quick_Buy_Dependencies()){
 	}
 	WooCommerce_Quick_Buy();
 }
-
-?>

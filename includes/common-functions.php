@@ -14,7 +14,7 @@ if(!function_exists('wc_quick_buy_db_settings')){
 		$wc_quick_buy_settings_values['listing_page_auto'] = get_option(WCQB_DB.'listing_page_auto');
 		$wc_quick_buy_settings_values['listing_page_pos'] = get_option(WCQB_DB.'listing_page_pos');
 		$wc_quick_buy_settings_values['product_qty'] = get_option(WCQB_DB.'product_qty');
-		$wc_quick_buy_settings_values['lable'] = get_option(WCQB_DB.'lable');
+		$wc_quick_buy_settings_values['label'] = get_option(WCQB_DB.'label');
 		$wc_quick_buy_settings_values['class'] = get_option(WCQB_DB.'class');
 		$wc_quick_buy_settings_values['btn_css'] = get_option(WCQB_DB.'btn_css');	
 	}
@@ -29,4 +29,3 @@ if(!function_exists('wc_qb_option')){
 		return false;
 	}
 }
-?>

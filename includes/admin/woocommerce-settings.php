@@ -66,6 +66,7 @@ class WooCommerce_Advanced_Settings extends WC_Settings_Page {
             ''            => __( 'General', WCQB_TXT ),
             'button_style'     => __( 'Button Styling',WCQB_TXT ),
             'button_position' => __('Button Position',WCQB_TXT ), 
+            'shortcode_generator' => __('Shortcode Generator',WCQB_TXT ), 
         );
         return apply_filters( 'woocommerce_get_sections_' . $this->id, $sections );
     }
@@ -73,8 +74,13 @@ class WooCommerce_Advanced_Settings extends WC_Settings_Page {
     
     public function output_settings(){
         global $current_section;
-        $settings = $this->get_settings( $current_section ); 
-        WC_Admin_Settings::output_fields( $settings );
+        
+        if($current_section == 'shortcode_generator'){
+			echo $this->get_shortcode_generator();
+		} else {
+            $settings = $this->get_settings( $current_section ); 
+            WC_Admin_Settings::output_fields( $settings );
+        }
     }    
     
     
@@ -157,8 +163,8 @@ class WooCommerce_Advanced_Settings extends WC_Settings_Page {
             
 		$settings_array[] = array(
 			'name' => __( 'Button Label',WCQB_TXT ),
-			'desc_tip' => __( 'You Can Change The Quick Buy Button Lable',WCQB_TXT ),
-			'id' => WCQB_DB.'lable',
+			'desc_tip' => __( 'You Can Change The Quick Buy Button Label',WCQB_TXT ),
+			'id' => WCQB_DB.'label',
 			'type' => 'text', 
 		);
 
@@ -256,6 +262,11 @@ class WooCommerce_Advanced_Settings extends WC_Settings_Page {
 		
 		return apply_filters('woocommerce_quick_buy_button_position_settings',$settings_array);
 	}
+
+    public function get_shortcode_generator(){
+        $GLOBALS['hide_save_button'] = true;
+        require_once(WCQB_ADMIN.'html-shortcodegen.php');
+    }
 	
 	/**
 	 * Save settings

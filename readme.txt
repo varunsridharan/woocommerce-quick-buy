@@ -8,7 +8,7 @@ Requires at least: 3.0
 Tested up to: 4.4
 WC requires at least: 2.0
 WC tested up to: 2.5.x
-Stable tag: 0.17
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -25,17 +25,32 @@ When User Clicks This Button. The Current product Will Be Added To Cart And The 
 **Settings Available Under**
 `Woocommerce Settings ==> Products ==> WC Quick Buy`
 
-**Short Code While In Product Loop**
-`[wc_quick_buy]`
+**Available Shortcodes**
+<code>
+1. [wc_quick_buy] -- Used in product loop eg : Product Listing / Single Product Page
+2. [wc_quick_buy_link] -- Can be used anywhere 
+</code>
 
-**Short Code With Product ID**
-`[wc_quick_buy product="1"]`
+**`[wc_quick_buy]` Shortcode Args**
+<code>
+1. product : product id to generate quick buy button Eg : [wc_quick_buy product="22"]
+2. label : custom text for generated button Eg : [wc_quick_buy label="Hurry Up!!"]
+</code>
 
-**Short Code Without js embeded**
-`[wc_quick_buy product="1" show_js="false"]` 
- 
- **Short Code With Button Label Changed**
-`[wc_quick_buy product="1" name="InstanBuy"]`
+**`[wc_quick_buy_link]` Shortcode Args**
+<code>
+1. product : product id to generate quick buy button Eg : [wc_quick_buy_link product="22"]
+2. label : custom text for generated button Eg : [wc_quick_buy_link label="Hurry Up!!"]
+3. qty : Enter custom qty for a html button / link [wc_quick_buy_link qty="10"]
+4. type : Use button to get a html a tag generated : [wc_quick_buy_link type="button"] or use link to get site url with quick buy values : [wc_quick_buy_link type="link"]
+</code>
+
+**Example Use For HTML A Tag**
+`[wc_quick_buy_link product="33"  label="Hurry UP!!" qty="100" type="button"] `
+
+**Example Use For HTML A Tag**
+`[wc_quick_buy_link product="33"  label="Hurry UP!!" qty="100" type="link"] `
+
 
 = Plugin Contributers =
 * <a href="https://profiles.wordpress.org/pshekas" >Ernestas Zekas</a>
@@ -48,8 +63,15 @@ Please update the settings once you have updated the plugin. if not this plugin 
 
 == Screenshots ==
 1. WC Quick Buy Settings
-2. Simple Product View
-3. Variable Product View
+2. WC Quick Buy Settings
+3. WC Quick Buy Settings
+4. Product Listing View With Before AddToCart 
+5. Product Listing View With After AddToCart 
+6. Single Product View With Before AddToCart
+7. Single Product View With After AddToCart
+8. Single Product View With With To AddToCart
+9. Single Product View With With To AddToCart
+10. Shortcode Generator
 
 == Installation ==
 
@@ -98,26 +120,23 @@ That's great. We are always open to your input, and we would like to add anythin
 Oops. Please User github / WordPress to post bugs.  <a href="https://github.com/technofreaky/woocomerce-quick-buy/"> Open an Issue </a>
 
 **How To Call This Plugin in a template File ?**  
-This Plugin Can Be Called Using `<?php do_shortcode([wc_quick_buy]) ?>` short code
+This Plugin Can Be Called Using `<?php do_shortcode('[wc_quick_buy]') ?>` short code
 
 **Where Are The Plugin Settings Available ?**
 `Woo Commerce Settings ==> Products ==> WC Quick Buy`
-
-**Short Code With Product ID**
-`[wc_quick_buy product="1"]`
-
-**Short Code Without js embedded**
-`[wc_quick_buy product="1" show_js="false"]`
-
-**Short Code With Button Label Changed**
-`[wc_quick_buy product="1" name="InstanBuy"]`
-
 
 **Where can I request new features**
 Please open an issue at <a href="https://github.com/technofreaky/woocomerce-quick-buy"> GitHub </a> and we will look into it
 
 
 == Changelog ==
+= 1.0  - 15/06/2016 = 
+* Total Plugin Redeveloped
+* 3 New feature Added
+* Shortcode Generated Added In settings
+* Minor Updates Done. 
+* Tested With latest WC & WP
+
 = 0.17 - 04/11/2015 = 
 * Fixed variation product add to cart error 
 

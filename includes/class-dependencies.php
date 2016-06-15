@@ -29,4 +29,3 @@ if(! function_exists('WooCommerce_Quick_Buy_Dependencies')){
         return WooCommerce_Quick_Buy_Dependencies::active_check($pluginToCheck);
     }
 }
-?>

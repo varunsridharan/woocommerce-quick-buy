@@ -16,16 +16,9 @@ class WooCommerce_Quick_Buy_Admin extends WooCommerce_Quick_Buy {
 	public function __construct() {
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ),99);
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-        add_action( 'admin_init', array( $this, 'admin_init' ));
 		add_filter( 'woocommerce_get_settings_pages',  array($this,'settings_page') ); 
         add_filter( 'plugin_row_meta', array($this, 'plugin_row_links' ), 10, 2 );  
 	}
-
-    /**
-     * Inits Admin Sttings
-     */
-    public function admin_init(){
-    } 
     
 	public function settings_page( $integrations ) {
         foreach(glob(WCQB_ADMIN.'woocommerce-settings*.php' ) as $file){
@@ -81,15 +74,14 @@ class WooCommerce_Quick_Buy_Admin extends WooCommerce_Quick_Buy {
 	 */
 	public function plugin_row_links( $plugin_meta, $plugin_file ) {
 		if ( WCQB_FILE == $plugin_file ) {
-            $plugin_meta[] = sprintf('<a href="%s">%s</a>', '#', __('Settings',WCQB_TXT) );
-            $plugin_meta[] = sprintf('<a href="%s">%s</a>', '#', __('F.A.Q',WCQB_TXT) );
-            $plugin_meta[] = sprintf('<a href="%s">%s</a>', '#', __('View On Github',WCQB_TXT) );
-            $plugin_meta[] = sprintf('<a href="%s">%s</a>', '#', __('Report Issue',WCQB_TXT) );
-            $plugin_meta[] = sprintf('&hearts; <a href="%s">%s</a>', '#', $this->__('Donate',WCQB_TXT) );
+            $settings_url = admin_url('admin.php?page=wc-settings&tab=wc_quick_buy_settings');
+            $plugin_meta[] = sprintf('<a href="%s">%s</a>', $settings_url, __('Settings',WCQB_TXT) );
+            $plugin_meta[] = sprintf('<a href="%s">%s</a>', 'https://wordpress.org/plugins/woocommerce-quick-buy/faq/', __('F.A.Q',WCQB_TXT) );
+            $plugin_meta[] = sprintf('<a href="%s">%s</a>', 'http://github.com/technofreaky/woocommerce-quick-buy', __('View On Github',WCQB_TXT) );
+            $plugin_meta[] = sprintf('<a href="%s">%s</a>', 'http://github.com/technofreaky/woocommerce-quick-buy', __('Report Issue',WCQB_TXT) );
+            $plugin_meta[] = sprintf('&hearts; <a href="%s">%s</a>', 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YUBNEPWZMGTTQ', $this->__('Donate',WCQB_TXT) );
             $plugin_meta[] = sprintf('<a href="%s">%s</a>', 'http://varunsridharan.in/plugin-support/', __('Contact Author',WCQB_TXT) );
 		}
 		return $plugin_meta;
 	}	    
 }
-
-?>

@@ -61,7 +61,7 @@ class WooCommerce_Quick_Buy_FrontEnd {
         self::$settings['product_types'] = get_option(WCQB_DB.'product_types');
         self::$settings['auto'] = get_option(WCQB_DB.'auto');
         self::$settings['position'] = get_option(WCQB_DB.'position');
-        self::$settings['lable'] = get_option(WCQB_DB.'lable');
+        self::$settings['label'] = get_option(WCQB_DB.'label');
         self::$settings['class'] = get_option(WCQB_DB.'class');
         self::$settings['btn_css'] = get_option(WCQB_DB.'btn_css');
     }
@@ -84,7 +84,7 @@ class WooCommerce_Quick_Buy_FrontEnd {
     public function generate_button($args){
         $default_args = array(
             'product' => null,
-            'lable' => wc_qb_option('lable'),
+            'label' => wc_qb_option('label'),
             'class' => wc_qb_option('class'),
 			'tag' => 'button',
         );
@@ -92,9 +92,11 @@ class WooCommerce_Quick_Buy_FrontEnd {
         $args = wp_parse_args( $args, $default_args );
         extract($args);
         $return = '';
+        
 		if($product == null){return;}
         $type = $product->product_type;
 		if(wc_qb_option('product_types') == null){return;}
+        
 		if(!in_array('all',wc_qb_option('product_types')) && !in_array($type,wc_qb_option('product_types'))){return;}
 		$pid = $product->id;
 		
@@ -106,14 +108,14 @@ class WooCommerce_Quick_Buy_FrontEnd {
         $return .= '<div class="quick_buy_container quick_buy_'.$pid.'_container" id="quick_buy_'.$pid.'_container" >';
 		
 		if($tag == 'button'){
-			$return .= '<input value="'.$lable.'" type="button" id="'.$defined_id.'" '.$defined_attrs.'  class="wcqb_button '.$defined_class.'">';
+			$return .= '<input value="'.$label.'" type="button" id="'.$defined_id.'" '.$defined_attrs.'  class="wcqb_button '.$defined_class.'">';
 		} 
 		
 		if($tag == 'link'){
 			$qty = wc_qb_option('product_qty');
 			$link = $this->get_product_addtocartLink($product,$qty);
 			$return .= '<a href="'.$link.'" id="'.$defined_id.'" '.$defined_attrs.'  class="wcqb_button '.$defined_class.'">';
-			$return .= $lable;
+			$return .= $label;
 			$return .= '</a>';
 		}
         
