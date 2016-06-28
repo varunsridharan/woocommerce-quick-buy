@@ -5,10 +5,10 @@ Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
 Tags: Woocommerce,wc,Quick buy,add to cart,affiliate, cart, checkout, commerce, configurable, digital, download, downloadable, e-commerce, ecommerce, inventory, reports, sales, sell, shipping, shop, shopping, stock, store, tax, variable, widgets, woothemes, wordpress ecommerce
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YUBNEPWZMGTTQ
 Requires at least: 3.0
-Tested up to: 4.4
+Tested up to: 4.5
 WC requires at least: 2.0
-WC tested up to: 2.5.x
-Stable tag: 1.0
+WC tested up to: 2.6.x
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -130,6 +130,11 @@ Please open an issue at <a href="https://github.com/technofreaky/woocomerce-quic
 
 
 == Changelog ==
+= 1.1  - 28/06/2016 =
+* Fixed Shortcode Generator Issue
+* Fixed Settings Page Errors
+* Fixed Custom Redirect URL
+
 = 1.0  - 15/06/2016 = 
 * Total Plugin Redeveloped
 * 3 New feature Added

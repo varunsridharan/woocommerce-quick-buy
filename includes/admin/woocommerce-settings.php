@@ -12,12 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-if ( ! class_exists( 'WooCommerce_Advanced_Settings' ) ) :
+if ( ! class_exists( 'WooCommerce_Quick_Buy_Settings' ) ) :
 
 /**
  * WC_Admin_Settings_General
  */
-class WooCommerce_Advanced_Settings extends WC_Settings_Page {
+class WooCommerce_Quick_Buy_Settings extends WC_Settings_Page {
 
 	/**
 	 * Constructor.
@@ -281,4 +281,4 @@ class WooCommerce_Advanced_Settings extends WC_Settings_Page {
 
 endif;
 
-return new WooCommerce_Advanced_Settings();
+return new WooCommerce_Quick_Buy_Settings();

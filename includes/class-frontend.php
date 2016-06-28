@@ -149,7 +149,8 @@ class WooCommerce_Quick_Buy_FrontEnd {
             } else if($redirect == 'custom'){
             	$cr = wc_qb_option('custom_redirect');
                 if(!empty($cr)){
-                    return $cr;
+                    wp_redirect($cr);
+                    exit;
                 }
             }
 		}

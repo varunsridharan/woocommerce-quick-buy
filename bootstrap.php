@@ -3,7 +3,7 @@
 if ( ! defined( 'WPINC' ) ) { die; }
  
 class WooCommerce_Quick_Buy {
-	public $version = '1.0';
+	public $version = '1.1';
 	public $plugin_vars = array();
 	
 	protected static $_instance = null; # Required Plugin Class Instance
@@ -139,4 +139,3 @@ class WooCommerce_Quick_Buy {
 		}
 	}
 }
-?>

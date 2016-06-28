@@ -161,7 +161,7 @@
                     gen_code = gen_code + ' qty="' + product_qty + '"';
                 }
                 if (render_type !== '') {
-                    gen_code = type + ' qty="' + render_type + '"';
+                    gen_code = gen_code + ' qty="' + render_type + '"';
                 }
                 gen_code = gen_code + ']';
 
