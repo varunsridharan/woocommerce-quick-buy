@@ -48,6 +48,17 @@
                 <input id="product_qty" type="number" min='1' max="99" step="1" style="width: 20%;" name="product_qty" value="1" />
             </td>
         </tr>
+        
+        <tr class="show_if_wc_quick_buy_link">
+            <th>
+                <?php _e("Custom CSS Class: ",WCQB_TXT); ?>
+            </th>
+            <td>
+                <input id="product_class" type="text" style="width: 20%;" name="product_class" value="" />
+            </td>
+        </tr>
+        
+        
         <tr class="show_if_wc_quick_buy_link">
             <th>
                 <?php _e("Render Type : ",WCQB_TXT); ?>
@@ -147,6 +158,7 @@
                 var product_id = jQuery('#product_id').val();
                 var product_qty = jQuery('#product_qty').val();
                 var render_type = jQuery("#render_type").val();
+                var product_class = jQuery("#product_class").val();
 
 
                 gen_code = '[' + type_shortcode + ' ';
@@ -161,8 +173,14 @@
                     gen_code = gen_code + ' qty="' + product_qty + '"';
                 }
                 if (render_type !== '') {
-                    gen_code = gen_code + ' qty="' + render_type + '"';
+                    gen_code = gen_code + ' type="' + render_type + '"';
                 }
+                
+                if (product_class !== '') {
+                    gen_code = gen_code + ' htmlclass="' + product_class + '"';
+                }
+                
+                
                 gen_code = gen_code + ']';
 
             }

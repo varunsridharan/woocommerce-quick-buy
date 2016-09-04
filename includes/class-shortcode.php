@@ -52,6 +52,7 @@ class WooCommerce_Quick_Buy_Shortcode {
 			'qty' => wc_qb_option('product_qty'),
 			'label' => wc_qb_option('label'),
 			'type' => 'button',
+            'htmlclass' => null,
 		),  $attrs );
 		
 		if($attrs['product'] == null){
@@ -68,7 +69,7 @@ class WooCommerce_Quick_Buy_Shortcode {
 		if($type == 'link'){
 			$output = WooCommerce_Quick_Buy()->func()->get_product_addtocartLink($product,$qty);
 		} else if($type == 'button'){
-			$args = array('product' => $product, 'label' => $label,'tag' => 'link');
+			$args = array('product' => $product, 'label' => $label,'tag' => 'link','class' => $htmlclass );
 			$output = WooCommerce_Quick_Buy()->func()->generate_button($args);
 		}
 		

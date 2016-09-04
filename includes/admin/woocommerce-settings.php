@@ -33,6 +33,7 @@ class WooCommerce_Quick_Buy_Settings extends WC_Settings_Page {
             'all' => __("All Product Types", WCQB_TXT), 
             'simple' => __('Simple Products',WCQB_TXT),
             'variable'=>__('Variable Products',WCQB_TXT),
+            'yith-bundle' => __("YITH Product Bundles",WCQB_TXT),
         );
         
         $this->show_position = array(

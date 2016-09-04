@@ -5,10 +5,10 @@ Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
 Tags: Woocommerce,wc,Quick buy,add to cart,affiliate, cart, checkout, commerce, configurable, digital, download, downloadable, e-commerce, ecommerce, inventory, reports, sales, sell, shipping, shop, shopping, stock, store, tax, variable, widgets, woothemes, wordpress ecommerce
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YUBNEPWZMGTTQ
 Requires at least: 3.0
-Tested up to: 4.5
+Tested up to: 5.0
 WC requires at least: 2.0
-WC tested up to: 2.6.x
-Stable tag: 1.1
+WC tested up to: 2.7
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -43,6 +43,7 @@ When User Clicks This Button. The Current product Will Be Added To Cart And The 
 2. label : custom text for generated button Eg : [wc_quick_buy_link label="Hurry Up!!"]
 3. qty : Enter custom qty for a html button / link [wc_quick_buy_link qty="10"]
 4. type : Use button to get a html a tag generated : [wc_quick_buy_link type="button"] or use link to get site url with quick buy values : [wc_quick_buy_link type="link"]
+5. htmlclass : You can give your custom css class name in shortcode to add it in button.
 </code>
 
 **Example Use For HTML A Tag**
@@ -130,6 +131,11 @@ Please open an issue at <a href="https://github.com/technofreaky/woocomerce-quic
 
 
 == Changelog ==
+
+= 1.2 - 03/09/2016 =
+* Fixed Minor Issues.
+* Added Option to support YITH Product Bundles.
+
 = 1.1  - 28/06/2016 =
 * Fixed Shortcode Generator Issue
 * Fixed Settings Page Errors
