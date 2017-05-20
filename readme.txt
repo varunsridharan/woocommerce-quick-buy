@@ -7,8 +7,8 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Requires at least: 3.0
 Tested up to: 5.0
 WC requires at least: 2.0
-WC tested up to: 2.7
-Stable tag: 1.2
+WC tested up to: 3.0
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -131,6 +131,15 @@ Please open an issue at <a href="https://github.com/technofreaky/woocomerce-quic
 
 
 == Changelog ==
+= 1.5 - 26/04/2017 =
+* Fixed : Minor issue in shortcode generator
+
+= 1.4 - 13/04/2017 =
+* Fixed : Tested & Fixed Bugs with WC 3.0
+
+= 1.3 - 10/03/2017 =
+* Added : Integrated With WPML.
+* Minor Bug Fixed.
 
 = 1.2 - 03/09/2016 =
 * Fixed Minor Issues.

@@ -37,7 +37,7 @@ class WooCommerce_Quick_Buy_FrontEnd {
     public function add_wc_quick_buy_chain(){
         global $product;
         if($product != null){
-            echo '<input type="hidden" id="wc_quick_buy_hook_'.$product->id.'" value="'.$product->id.'"  />';
+            echo '<input type="hidden" id="wc_quick_buy_hook_'.$product->get_id().'" value="'.$product->get_id().'"  />';
         }
     }
     
@@ -94,11 +94,11 @@ class WooCommerce_Quick_Buy_FrontEnd {
         $return = '';
         
 		if($product == null){return;}
-        $type = $product->product_type;
+        $type = $product->get_type();
 		if(wc_qb_option('product_types') == null){return;}
         
 		if(!in_array('all',wc_qb_option('product_types')) && !in_array($type,wc_qb_option('product_types'))){return;}
-		$pid = $product->id;
+		$pid = $product->get_id();
 		
 		$defined_class = 'wc_quick_buy_button quick_buy_button quick_buy_'.$type.' quick_buy_'.$pid.'_button quick_buy_'.$pid.''.$class;
         $defined_id = 'quick_buy_'.$pid.'_button';
@@ -125,7 +125,7 @@ class WooCommerce_Quick_Buy_FrontEnd {
     }
 	
 	public function get_product_addtocartLink($product,$qty = 1){
-		if($product->product_type == 'simple'){
+		if($product->get_type() == 'simple'){
 			$link = $product->add_to_cart_url();
 			$link = add_query_arg('quantity',$qty,$link);
 			$link = add_query_arg('quick_buy',true,$link);

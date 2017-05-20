@@ -29,7 +29,7 @@
                 <?php _e("Product : ",WCQB_TXT); ?>
             </th>
             <td>
-                <input type="hidden" class="wc-product-search" style="width: 50%;" id="product_id" name="selected_product" data-placeholder="<?php _e(" Search For Product ",WCQB_TXT); ?>" data-action="woocommerce_json_search_products" data-multiple="true" data-selected="" value="" />
+                <select name="selected_product" class="wc-product-search" data-placeholder="<?php _e(" Search For Product ",WCQB_TXT); ?>" data-action="woocommerce_json_search_products" data-multiple="true" data-selected="" style="width: 50%;" id="product_id" ></select> 
             </td>
         </tr>
         <tr>

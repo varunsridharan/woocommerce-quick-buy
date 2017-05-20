@@ -60,7 +60,7 @@ class WooCommerce_Quick_Buy_Auto_Add{
 	
 	public function add_shop_quick_buy_button(){ 
         global $product;
-		if($product->product_type == 'simple'){
+		if($product->get_type() == 'simple'){
 			$args = array( 'product' => $product, 'tag' => 'link' );
 			echo WooCommerce_Quick_Buy()->func()->generate_button($args);
 		}

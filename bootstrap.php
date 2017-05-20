@@ -3,7 +3,7 @@
 if ( ! defined( 'WPINC' ) ) { die; }
  
 class WooCommerce_Quick_Buy {
-	public $version = '1.2';
+	public $version = '1.5';
 	public $plugin_vars = array();
 	
 	protected static $_instance = null; # Required Plugin Class Instance
@@ -29,7 +29,7 @@ class WooCommerce_Quick_Buy {
         $this->load_required_files();
 		wc_quick_buy_db_settings();
         $this->init_class();
-        add_action('plugins_loaded', array( $this, 'after_plugins_loaded' ));
+        add_action('plugins_loaded', array( $this, 'after_plugins_loaded' ),99);
         add_filter('load_textdomain_mofile',  array( $this, 'load_plugin_mo_files' ), 10, 2);
     }
     
@@ -76,6 +76,7 @@ class WooCommerce_Quick_Buy {
      * Set Plugin Text Domain
      */
     public function after_plugins_loaded(){
+        wc_quick_buy_db_settings();
         load_plugin_textdomain(WCQB_TXT, false, WCQB_LANGUAGE_PATH );
     }
     
