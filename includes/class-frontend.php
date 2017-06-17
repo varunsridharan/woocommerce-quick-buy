@@ -100,7 +100,7 @@ class WooCommerce_Quick_Buy_FrontEnd {
 		if(!in_array('all',wc_qb_option('product_types')) && !in_array($type,wc_qb_option('product_types'))){return;}
 		$pid = $product->get_id();
 		
-		$defined_class = 'wc_quick_buy_button quick_buy_button quick_buy_'.$type.' quick_buy_'.$pid.'_button quick_buy_'.$pid.''.$class;
+		$defined_class = 'wc_quick_buy_button quick_buy_button quick_buy_'.$type.' quick_buy_'.$pid.'_button quick_buy_'.$pid.' '.$class;
         $defined_id = 'quick_buy_'.$pid.'_button';
 		$defined_attrs = 'name=""  data-product-type="'.$type.'" data-product-id="'.$pid.'"';
 		
