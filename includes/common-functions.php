@@ -29,3 +29,14 @@ if(!function_exists('wc_qb_option')){
 		return false;
 	}
 }
+
+if(!function_exists('wc_qb_is_wc_v')){
+    function wc_qb_is_wc_v($compare = '>=',$version = ''){
+        $version = empty($version) ? WOOCOMMERCE_VERSION : $version; 
+        if(version_compare( WOOCOMMERCE_VERSION, $version,$compare)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+}

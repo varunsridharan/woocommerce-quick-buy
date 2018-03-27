@@ -20,17 +20,15 @@ class WooCommerce_Quick_Buy_FrontEnd {
         add_action( 'wp_enqueue_scripts', array($this,'enqueue_style_script') );
         add_action('woocommerce_before_add_to_cart_button',array($this,'add_wc_quick_buy_chain'));
         add_filter( 'woocommerce_add_to_cart_redirect',array($this,'quick_buy_redirect'),99);
-		add_action( 'wp_ajax_wc_quick_buy_style', array($this,'render_quick_buy_style') );
-		add_action( 'wp_ajax_nopriv_wc_quick_buy_style', array($this,'render_quick_buy_style' ));		
+		//add_action( 'wp_ajax_wc_quick_buy_style', array($this,'render_quick_buy_style') );
+		//add_action( 'wp_ajax_nopriv_wc_quick_buy_style', array($this,'render_quick_buy_style' ));		
     }
 	
 	public function render_quick_buy_style(){
 		$style = wc_qb_option('btn_css');
 		$style = str_replace('<style>','',$style);
 		$style = str_replace('</style>','',$style);
-		header( 'Content-Type: text/css' );
-		echo $style; 
-		wp_die();
+		return $style;
 	}
 	
     
@@ -45,12 +43,8 @@ class WooCommerce_Quick_Buy_FrontEnd {
      * Adds Plugins Script To Site Front End
      */
     public function enqueue_style_script(){
-		$style_url = admin_url('admin-ajax.php');
-		$style_url = add_query_arg('action','wc_quick_buy_style',$style_url);
-		wp_register_style(WCQB_DB.'_plugin_style',$style_url,'',WCQB_V);
-		
         wp_enqueue_script(WCQB_DB.'_frontend', WCQB_JS.'frontend.js', array( 'jquery'),WCQB_V );
-		wp_enqueue_style(WCQB_DB.'_plugin_style') ;
+        wp_add_inline_style( WCQB_DB.'_plugin_style', $this->render_quick_buy_style() );
     }
 
     
@@ -96,11 +90,10 @@ class WooCommerce_Quick_Buy_FrontEnd {
 		if($product == null){return;}
         $type = $product->get_type();
 		if(wc_qb_option('product_types') == null){return;}
-        
 		if(!in_array('all',wc_qb_option('product_types')) && !in_array($type,wc_qb_option('product_types'))){return;}
 		$pid = $product->get_id();
 		
-		$defined_class = 'wc_quick_buy_button quick_buy_button quick_buy_'.$type.' quick_buy_'.$pid.'_button quick_buy_'.$pid.' '.$class;
+		$defined_class = 'wc_quick_buy_button quick_buy_button quick_buy_'.$type.' quick_buy_'.$pid.'_button quick_buy_'.$pid.''.$class;
         $defined_id = 'quick_buy_'.$pid.'_button';
 		$defined_attrs = 'name=""  data-product-type="'.$type.'" data-product-id="'.$pid.'"';
 		
@@ -128,6 +121,7 @@ class WooCommerce_Quick_Buy_FrontEnd {
 		if($product->get_type() == 'simple'){
 			$link = $product->add_to_cart_url();
 			$link = add_query_arg('quantity',$qty,$link);
+			$link = add_query_arg('add-to-cart',$product->get_id(),$link);
 			$link = add_query_arg('quick_buy',true,$link);
 			return $link;
 		}

@@ -34,6 +34,9 @@ class WooCommerce_Quick_Buy_Settings extends WC_Settings_Page {
             'simple' => __('Simple Products',WCQB_TXT),
             'variable'=>__('Variable Products',WCQB_TXT),
             'yith-bundle' => __("YITH Product Bundles",WCQB_TXT),
+            'bundle' => __("WC Product Bundles",WCQB_TXT),
+            'subscription' => __("WC Variable Subscription",WCQB_TXT),
+            'variable-subscription' => __("WC Variable Subscription",WCQB_TXT),
         );
         
         $this->show_position = array(
@@ -212,7 +215,7 @@ class WooCommerce_Quick_Buy_Settings extends WC_Settings_Page {
 			'type' => 'select', 
 			'class' =>'chosen_select',
 			'options' => array('true' => __("Yes",WCQB_TXT) , 'false' => __("No (I Will Use Shortcode)",WCQB_TXT) )
-		);	
+		);	   
 		$settings_array[] = array(
 			'name' => __( 'Quick Buy Position', WCQB_TXT ),
 			'desc_tip' => __( 'Where the button need to be added in single page .. before / after',WCQB_TXT ),

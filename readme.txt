@@ -1,14 +1,14 @@
 === Woocommerce Quick Buy ===
-Contributors: varunms
+Contributors: varunms,vaahosttech
 Author URI: http://varunsridharan.in/
 Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
 Tags: Woocommerce,wc,Quick buy,add to cart,affiliate, cart, checkout, commerce, configurable, digital, download, downloadable, e-commerce, ecommerce, inventory, reports, sales, sell, shipping, shop, shopping, stock, store, tax, variable, widgets, woothemes, wordpress ecommerce
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YUBNEPWZMGTTQ
+Donate link: http://paypal.me/varunsridharan23
 Requires at least: 3.0
 Tested up to: 5.0
 WC requires at least: 2.0
-WC tested up to: 3.0
-Stable tag: 1.5
+WC tested up to: 3.2
+Stable tag: 1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -22,14 +22,26 @@ When User Clicks This Button. The Current product Will Be Added To Cart And The 
 
 [youtube https://www.youtube.com/watch?v=z_RgdNVZvj4]
 
+
+**Supported & Tested Product Types**
+
+> 1. <a href="http://woocommerce.com/">WC Simple Product</a>
+> 2. <a href="http://woocommerce.com/">WC Grouped Product</a>
+> 3. <a href="http://woocommerce.com/">WC Variable / Variation Product</a>
+> 4. <a href="https://woocommerce.com/products/product-add-ons/">WooCommerce Product Add-Ons</a>
+> 5. <a href="https://woocommerce.com/products/product-bundles/">WooCommerce Product Bundles</a>
+> 6. <a href="https://woocommerce.com/products/woocommerce-subscriptions/">Woocommerce Variable / Simple Subscriptions</a>
+> 7. <a href="https://wordpress.org/plugins/yith-woocommerce-product-bundles/">YITH Product Bundles</a>
+> 8. <a href="https://wordpress.org/plugins/yith-woocommerce-product-add-ons/">YITH WooCommerce Product Add-Ons</a>
+> 9. <a href="https://wordpress.org/plugins/yith-woocommerce-subscription/">YITH WooCommerce Subscription</a>
+
+
 **Settings Available Under**
 `Woocommerce Settings ==> Products ==> WC Quick Buy`
 
 **Available Shortcodes**
-<code>
-1. [wc_quick_buy] -- Used in product loop eg : Product Listing / Single Product Page
-2. [wc_quick_buy_link] -- Can be used anywhere 
-</code>
+> 1. [wc_quick_buy] -- Used in product loop eg : Product Listing / Single Product Page
+> 2. [wc_quick_buy_link] -- Can be used anywhere 
 
 **`[wc_quick_buy]` Shortcode Args**
 <code>
@@ -47,10 +59,10 @@ When User Clicks This Button. The Current product Will Be Added To Cart And The 
 </code>
 
 **Example Use For HTML A Tag**
-`[wc_quick_buy_link product="33"  label="Hurry UP!!" qty="100" type="button"] `
+> [wc_quick_buy_link product="33"  label="Hurry UP!!" qty="100" type="button"]
 
 **Example Use For HTML A Tag**
-`[wc_quick_buy_link product="33"  label="Hurry UP!!" qty="100" type="link"] `
+> [wc_quick_buy_link product="33"  label="Hurry UP!!" qty="100" type="link"]
 
 
 = Plugin Contributers =
@@ -131,6 +143,23 @@ Please open an issue at <a href="https://github.com/technofreaky/woocomerce-quic
 
 
 == Changelog ==
+= 1.8 - 29/09/2017 =
+* Fixed : Add To Cart Issue with latest WooCommerce
+* Fixed : Style Loading with ajax.php
+* Tested : With Both Latest WP & WC
+
+= 1.7 - 11/07/2017 =
+* Fixed : Issue Reported @ https://wordpress.org/support/topic/getting-error-string6-course-above-the-quick-buy-button/
+
+= 1.6 - 11/07/2017 =
+* Added Support To : <a href="https://woocommerce.com/products/product-add-ons/">WooCommerce Product Add-Ons</a>
+* Added Support To : <a href="https://woocommerce.com/products/product-bundles/">WooCommerce Product Bundles</a>
+* Added Support To : <a href="https://woocommerce.com/products/woocommerce-subscriptions/">Woocommerce Variable / Simple Subscriptions</a>
+* Added Support To : <a href="https://wordpress.org/plugins/yith-woocommerce-product-add-ons/">YITH WooCommerce Product Add-Ons</a>
+* Added Support To : <a href="https://wordpress.org/plugins/yith-woocommerce-subscription/">YITH WooCommerce Subscription</a>
+* Fixed Minor Issues
+* Updated language File
+
 = 1.5 - 26/04/2017 =
 * Fixed : Minor issue in shortcode generator
 
