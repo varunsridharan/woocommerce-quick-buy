@@ -8,21 +8,23 @@
  * Author URI:        http://varunsridharan.in
  * Text Domain:       woocommerce-quick-buy
  * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt 
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * GitHub Plugin URI: @TODO
  * Domain Path:       /languages
  */
 
-if ( ! defined( 'WPINC' ) ) { die; }
- 
-require_once(plugin_dir_path(__FILE__).'includes/common-functions.php');
-require_once(plugin_dir_path(__FILE__).'bootstrap.php');
-require_once(plugin_dir_path(__FILE__).'includes/class-dependencies.php');
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
+require_once( plugin_dir_path( __FILE__ ) . 'includes/common-functions.php' );
+require_once( plugin_dir_path( __FILE__ ) . 'bootstrap.php' );
+require_once( plugin_dir_path( __FILE__ ) . 'includes/class-dependencies.php' );
 
 
-if(WooCommerce_Quick_Buy_Dependencies()){
-	if(!function_exists('WooCommerce_Quick_Buy')){
-		function WooCommerce_Quick_Buy(){
+if ( WooCommerce_Quick_Buy_Dependencies() ) {
+	if ( ! function_exists( 'WooCommerce_Quick_Buy' ) ) {
+		function WooCommerce_Quick_Buy() {
 			return WooCommerce_Quick_Buy::get_instance();
 		}
 	}
