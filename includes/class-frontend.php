@@ -96,11 +96,6 @@ class WooCommerce_Quick_Buy_FrontEnd {
 			$args['hide_in_cart'] = 'no';
 		}
 
-		if ( in_array( $args['hide_outofstock'], $_arg_val, true ) ) {
-			$args['hide_outofstock'] = 'yes';
-		} else {
-			$args['hide_outofstock'] = 'no';
-		}
 
 		extract( $args );
 		$return = '';
@@ -168,9 +163,9 @@ class WooCommerce_Quick_Buy_FrontEnd {
 		if ( isset( $_REQUEST['quick_buy'] ) && $_REQUEST['quick_buy'] == true ) {
 			$redirect = wc_qb_option( 'redirect' );
 			if ( $redirect == 'cart' ) {
-				return WC()->cart->get_cart_url();
+				return wc_get_cart_url();
 			} elseif ( $redirect == 'checkout' ) {
-				return WC()->cart->get_checkout_url();
+				return wc_get_checkout_url();
 			} elseif ( $redirect == 'custom' && wc_notice_count( 'error' ) === 0 ) {
 				$cr = wc_qb_option( 'custom_redirect' );
 				if ( ! empty( $cr ) ) {
