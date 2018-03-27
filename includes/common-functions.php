@@ -17,6 +17,8 @@ if ( ! function_exists( 'wc_quick_buy_db_settings' ) ) {
 		$wc_quick_buy_settings_values['label']               = get_option( WCQB_DB . 'label' );
 		$wc_quick_buy_settings_values['class']               = get_option( WCQB_DB . 'class' );
 		$wc_quick_buy_settings_values['btn_css']             = get_option( WCQB_DB . 'btn_css' );
+		$wc_quick_buy_settings_values['hide_in_cart']        = get_option( WCQB_DB . 'hide_in_cart' );
+		#$wc_quick_buy_settings_values['hide_outofstock']     = get_option( WCQB_DB . 'hide_outofstock' );
 	}
 }
 
@@ -38,5 +40,21 @@ if ( ! function_exists( 'wc_qb_is_wc_v' ) ) {
 		} else {
 			return false;
 		}
+	}
+}
+
+if ( ! function_exists( 'wc_qb_product_in_cart' ) ) {
+	function wc_qb_product_in_cart( $product_id ) {
+		global $woocommerce;
+
+		foreach ( $woocommerce->cart->get_cart() as $key => $val ) {
+			$_product = $val['data'];
+
+			if ( $product_id == $_product->get_id() ) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 }

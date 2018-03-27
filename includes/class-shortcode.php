@@ -27,7 +27,11 @@ class WooCommerce_Quick_Buy_Shortcode {
 		$output      = '';
 		global $product;
 
-		$attrs = shortcode_atts( array( 'label' => wc_qb_option( 'label' ), 'product' => null ), $attrs );
+		$attrs = shortcode_atts( array(
+			'label'        => wc_qb_option( 'label' ),
+			'product'      => null,
+			'hide_in_cart' => wc_qb_option( 'hide_in_cart' ),
+		), $attrs );
 
 		if ( $attrs['product'] == null ) {
 			global $product;
@@ -40,10 +44,10 @@ class WooCommerce_Quick_Buy_Shortcode {
 			return '';
 		}
 
-
 		if ( $shortcode_product->is_in_stock() ) {
 			$show_button = true;
 		}
+
 		if ( $show_button ) {
 			$output = WooCommerce_Quick_Buy()
 				->func()
@@ -56,11 +60,12 @@ class WooCommerce_Quick_Buy_Shortcode {
 	public function quick_buy_link( $attrs ) {
 		$output = '';
 		$attrs  = shortcode_atts( array(
-			'product'   => null,
-			'qty'       => wc_qb_option( 'product_qty' ),
-			'label'     => wc_qb_option( 'label' ),
-			'type'      => 'button',
-			'htmlclass' => null,
+			'product'      => null,
+			'hide_in_cart' => wc_qb_option( 'hide_in_cart' ),
+			'qty'          => wc_qb_option( 'product_qty' ),
+			'label'        => wc_qb_option( 'label' ),
+			'type'         => 'button',
+			'htmlclass'    => null,
 		), $attrs );
 
 		if ( $attrs['product'] == null ) {

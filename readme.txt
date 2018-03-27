@@ -7,8 +7,8 @@ Donate link: http://paypal.me/varunsridharan23
 Requires at least: 3.0
 Tested up to: 5.0
 WC requires at least: 2.0
-WC tested up to: 3.2
-Stable tag: 1.8
+WC tested up to: 3.3.5
+Stable tag: 1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -47,6 +47,7 @@ When User Clicks This Button. The Current product Will Be Added To Cart And The 
 <code>
 1. product : product id to generate quick buy button Eg : [wc_quick_buy product="22"]
 2. label : custom text for generated button Eg : [wc_quick_buy label="Hurry Up!!"]
+3. hide_in_cart : Enter "yes"  to hide the button if the same product already in cart or enter "no"
 </code>
 
 **`[wc_quick_buy_link]` Shortcode Args**
@@ -56,6 +57,7 @@ When User Clicks This Button. The Current product Will Be Added To Cart And The 
 3. qty : Enter custom qty for a html button / link [wc_quick_buy_link qty="10"]
 4. type : Use button to get a html a tag generated : [wc_quick_buy_link type="button"] or use link to get site url with quick buy values : [wc_quick_buy_link type="link"]
 5. htmlclass : You can give your custom css class name in shortcode to add it in button.
+6. hide_in_cart : Enter "yes" to hide the button if the same product already in cart or enter "no"
 </code>
 
 **Example Use For HTML A Tag**
@@ -63,6 +65,9 @@ When User Clicks This Button. The Current product Will Be Added To Cart And The 
 
 **Example Use For HTML A Tag**
 > [wc_quick_buy_link product="33"  label="Hurry UP!!" qty="100" type="link"]
+
+**Example Use For hide_in_cart**
+> [wc_quick_buy_link product="33"  label="Hurry UP!!" hide_in_cart="yes" type="link"]
 
 
 = Plugin Contributers =
@@ -143,6 +148,12 @@ Please open an issue at <a href="https://github.com/technofreaky/woocomerce-quic
 
 
 == Changelog ==
+= 1.9 - 27/03/2018 =
+* Added : Option to hide if product already in cart
+* Tweaks : Minor Code Change and codecleanup done.
+* Tested : With latest WC 3.0
+* Tested : With latest WP
+
 = 1.8 - 29/09/2017 =
 * Fixed : Add To Cart Issue with latest WooCommerce
 * Fixed : Style Loading with ajax.php

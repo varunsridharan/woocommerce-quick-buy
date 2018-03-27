@@ -59,6 +59,8 @@ class WooCommerce_Quick_Buy_FrontEnd {
 		self::$settings['label']           = get_option( WCQB_DB . 'label' );
 		self::$settings['class']           = get_option( WCQB_DB . 'class' );
 		self::$settings['btn_css']         = get_option( WCQB_DB . 'btn_css' );
+		self::$settings['hide_in_cart']    = get_option( WCQB_DB . 'hide_in_cart' );
+		#self::$settings['hide_outofstock'] = get_option( WCQB_DB . 'hide_outofstock' );
 	}
 
 	public function get_option( $key = '' ) {
@@ -77,13 +79,29 @@ class WooCommerce_Quick_Buy_FrontEnd {
 
 	public function generate_button( $args ) {
 		$default_args = array(
-			'product' => null,
-			'label'   => wc_qb_option( 'label' ),
-			'class'   => wc_qb_option( 'class' ),
-			'tag'     => 'button',
+			'product'         => null,
+			'label'           => wc_qb_option( 'label' ),
+			'class'           => wc_qb_option( 'class' ),
+			'hide_in_cart'    => wc_qb_option( 'hide_in_cart' ),
+			//'hide_outofstock' => wc_qb_option( 'hide_outofstock' ),
+			'tag'             => 'button',
 		);
 
-		$args = wp_parse_args( $args, $default_args );
+		$args     = wp_parse_args( $args, $default_args );
+		$_arg_val = array( true, 'yes', '1', 1, 'on' );
+
+		if ( in_array( $args['hide_in_cart'], $_arg_val, true ) ) {
+			$args['hide_in_cart'] = 'yes';
+		} else {
+			$args['hide_in_cart'] = 'no';
+		}
+
+		if ( in_array( $args['hide_outofstock'], $_arg_val, true ) ) {
+			$args['hide_outofstock'] = 'yes';
+		} else {
+			$args['hide_outofstock'] = 'no';
+		}
+
 		extract( $args );
 		$return = '';
 
@@ -99,9 +117,14 @@ class WooCommerce_Quick_Buy_FrontEnd {
 		}
 		$pid = $product->get_id();
 
+
 		$defined_class = 'wc_quick_buy_button quick_buy_button quick_buy_' . $type . ' quick_buy_' . $pid . '_button quick_buy_' . $pid . '' . $class;
 		$defined_id    = 'quick_buy_' . $pid . '_button';
 		$defined_attrs = 'name=""  data-product-type="' . $type . '" data-product-id="' . $pid . '"';
+
+		if ( true === wc_qb_product_in_cart( $pid ) && 'yes' === $args['hide_in_cart'] ) {
+			$defined_attrs .= ' style="display:none;" ';
+		}
 
 
 		$return .= '<div class="quick_buy_container quick_buy_' . $pid . '_container" id="quick_buy_' . $pid . '_container" >';
@@ -131,6 +154,7 @@ class WooCommerce_Quick_Buy_FrontEnd {
 			$link = add_query_arg( 'quick_buy', true, $link );
 			return $link;
 		}
+		return false;
 	}
 
 	/**

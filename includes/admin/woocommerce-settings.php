@@ -157,6 +157,20 @@ if ( ! class_exists( 'WooCommerce_Quick_Buy_Settings' ) ) :
 				'css'  => 'width:100px;',
 			);
 
+			$settings_array[] = array(
+				'name' => __( "Hide if already in Cart", WCQB_TXT ),
+				'desc' => __( "Hide Quick Buy Button if already in cart" ),
+				'id'   => WCQB_DB . 'hide_in_cart',
+				'type' => 'checkbox',
+			);
+
+			/*$settings_array[] = array(
+				'name' => __( "Hide if Product OutofStock", WCQB_TXT ),
+				'desc' => __( "Hide Quick Buy Button if Product OutofStock" ),
+				'id'   => WCQB_DB . 'hide_outofstock',
+				'type' => 'checkbox',
+			);*/
+
 			$settings_array[] = array( 'type' => 'sectionend', 'id' => WCQB_DB . 'settings_end' );
 
 			return apply_filters( 'woocommerce_quick_buy_general_settings', $settings_array );
@@ -224,8 +238,9 @@ if ( ! class_exists( 'WooCommerce_Quick_Buy_Settings' ) ) :
 				'id'       => WCQB_DB . 'single_product_auto',
 				'type'     => 'select',
 				'class'    => 'chosen_select',
-				'options'  => array( 'true'  => __( "Yes", WCQB_TXT ),
-									 'false' => __( "No (I Will Use Shortcode)", WCQB_TXT ),
+				'options'  => array(
+					'true'  => __( "Yes", WCQB_TXT ),
+					'false' => __( "No (I Will Use Shortcode)", WCQB_TXT ),
 				),
 			);
 			$settings_array[] = array(
@@ -254,8 +269,9 @@ if ( ! class_exists( 'WooCommerce_Quick_Buy_Settings' ) ) :
 				'id'       => WCQB_DB . 'listing_page_auto',
 				'type'     => 'select',
 				'class'    => 'chosen_select',
-				'options'  => array( 'true'  => __( "Yes", WCQB_TXT ),
-									 'false' => __( "No (I Will Use Shortcode)", WCQB_TXT ),
+				'options'  => array(
+					'true'  => __( "Yes", WCQB_TXT ),
+					'false' => __( "No (I Will Use Shortcode)", WCQB_TXT ),
 				),
 			);
 			$settings_array[] = array(
