@@ -47,11 +47,13 @@ if ( ! function_exists( 'wc_qb_product_in_cart' ) ) {
 	function wc_qb_product_in_cart( $product_id ) {
 		global $woocommerce;
 
-		foreach ( $woocommerce->cart->get_cart() as $key => $val ) {
-			$_product = $val['data'];
+		if ( $woocommerce->cart ) {
+			foreach ( $woocommerce->cart->get_cart() as $key => $val ) {
+				$_product = $val['data'];
 
-			if ( $product_id == $_product->get_id() ) {
-				return true;
+				if ( $product_id == $_product->get_id() ) {
+					return true;
+				}
 			}
 		}
 
