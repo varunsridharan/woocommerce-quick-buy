@@ -17,7 +17,7 @@
 	"varunsridharan/wp2github-md"      : "*"
   },
   "scripts"     : {
-	"makepot"        : "makepot ./wppot.json",
+	"makepot"        : "makepot ./wp-pot.json",
 	"add-textdomain" : "add-textdomain -i wc-quick-buy ./",
     "wp2githubmd"    : "wp2gitthub-md \"woocommerce-quick-buy\" \"./readme.txt\" ",
 	"build"          : [ "@add-textdomain", "@makepot", "@wp2githubmd" ]
