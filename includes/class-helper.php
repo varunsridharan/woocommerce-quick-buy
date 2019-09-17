@@ -35,9 +35,9 @@ if ( ! class_exists( '\WC_Quick_Buy\Helper' ) ) {
 		 */
 		public static function redirect_locations() {
 			return array(
-				'cart'     => __( 'Cart' ),
-				'checkout' => __( 'Checkout' ),
-				'custom'   => __( 'Custom URL' ),
+				'cart'     => __( 'Cart', 'wc-quick-buy' ),
+				'checkout' => __( 'Checkout', 'wc-quick-buy' ),
+				'custom'   => __( 'Custom URL', 'wc-quick-buy' ),
 			);
 		}
 
@@ -49,13 +49,13 @@ if ( ! class_exists( '\WC_Quick_Buy\Helper' ) ) {
 		 */
 		public static function product_types() {
 			return array(
-				'all'                   => __( 'All Product Types' ),
-				'simple'                => __( 'Simple Products' ),
-				'variable'              => __( 'Variable Products' ),
-				'yith-bundle'           => __( 'YITH Product Bundles' ),
-				'bundle'                => __( 'WC Product Bundles' ),
-				'subscription'          => __( 'WC Variable Subscription' ),
-				'variable-subscription' => __( 'WC Variable Subscription' ),
+				'all'                   => __( 'All Product Types', 'wc-quick-buy' ),
+				'simple'                => __( 'Simple Products', 'wc-quick-buy' ),
+				'variable'              => __( 'Variable Products', 'wc-quick-buy' ),
+				'yith-bundle'           => __( 'YITH Product Bundles', 'wc-quick-buy' ),
+				'bundle'                => __( 'WC Product Bundles', 'wc-quick-buy' ),
+				'subscription'          => __( 'WC Variable Subscription', 'wc-quick-buy' ),
+				'variable-subscription' => __( 'WC Variable Subscription', 'wc-quick-buy' ),
 			);
 		}
 
@@ -65,11 +65,11 @@ if ( ! class_exists( '\WC_Quick_Buy\Helper' ) ) {
 		 */
 		public static function single_product_placement() {
 			return array(
-				'none'          => __( 'Disable' ),
-				'before_form'   => __( 'Before Add To Cart' ),
-				'after_form'    => __( 'After Add To Cart' ),
-				'after_button'  => __( 'Next To Add To Cart Button' ),
-				'before_button' => __( 'Prev To Add To Cart Button' ),
+				'none'          => __( 'Disable', 'wc-quick-buy' ),
+				'before_form'   => __( 'Before Add To Cart', 'wc-quick-buy' ),
+				'after_form'    => __( 'After Add To Cart', 'wc-quick-buy' ),
+				'after_button'  => __( 'Next To Add To Cart Button', 'wc-quick-buy' ),
+				'before_button' => __( 'Prev To Add To Cart Button', 'wc-quick-buy' ),
 			);
 		}
 
@@ -79,9 +79,9 @@ if ( ! class_exists( '\WC_Quick_Buy\Helper' ) ) {
 		 */
 		public static function shop_page_placement() {
 			return array(
-				'none'          => __( 'Disable' ),
-				'after_button'  => __( 'Next To Add To Cart Button' ),
-				'before_button' => __( 'Prev To Add To Cart Button' ),
+				'none'          => __( 'Disable', 'wc-quick-buy' ),
+				'after_button'  => __( 'Next To Add To Cart Button', 'wc-quick-buy' ),
+				'before_button' => __( 'Prev To Add To Cart Button', 'wc-quick-buy' ),
 			);
 		}
 
@@ -91,13 +91,13 @@ if ( ! class_exists( '\WC_Quick_Buy\Helper' ) ) {
 		 */
 		public static function button_presets() {
 			return array(
-				'none'    => __( 'None' ),
-				'preset1' => __( 'Carrot Orange' ),
-				'preset2' => __( 'Mango Color' ),
-				'preset3' => __( 'Hydrate Leaf' ),
-				'preset4' => __( 'Sea & Cloud' ),
-				'preset5' => __( 'Dark Room' ),
-				'preset6' => __( 'Tomato' ),
+				'none'    => __( 'None', 'wc-quick-buy' ),
+				'preset1' => __( 'Carrot Orange', 'wc-quick-buy' ),
+				'preset2' => __( 'Mango Color', 'wc-quick-buy' ),
+				'preset3' => __( 'Hydrate Leaf', 'wc-quick-buy' ),
+				'preset4' => __( 'Sea & Cloud', 'wc-quick-buy' ),
+				'preset5' => __( 'Dark Room', 'wc-quick-buy' ),
+				'preset6' => __( 'Tomato', 'wc-quick-buy' ),
 			);
 		}
 

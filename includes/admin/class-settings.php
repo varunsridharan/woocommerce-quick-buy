@@ -19,8 +19,8 @@ if ( ! class_exists( '\WC_Quick_Buy\Admin\Settings' ) ) {
 		 * Registers Fields.
 		 */
 		protected function fields() {
-			$this->general( $this->builder->container( 'general', __( 'General' ) ) );
-			$this->button_styling( $this->builder->container( 'button_styling', __( 'Button Styling' ) ) );
+			$this->general( $this->builder->container( 'general', __( 'General', 'wc-quick-buy' ) ) );
+			$this->button_styling( $this->builder->container( 'button_styling', __( 'Button Styling', 'wc-quick-buy' ) ) );
 		}
 	}
 }

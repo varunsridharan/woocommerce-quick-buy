@@ -38,7 +38,7 @@ if ( ! class_exists( 'WC_Quick_Buy' ) ) {
 			);
 			$options['settings_page'] = array(
 				'option_name'    => '_wc_quick_buy',
-				'framework_desc' => __( 'Add Quick buy button to redirect user to checkout / cart immediately when he click quick buy button' ),
+				'framework_desc' => __( 'Add Quick buy button to redirect user to checkout / cart immediately when he click quick buy button', 'wc-quick-buy' ),
 				'theme'          => 'wp',
 				'is_single_page' => 'submenu',
 				'ajax'           => true,
@@ -47,7 +47,7 @@ if ( ! class_exists( 'WC_Quick_Buy' ) ) {
 				'extra_css'      => array( 'wcqb-admin-style' ),
 				'menu'           => array(
 					'page_title' => $this->plugin_name(),
-					'menu_title' => __( 'Quick Buy' ),
+					'menu_title' => __( 'Quick Buy', 'wc-quick-buy' ),
 					'submenu'    => 'woocommerce',
 					'menu_slug'  => 'quick-buy',
 				),
