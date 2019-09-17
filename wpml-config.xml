@@ -1,5 +1,5 @@
-<wpml-config>
-    <admin-texts> 
-        <key name="wc_quick_buy_label"/>
-    </admin-texts>
-</wpml-config>
+<admin-texts>
+	<key name="_wc_quick_buy">
+		<key name="button_label"/>
+	</key>
+</admin-texts>

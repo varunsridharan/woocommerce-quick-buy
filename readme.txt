@@ -5,10 +5,10 @@ Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
 Tags: Woocommerce,wc,Quick buy,add to cart,affiliate, cart, checkout, commerce, configurable, digital, download, downloadable, e-commerce, ecommerce, inventory, reports, sales, sell, shipping, shop, shopping, stock, store, tax, variable, widgets, woothemes, wordpress ecommerce
 Donate link: http://paypal.me/varunsridharan23
 Requires at least: 3.0
-Tested up to: 5.0
+Tested up to: 5.2.3
 WC requires at least: 2.0
 WC tested up to: 3.3.5
-Stable tag: 1.9
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -89,7 +89,6 @@ Please update the settings once you have updated the plugin. if not this plugin 
 7. Single Product View With After AddToCart
 8. Single Product View With With To AddToCart
 9. Single Product View With With To AddToCart
-10. Shortcode Generator
 
 == Installation ==
 
@@ -127,7 +126,7 @@ The manual installation method involves downloading our plugin and uploading it 
 
 * http://varunsridharan.in/plugin-support/ 
 * https://wordpress.org/support/plugin/woocommerce-quick-buy 
-* https://github.com/technofreaky/WooCommerce-Quick-Buy
+* https://github.com/varunsridharan/woocommerce-quick-buy
 * Email : varunsridharan23@gmail.com 
 * Email : plugin@varunsridharan.in
 
@@ -135,19 +134,26 @@ The manual installation method involves downloading our plugin and uploading it 
 That's great. We are always open to your input, and we would like to add anything we think will be useful to a lot of people. Please send your comment/idea to varunsridharan23@gmail.com
 
 **I found a bug!**  
-Oops. Please User github / WordPress to post bugs.  <a href="https://github.com/technofreaky/woocomerce-quick-buy/"> Open an Issue </a>
+Oops. Please User github / WordPress to post bugs.  <a href="https://github.com/varunsridharan/woocommerce-quick-buy"> Open an Issue </a>
 
 **How To Call This Plugin in a template File ?**  
 This Plugin Can Be Called Using `<?php do_shortcode('[wc_quick_buy]') ?>` short code
 
 **Where Are The Plugin Settings Available ?**
-`Woo Commerce Settings ==> Products ==> WC Quick Buy`
+`Woo Commerce Settings ==> WC Quick Buy`
 
 **Where can I request new features**
-Please open an issue at <a href="https://github.com/technofreaky/woocomerce-quick-buy"> GitHub </a> and we will look into it
+Please open an issue at <a href="https://github.com/varunsridharan/woocommerce-quick-buy"> GitHub </a> and we will look into it
 
 
 == Changelog ==
+= 2.0 - 17/09/2019 =
+* Plugin Fully Redeveloped
+* Added Seo Friendly URL 
+* Added Predefined Button Styles
+* Added WPOnion Framework ( V 1.3.6 ) 
+* Added VSP-Framework ( 0.7.6 )
+
 = 1.9 - 27/03/2018 =
 * Added : Option to hide if product already in cart
 * Tweaks : Minor Code Change and codecleanup done.

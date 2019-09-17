@@ -1,0 +1,10 @@
+{
+  "src"     : "./",
+  "dist"    : "./i18n/wc-quick-buy.pot",
+  "domain"  : "wc-quick-buy",
+  "exclude" : "assets/,src/,node_modules/,vendor/",
+  "headers" : {
+	"Report-Msgid-Bugs-To" : "https://wordpress.org/support/plugin/woocommerce-quick-buy\n",
+	"Language-Team"        : "varunsridharan23@gmail.com\n"
+  }
+}
