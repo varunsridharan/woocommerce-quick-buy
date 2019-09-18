@@ -1,4 +1,4 @@
-=== Woocommerce Quick Buy ===
+=== Quick Buy For Woocommerce ===
 Contributors: varunms,vaahosttech
 Author URI: http://varunsridharan.in/
 Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
@@ -101,9 +101,9 @@ Please update the settings once you have updated the plugin. if not this plugin 
 
 = Automatic installation =
 
-Automatic installation is the easiest option as WordPress handles the file transfers itself and you don't need to leave your web browser. To do an automatic install of WooCommerce Quick Buy, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
+Automatic installation is the easiest option as WordPress handles the file transfers itself and you don't need to leave your web browser. To do an automatic install of Quick Buy For Woocommerce, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
 
-In the search field type "WooCommerce Quick Buy" and click Search Plugins. Once you've found our plugin you can view details about it such as the the point release, rating and description. Most importantly of course, you can install it by simply clicking "Install Now"
+In the search field type "Quick Buy For Woocommerce" and click Search Plugins. Once you've found our plugin you can view details about it such as the the point release, rating and description. Most importantly of course, you can install it by simply clicking "Install Now"
 
 = Manual installation =
 
@@ -111,7 +111,7 @@ The manual installation method involves downloading our plugin and uploading it 
 
 1. Installing alternatives:
  * via Admin Dashboard:
- * Go to 'Plugins > Add New', search for "WooCommerce Quick Buy", click "install"
+ * Go to 'Plugins > Add New', search for "Quick Buy For Woocommerce", click "install"
  * OR via direct ZIP upload:
  * Upload the ZIP package via 'Plugins > Add New > Upload' in your WP Admin
  * OR via FTP upload:
