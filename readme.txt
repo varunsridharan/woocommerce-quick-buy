@@ -8,7 +8,7 @@ Requires at least: 3.0
 Tested up to: 5.2.3
 WC requires at least: 2.0
 WC tested up to: 3.3.5
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -147,6 +147,9 @@ Please open an issue at <a href="https://github.com/varunsridharan/woocommerce-q
 
 
 == Changelog ==
+= 2.1 - 18/09/2019 = 
+* Updated VSP Framework To ( 0.7.7 ) which fixes major vulnerability
+
 = 2.0 - 17/09/2019 =
 * Plugin Fully Redeveloped
 * Added Seo Friendly URL 
