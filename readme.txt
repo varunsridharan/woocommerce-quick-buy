@@ -6,9 +6,7 @@ Tags: Woocommerce,wc,Quick buy,add to cart,affiliate, cart, checkout, commerce, 
 Donate link: http://paypal.me/varunsridharan23
 Requires at least: 3.0
 Tested up to: 5.2.3
-WC requires at least: 2.0
-WC tested up to: 3.3.5
-Stable tag: 2.1
+Stable tag: 2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -18,10 +16,7 @@ Add Quick buy button to redirect user to checkout / cart immediately when he cli
 Add Quick buy button to redirect user to checkout / cart immediately when he click quick buy button.
 When User Clicks This Button. The Current product Will Be Added To Cart And The User Will Be Redirected To Cart Page
 
-***Now we support language translation. if you are intreasted. please contact us*** <a href="http://varunsridharan.in/plugin-support/"> Translate Now </a>
-
 [youtube https://www.youtube.com/watch?v=z_RgdNVZvj4]
-
 
 **Supported & Tested Product Types**
 
@@ -60,24 +55,20 @@ When User Clicks This Button. The Current product Will Be Added To Cart And The 
 6. hide_in_cart : Enter "yes" to hide the button if the same product already in cart or enter "no"
 </code>
 
-**Example Use For HTML A Tag**
-> [wc_quick_buy_link product="33"  label="Hurry UP!!" qty="100" type="button"]
+**Example Shortcode To Get Clickable Button**
+> [wc_quick_buy product="33"  label="Hurry UP!!" qty="100"]
 
-**Example Use For HTML A Tag**
-> [wc_quick_buy_link product="33"  label="Hurry UP!!" qty="100" type="link"]
-
-**Example Use For hide_in_cart**
-> [wc_quick_buy_link product="33"  label="Hurry UP!!" hide_in_cart="yes" type="link"]
-
-
-= Plugin Contributers =
-* <a href="https://profiles.wordpress.org/pshekas" >Ernestas Zekas</a>
-* <a href="https://github.com/robertbobmattocks">Robert Mattocks </a>
-
+**Example Shortcode To Get Product's Quick Buy URL**
+> [wc_quick_buy_link product="33"  label="Hurry UP!!" qty="100"]
 
 == Upgrade Notice ==
-Please update the settings once you have updated the plugin. if not this plugin many not work.
+Dear Users,
 
+I recently published WC Quick Buy V2.0 which is a brand new version developed from the base which also includes Robust WPOnion & VSP Framework to make this plugin run smoothly and add more features on the go.
+
+But due to recent changes to the core. I was unable to migrate settings from the older version into the new version. I apologize for this.
+
+but I made sure that new settings are easy to configure. if you do have any issues please do contact me via this forum or email me directly. I will try my best to get back to you asap.
 
 == Screenshots ==
 1. WC Quick Buy Settings
@@ -147,6 +138,13 @@ Please open an issue at <a href="https://github.com/varunsridharan/woocommerce-q
 
 
 == Changelog ==
+= 2.2 - 26/09/2019 = 
+* Updated WPOnion Framework To 1.3.7
+* Fixed : Settings Page Saving Issue
+* Fixed Minor bugs.
+* Tested : With Latest WordPress 5.2.3
+* Tested : With Latest WooCommerce 3.6.5
+
 = 2.1 - 18/09/2019 = 
 * Updated VSP Framework To ( 0.7.7 ) which fixes major vulnerability
 

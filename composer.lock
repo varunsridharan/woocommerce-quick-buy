@@ -186,16 +186,16 @@
         },
         {
             "name": "wponion/wponion",
-            "version": "1.3.6",
+            "version": "1.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wponion/wponion.git",
-                "reference": "b2027c01378c90cd3bda6caee77a2981eb0399c1"
+                "reference": "28c7d089e5888a1d2731301e99f180db545a62e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wponion/wponion/zipball/b2027c01378c90cd3bda6caee77a2981eb0399c1",
-                "reference": "b2027c01378c90cd3bda6caee77a2981eb0399c1",
+                "url": "https://api.github.com/repos/wponion/wponion/zipball/28c7d089e5888a1d2731301e99f180db545a62e7",
+                "reference": "28c7d089e5888a1d2731301e99f180db545a62e7",
                 "shasum": ""
             },
             "require": {
@@ -253,7 +253,7 @@
                 "wponion",
                 "wponion-framework"
             ],
-            "time": "2019-09-04T07:00:51+00:00"
+            "time": "2019-09-26T04:56:41+00:00"
         }
     ],
     "packages-dev": [

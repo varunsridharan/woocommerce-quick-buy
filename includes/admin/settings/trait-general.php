@@ -28,9 +28,9 @@ if ( ! trait_exists( '\WC_Quick_Buy\Admin\Settings\General' ) ) {
 				->desc_field( __( 'if Enabled then cart contents will be auto cleared if quick buy button used.', 'wc-quick-buy' ) );
 
 			$builder->text( 'url_endpoint', __( 'URL Endpoint', 'wc-quick-buy' ) )
-				->field_default( 'quick-buy/{product_id}/{qty}' )
+				->field_default( 'quick-buy/{id}/{qty}' )
 				->style( 'width:350px' )
-				->placeholder( 'quick-buy/{product_id}/{product_sku}/{qty}' )
+				->placeholder( 'quick-buy/{id}/{sku}/{qty}' )
 				->prefix( trailingslashit( site_url() ) )
 				->desc_field( array(
 					__( 'Customize the URL Endpoint for Quick Buy URL Action', 'wc-quick-buy' ),
@@ -39,6 +39,11 @@ if ( ! trait_exists( '\WC_Quick_Buy\Admin\Settings\General' ) ) {
 					__( '3. `{sku}` : Product SKU', 'wc-quick-buy' ),
 					__( '4. `{qty}` : Quantity', 'wc-quick-buy' ),
 				) );
+
+			$builder->wp_notice( '<p style="font-weight: bold;">' . __( 'If Quick Buy Link Not Working. Then Try Updating Permalink ', 'wc-quick-buy' ) . '</p>' )
+				->notice_type( 'warning' )
+				->alt( true )
+				->large( true );
 		}
 
 		/**
