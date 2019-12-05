@@ -6,7 +6,7 @@ Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
 **Donate link:** http://paypal.me/varunsridharan23  
 **Requires at least:** 3.0  
 **Tested up to:** 5.2.3  
-**Stable tag:** 2.2  
+**Stable tag:** 2.3  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html    
 
@@ -165,6 +165,14 @@ Please open an issue at <a href="https://github.com/varunsridharan/woocommerce-q
 
 
 ## Changelog 
+
+### 2.3 - 05/12/2019 
+* Updated : WPOnion Framework To 1.4.0
+* Updated : VSP Framework To 0.7.9
+* Fixed : Minor bugs
+* Tested : With Latest WooCommerce
+* Tested : With Latest WordPress
+
 
 ### 2.2 - 26/09/2019 
 * Updated WPOnion Framework To 1.3.7
