@@ -77,7 +77,8 @@ if ( ! class_exists( '\WC_Quick_Buy\Button_Placement' ) ) {
 		 */
 		public function shop_page_button() {
 			global $product;
-			$quick_buy_link_product_types = Helper::option( 'quick_buy_link_product_types', array( 'simple' ) );
+			$quick_buy_link_product_types = Helper::option( 'quick_buy_link_product_types' );
+			$quick_buy_link_product_types = ( ! is_array( $quick_buy_link_product_types ) ) ? array( 'simple' ) : $quick_buy_link_product_types;
 
 			/* @var \WC_Product $product */
 			if ( in_array( $product->get_type(), $quick_buy_link_product_types, true ) ) {

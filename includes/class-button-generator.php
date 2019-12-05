@@ -52,6 +52,7 @@ if ( ! class_exists( '\WC_Quick_Buy\Button_Generator' ) ) {
 				}
 
 				$types      = Helper::option( 'enabled_product_types' );
+				$types      = ( ! is_array( $types ) ) ? array() : $types;
 				$is_in_cart = \VSP\Helper::wc_has_product_in_cart( $this->product_id() );
 
 				/* Validates Product Type. */

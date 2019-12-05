@@ -45,7 +45,9 @@ if ( ! class_exists( '\WC_Quick_Buy\Shortcodes\Link' ) ) {
 
 			if ( $shortcode_product ) {
 				if ( $shortcode_product->is_in_stock() ) {
-					$quick_buy_link_product_types = Helper::option( 'quick_buy_link_product_types', array( 'simple' ) );
+					$quick_buy_link_product_types = Helper::option( 'quick_buy_link_product_types' );
+					$quick_buy_link_product_types = ( ! is_array( $quick_buy_link_product_types ) ) ? array( 'simple' ) : $quick_buy_link_product_types;
+
 					/* @var \WC_Product $product */
 					if ( in_array( $shortcode_product->get_type(), $quick_buy_link_product_types, true ) ) {
 						$instance = new URL_Generator( array(

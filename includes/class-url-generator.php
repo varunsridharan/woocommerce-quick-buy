@@ -40,6 +40,7 @@ if ( ! class_exists( '\WC_Quick_Buy\URL_Generator' ) ) {
 				}
 
 				$types = Helper::option( 'enabled_product_types' );
+				$types = ( ! is_array( $types ) ) ? array() : $types;
 
 				if ( is_array( $types ) && ! in_array( 'all', $types, true ) && ! in_array( $this->product_type(), $types, true ) ) {
 					return '';
