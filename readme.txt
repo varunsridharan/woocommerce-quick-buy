@@ -141,8 +141,8 @@ Please open an issue at <a href="https://github.com/varunsridharan/woocommerce-q
 = 2.4 - 30/01/2020 = 
 * Fixed : Shortcode Issue - https://wordpress.org/support/topic/fatal-error-uncaught-error-call-to-a-member-function-is_in_stock-on-string/
 * Fixed : Button Render issue - https://github.com/varunsridharan/woocommerce-quick-buy/issues/27
-* Tested : With Latest WooCommerce
-* Tested : With Latest WordPress
+* Tested : With Latest WooCommerce - 3.9.1
+* Tested : With Latest WordPress - 5.3.2
 
 = 2.3 - 05/12/2019 =
 * Updated : WPOnion Framework To 1.4.0
