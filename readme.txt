@@ -5,8 +5,8 @@ Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
 Tags: Woocommerce,wc,Quick buy,add to cart,affiliate, cart, checkout, commerce, configurable, digital, download, downloadable, e-commerce, ecommerce, inventory, reports, sales, sell, shipping, shop, shopping, stock, store, tax, variable, widgets, woothemes, wordpress ecommerce
 Donate link: http://paypal.me/varunsridharan23
 Requires at least: 3.0
-Tested up to: 5.2.3
-Stable tag: 2.3
+Tested up to: 5.3.2
+Stable tag: 2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -138,6 +138,12 @@ Please open an issue at <a href="https://github.com/varunsridharan/woocommerce-q
 
 
 == Changelog ==
+= 2.4 - 30/01/2020 = 
+* Fixed : Shortcode Issue - https://wordpress.org/support/topic/fatal-error-uncaught-error-call-to-a-member-function-is_in_stock-on-string/
+* Fixed : Button Render issue - https://github.com/varunsridharan/woocommerce-quick-buy/issues/27
+* Tested : With Latest WooCommerce
+* Tested : With Latest WordPress
+
 = 2.3 - 05/12/2019 =
 * Updated : WPOnion Framework To 1.4.0
 * Updated : VSP Framework To 0.7.9

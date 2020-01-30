@@ -17,6 +17,7 @@
 				selected    = $( 'form.cart input#wc_quick_buy_hook_' + product_id ),
 				productform = selected.parent(),
 				submit_btn  = productform.find( '[type="submit"]' );
+			productform.find( 'input[name=quick_buy]' ).remove();
 			productform.append( '<input type="hidden" value="true" name="quick_buy" />' );
 
 			if( submit_btn.is( ':disabled' ) ) {

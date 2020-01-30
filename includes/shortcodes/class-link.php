@@ -3,6 +3,7 @@
 namespace WC_Quick_Buy\Shortcodes;
 
 use VSP\Modules\Shortcode;
+use WC_Product;
 use WC_Quick_Buy\Helper;
 use WC_Quick_Buy\URL_Generator;
 
@@ -42,7 +43,7 @@ if ( ! class_exists( '\WC_Quick_Buy\Shortcodes\Link' ) ) {
 			global $product;
 			$shortcode_product = ( empty( $this->options['product'] ) ) ? $product : wc_get_product( $this->options['product'] );
 
-			if ( $shortcode_product ) {
+			if ( $shortcode_product instanceof WC_Product && method_exists( $shortcode_product, 'is_in_stock' ) ) {
 				if ( $shortcode_product->is_in_stock() ) {
 					$quick_buy_link_product_types = Helper::option( 'enabled_product_types' );
 					$quick_buy_link_product_types = ( ! is_array( $quick_buy_link_product_types ) ) ? array( 'simple' ) : $quick_buy_link_product_types;
