@@ -16,6 +16,7 @@ if ( ! class_exists( '\WC_Quick_Buy\Button_Placement' ) ) {
 		 * Button_Placement constructor.
 		 */
 		public function __construct() {
+			/* @uses add_wc_quick_buy_chain */
 			add_action( 'woocommerce_before_add_to_cart_button', array( $this, 'add_wc_quick_buy_chain' ) );
 			$this->shop_page_hook();
 			$this->single_product_page_hook();
@@ -26,9 +27,7 @@ if ( ! class_exists( '\WC_Quick_Buy\Button_Placement' ) ) {
 		 */
 		public function add_wc_quick_buy_chain() {
 			global $product;
-			/**
-			 * @var \WC_Product $product
-			 */
+			/* @var \WC_Product $product */
 			if ( null !== $product && method_exists( $product, 'get_id' ) ) {
 				echo '<input type="hidden" id="wc_quick_buy_hook_' . $product->get_id() . '" value="' . $product->get_id() . '"  />';
 			}
@@ -42,6 +41,7 @@ if ( ! class_exists( '\WC_Quick_Buy\Button_Placement' ) ) {
 
 			if ( ! empty( $placement ) && 'none' !== $placement ) {
 				$p = ( 'after_button' === $placement ) ? 11 : 9;
+				/* @uses shop_page_button */
 				add_action( 'woocommerce_after_shop_loop_item', array( $this, 'shop_page_button' ), $p );
 			}
 		}
@@ -68,6 +68,7 @@ if ( ! class_exists( '\WC_Quick_Buy\Button_Placement' ) ) {
 						$hook = 'woocommerce_before_add_to_cart_button';
 						break;
 				}
+				/* @uses single_product_page_button */
 				add_action( $hook, array( $this, 'single_product_page_button' ), 99 );
 			}
 		}

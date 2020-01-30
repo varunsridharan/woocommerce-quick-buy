@@ -3,7 +3,6 @@
 namespace WC_Quick_Buy\Shortcodes;
 
 use VSP\Modules\Shortcode;
-use WC_Quick_Buy\Button_Generator;
 use WC_Quick_Buy\Helper;
 use WC_Quick_Buy\URL_Generator;
 

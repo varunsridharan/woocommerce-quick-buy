@@ -2,6 +2,8 @@
 
 namespace WC_Quick_Buy;
 
+use WC_Product;
+
 if ( ! class_exists( '\WC_Quick_Buy\Generator_Base' ) ) {
 	/**
 	 * Class Generator_Base
@@ -41,7 +43,7 @@ if ( ! class_exists( '\WC_Quick_Buy\Generator_Base' ) ) {
 		 * @return bool|\WC_Product
 		 */
 		public function product() {
-			return ( $this->product instanceof \WC_Product ) ? $this->product : false;
+			return ( $this->product instanceof WC_Product ) ? $this->product : false;
 		}
 
 		/**
@@ -76,7 +78,7 @@ if ( ! class_exists( '\WC_Quick_Buy\Generator_Base' ) ) {
 				$product = wc_get_product( $product );
 			}
 
-			if ( ! $product instanceof \WC_Product ) {
+			if ( ! $product instanceof WC_Product ) {
 				return false;
 			}
 			$this->product = $product;
