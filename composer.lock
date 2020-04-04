@@ -82,16 +82,16 @@
         },
         {
             "name": "varunsridharan/sweetalert2-php",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/varunsridharan/sweetalert2-php.git",
-                "reference": "dc5dcf3f91ee15fa3a3b1bdd2887aba7a741720b"
+                "reference": "d6f7eb37bd28d22bfb56176a51a558e5d71cd954"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/varunsridharan/sweetalert2-php/zipball/dc5dcf3f91ee15fa3a3b1bdd2887aba7a741720b",
-                "reference": "dc5dcf3f91ee15fa3a3b1bdd2887aba7a741720b",
+                "url": "https://api.github.com/repos/varunsridharan/sweetalert2-php/zipball/d6f7eb37bd28d22bfb56176a51a558e5d71cd954",
+                "reference": "d6f7eb37bd28d22bfb56176a51a558e5d71cd954",
                 "shasum": ""
             },
             "type": "library",
@@ -121,20 +121,30 @@
                 "sweetalert",
                 "sweetalert2"
             ],
-            "time": "2019-06-28T11:09:25+00:00"
+            "funding": [
+                {
+                    "url": "https://paypal.me/varunsridharan23",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/varunsridharan",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-03-16T13:02:30+00:00"
         },
         {
             "name": "varunsridharan/vsp-framework",
-            "version": "0.7.9",
+            "version": "0.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/varunsridharan/vsp-framework.git",
-                "reference": "ec4d1cfdd80c49b6f99142ee6ed369e0935407cc"
+                "reference": "f6bf8d32e281369209f056c5c435dc394a3b0a90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/varunsridharan/vsp-framework/zipball/ec4d1cfdd80c49b6f99142ee6ed369e0935407cc",
-                "reference": "ec4d1cfdd80c49b6f99142ee6ed369e0935407cc",
+                "url": "https://api.github.com/repos/varunsridharan/vsp-framework/zipball/f6bf8d32e281369209f056c5c435dc394a3b0a90",
+                "reference": "f6bf8d32e281369209f056c5c435dc394a3b0a90",
                 "shasum": ""
             },
             "require": {
@@ -170,7 +180,17 @@
             ],
             "description": "Simple & Lightweight WP Plugin Framework",
             "homepage": "https://github.com/varunsridharan/vsp-framework",
-            "time": "2019-11-22T12:20:36+00:00"
+            "funding": [
+                {
+                    "url": "https://paypal.me/varunsridharan23",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/varunsridharan",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-03-17T02:45:42+00:00"
         },
         {
             "name": "varunsridharan/wp-ajaxer",
@@ -269,16 +289,16 @@
         },
         {
             "name": "varunsridharan/wp-db-table",
-            "version": "1.4",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/varunsridharan/wp-db-table.git",
-                "reference": "84cbc7b6648b7c354dd40a24bc5f5eb2f78f1ead"
+                "reference": "3eadf8c5fdc0be6b0228d53d51c72107c0aa4632"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/varunsridharan/wp-db-table/zipball/84cbc7b6648b7c354dd40a24bc5f5eb2f78f1ead",
-                "reference": "84cbc7b6648b7c354dd40a24bc5f5eb2f78f1ead",
+                "url": "https://api.github.com/repos/varunsridharan/wp-db-table/zipball/3eadf8c5fdc0be6b0228d53d51c72107c0aa4632",
+                "reference": "3eadf8c5fdc0be6b0228d53d51c72107c0aa4632",
                 "shasum": ""
             },
             "require": {
@@ -303,7 +323,17 @@
                 }
             ],
             "description": "A base WordPress database table class with query builder",
-            "time": "2019-07-20T05:42:58+00:00"
+            "funding": [
+                {
+                    "url": "https://paypal.me/varunsridharan23",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/varunsridharan",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-03-20T09:01:01+00:00"
         },
         {
             "name": "varunsridharan/wp-dependencies",
@@ -560,7 +590,7 @@
         },
         {
             "name": "varunsridharan/wpallimport_rapidaddon",
-            "version": "481.481",
+            "version": "546.546",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vsp-libs/wp-all-import-rapid-addon.git",
@@ -589,16 +619,16 @@
         },
         {
             "name": "wponion/wponion",
-            "version": "1.4.0",
+            "version": "1.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wponion/wponion.git",
-                "reference": "7109a502acb2239cbe7d3c1e18ec64bd1f8f46e2"
+                "reference": "85332ea342fff00cb7bd87f5f5764de0be1b602b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wponion/wponion/zipball/7109a502acb2239cbe7d3c1e18ec64bd1f8f46e2",
-                "reference": "7109a502acb2239cbe7d3c1e18ec64bd1f8f46e2",
+                "url": "https://api.github.com/repos/wponion/wponion/zipball/85332ea342fff00cb7bd87f5f5764de0be1b602b",
+                "reference": "85332ea342fff00cb7bd87f5f5764de0be1b602b",
                 "shasum": ""
             },
             "require": {
@@ -612,6 +642,7 @@
             },
             "require-dev": {
                 "mustangostang/spyc": "*",
+                "varunsridharan/php-classmap-generator": "*",
                 "varunsridharan/wp-cli-textdomain": "^1.1"
             },
             "type": "library",
@@ -622,7 +653,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-3.0+"
+                "MIT"
             ],
             "authors": [
                 {
@@ -656,54 +687,24 @@
                 "wponion",
                 "wponion-framework"
             ],
-            "time": "2019-12-04T02:34:25+00:00"
+            "funding": [
+                {
+                    "url": "https://paypal.me/varunsridharan23",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/varunsridharan",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/varunsridharan",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-04-03T01:13:18+00:00"
         }
     ],
     "packages-dev": [
-        {
-            "name": "cweagans/composer-patches",
-            "version": "1.6.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cweagans/composer-patches.git",
-                "reference": "2e6f72a2ad8d59cd7e2b729f218bf42adb14f590"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cweagans/composer-patches/zipball/2e6f72a2ad8d59cd7e2b729f218bf42adb14f590",
-                "reference": "2e6f72a2ad8d59cd7e2b729f218bf42adb14f590",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.0",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "composer/composer": "~1.0",
-                "phpunit/phpunit": "~4.6"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "cweagans\\Composer\\Patches"
-            },
-            "autoload": {
-                "psr-4": {
-                    "cweagans\\Composer\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Cameron Eagans",
-                    "email": "me@cweagans.net"
-                }
-            ],
-            "description": "Provides a way to patch Composer packages.",
-            "time": "2019-08-29T20:11:49+00:00"
-        },
         {
             "name": "gettext/gettext",
             "version": "v4.8.2",
@@ -829,16 +830,16 @@
         },
         {
             "name": "mck89/peast",
-            "version": "v1.10.1",
+            "version": "v1.10.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mck89/peast.git",
-                "reference": "461fbe96212ac1b511f527fd11b942e976429398"
+                "reference": "6d1100f39f684c9e004f808b27f6c824b083d8d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mck89/peast/zipball/461fbe96212ac1b511f527fd11b942e976429398",
-                "reference": "461fbe96212ac1b511f527fd11b942e976429398",
+                "url": "https://api.github.com/repos/mck89/peast/zipball/6d1100f39f684c9e004f808b27f6c824b083d8d8",
+                "reference": "6d1100f39f684c9e004f808b27f6c824b083d8d8",
                 "shasum": ""
             },
             "require": {
@@ -850,7 +851,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.10.1-dev"
+                    "dev-master": "1.10.3-dev"
                 }
             },
             "autoload": {
@@ -870,7 +871,7 @@
                 }
             ],
             "description": "Peast is PHP library that generates AST for JavaScript code",
-            "time": "2019-12-22T16:46:42+00:00"
+            "time": "2020-04-03T09:06:20+00:00"
         },
         {
             "name": "mustache/mustache",
@@ -969,16 +970,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v5.0.3",
+            "version": "v5.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "4176e7cb846fe08f32518b7e0ed8462e2db8d9bb"
+                "reference": "600a52c29afc0d1caa74acbec8d3095ca7e9910d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/4176e7cb846fe08f32518b7e0ed8462e2db8d9bb",
-                "reference": "4176e7cb846fe08f32518b7e0ed8462e2db8d9bb",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/600a52c29afc0d1caa74acbec8d3095ca7e9910d",
+                "reference": "600a52c29afc0d1caa74acbec8d3095ca7e9910d",
                 "shasum": ""
             },
             "require": {
@@ -1014,7 +1015,21 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2020-01-04T14:08:26+00:00"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-03-27T16:56:45+00:00"
         },
         {
             "name": "varunsridharan/wp-cli-textdomain",
@@ -1105,16 +1120,16 @@
         },
         {
             "name": "wp-cli/i18n-command",
-            "version": "v2.2.1",
+            "version": "v2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/i18n-command.git",
-                "reference": "6a0582103ecf4a28b3086eac55a9fe590bd3dc96"
+                "reference": "2804c5246d9338da59951737b03c54d257be8e47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/i18n-command/zipball/6a0582103ecf4a28b3086eac55a9fe590bd3dc96",
-                "reference": "6a0582103ecf4a28b3086eac55a9fe590bd3dc96",
+                "url": "https://api.github.com/repos/wp-cli/i18n-command/zipball/2804c5246d9338da59951737b03c54d257be8e47",
+                "reference": "2804c5246d9338da59951737b03c54d257be8e47",
                 "shasum": ""
             },
             "require": {
@@ -1158,7 +1173,7 @@
             ],
             "description": "Provides internationalization tools for WordPress projects.",
             "homepage": "https://github.com/wp-cli/i18n-command",
-            "time": "2019-11-12T06:57:35+00:00"
+            "time": "2019-12-13T09:00:43+00:00"
         },
         {
             "name": "wp-cli/mustangostang-spyc",
@@ -1260,22 +1275,21 @@
         },
         {
             "name": "wp-cli/wp-cli",
-            "version": "v2.4.0",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-cli.git",
-                "reference": "74c949c74708e3a88ad0add70f3236c8675dfd85"
+                "reference": "ceb18598e79befa9b2a37a51efbb34910628988b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-cli/zipball/74c949c74708e3a88ad0add70f3236c8675dfd85",
-                "reference": "74c949c74708e3a88ad0add70f3236c8675dfd85",
+                "url": "https://api.github.com/repos/wp-cli/wp-cli/zipball/ceb18598e79befa9b2a37a51efbb34910628988b",
+                "reference": "ceb18598e79befa9b2a37a51efbb34910628988b",
                 "shasum": ""
             },
             "require": {
-                "cweagans/composer-patches": "^1.6",
                 "ext-curl": "*",
-                "mustache/mustache": "~2.4",
+                "mustache/mustache": "~2.13",
                 "php": "^5.4 || ^7.0",
                 "rmccue/requests": "~1.6",
                 "symfony/finder": ">2.7",
@@ -1302,11 +1316,6 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.4.x-dev"
-                },
-                "patches": {
-                    "mustache/mustache": {
-                        "Avoid notices on PHP 7.4+": "https://patch-diff.githubusercontent.com/raw/bobthecow/mustache.php/pull/349.patch"
-                    }
                 }
             },
             "autoload": {
@@ -1324,7 +1333,7 @@
                 "cli",
                 "wordpress"
             ],
-            "time": "2019-11-12T15:26:05+00:00"
+            "time": "2020-02-18T08:15:37+00:00"
         }
     ],
     "aliases": [],
@@ -1333,5 +1342,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

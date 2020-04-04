@@ -12,6 +12,6 @@ jobs:
       - name: Checking Out Repo Data
         uses: actions/checkout@v1
       - name: PHP Docs Generator
-        uses: varunsridharan/action-apigen@master
+        uses: varunsridharan/action-apigen@1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

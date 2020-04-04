@@ -115,7 +115,6 @@ if ( ! class_exists( '\WC_Quick_Buy\Button_Generator' ) ) {
 					'id'    => 'quick_buy_' . $this->product_id() . '_container',
 				) ), $this->product_id(), $this->product_type(), $this );
 				$this->html = '<div ' . $wrap_attr . ' >';
-				#$this->html .= '<div class="wcquickbuy-ajax-response-wrapper" style="display:none;visibility: hidden;color: transparent;"><div class="wcquickbuy-ajax-response"></div></div>';
 				$this->html .= sprintf( '<%1$s %3$s>%2$s</%1$s>', $tag, $args['label'], wponion_array_to_html_attributes( $attrs ) );
 				$this->html .= '</div>';
 			}

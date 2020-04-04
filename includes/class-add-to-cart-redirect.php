@@ -16,9 +16,30 @@ if ( ! class_exists( '\WC_Quick_Buy\Add_To_Cart_Redirect' ) ) {
 		 * Add_To_Cart_Redirect constructor.
 		 *
 		 * @uses quick_buy_redirect
+		 * @uses add_to_cart_action
 		 */
 		public function __construct() {
 			add_filter( 'woocommerce_add_to_cart_redirect', array( $this, 'quick_buy_redirect' ), 99 );
+			add_action( 'wp_loaded', array( $this, 'add_to_cart_action' ), -1 );
+		}
+
+		/**
+		 * Uses Custom AddToCart URL to override certain integrations
+		 *
+		 * @see WooCommerce added to cart popup (Ajax) | https://wordpress.org/plugins/added-to-cart-popup-woocommerce/
+		 * @throws \Exception
+		 */
+		public function add_to_cart_action() {
+			if ( ! isset( $_REQUEST['wcqb-add-to-cart'] ) || ! is_numeric( wp_unslash( $_REQUEST['wcqb-add-to-cart'] ) ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+				return;
+			}
+
+			if ( ! isset( $_REQUEST['add-to-cart'] ) || isset( $_REQUEST['add-to-cart'] ) && $_REQUEST['add-to-cart'] !== $_REQUEST['wcqb-add-to-cart'] ) {
+				$_REQUEST['add-to-cart'] = $_REQUEST['wcqb-add-to-cart'];
+			}
+
+			\WC_Form_Handler::add_to_cart_action();
+			exit;
 		}
 
 		/**
@@ -31,15 +52,10 @@ if ( ! class_exists( '\WC_Quick_Buy\Add_To_Cart_Redirect' ) ) {
 			$url      = false;
 			switch ( $redirect ) {
 				case 'cart':
-					$url = array(
-						'type' => 'internal',
-						'url'  => wc_get_cart_url(),
-					);
-					break;
 				case 'checkout':
 					$url = array(
 						'type' => 'internal',
-						'url'  => wc_get_checkout_url(),
+						'url'  => ( 'cart' === $redirect ) ? wc_get_cart_url() : wc_get_checkout_url(),
 					);
 					break;
 				case 'custom':
@@ -56,21 +72,6 @@ if ( ! class_exists( '\WC_Quick_Buy\Add_To_Cart_Redirect' ) ) {
 		}
 
 		/**
-		 * Custom Plugin Integration For : WooCommerce added to cart popup (Ajax)
-		 *
-		 * @param $data
-		 *
-		 * @return mixed
-		 * @todo need to work for the below plugin
-		 * @since 2.4
-		 * @link https://wordpress.org/support/topic/compatibility-issue-41/ -- https://wordpress.org/plugins/added-to-cart-popup-woocommerce/
-		 */
-		public function plugin_integration_xoo_cp( $data ) {
-			$data['div.wcquickbuy-ajax-response'] = wp_json_encode( $this->get_redirect_url() );
-			return $data;
-		}
-
-		/**
 		 * Function to redirect user after qucik buy button is submitted
 		 *
 		 * @param string $url
@@ -78,13 +79,7 @@ if ( ! class_exists( '\WC_Quick_Buy\Add_To_Cart_Redirect' ) ) {
 		 * @return string
 		 */
 		public function quick_buy_redirect( $url ) {
-			/*if ( vsp_is_ajax() && vsp_is_ajax( 'xoo_cp_add_to_cart' ) ) {
-				# @uses plugin_integration_xoo_cp
-				add_filter( 'woocommerce_add_to_cart_fragments', array( &$this, 'plugin_integration_xoo_cp' ) );
-				return $url;
-			}*/
-
-			if ( isset( $_REQUEST['quick_buy'] ) && ! empty( $_REQUEST['quick_buy'] ) ) {
+			if ( Helper::is_add_to_cart_request() ) {
 				$redirect = $this->get_redirect_url();
 				$redirect = ( ! is_array( $redirect ) ) ? array( 'url' => false ) : $redirect;
 

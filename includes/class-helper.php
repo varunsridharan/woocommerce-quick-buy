@@ -161,5 +161,13 @@ if ( ! class_exists( '\WC_Quick_Buy\Helper' ) ) {
 			}
 			return $types;
 		}
+
+		/**
+		 * @static
+		 * @return bool
+		 */
+		public static function is_add_to_cart_request() {
+			return isset( $_REQUEST['quick_buy'] ) && ! empty( $_REQUEST['quick_buy'] );
+		}
 	}
 }
