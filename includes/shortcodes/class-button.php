@@ -56,7 +56,7 @@ if ( ! class_exists( '\WC_Quick_Buy\Shortcodes\Button' ) ) {
 							'qty'          => $this->option( 'qty' ),
 							'label'        => $this->option( 'label' ),
 							'hide_in_cart' => $this->option( 'hide_in_cart' ),
-							'class'        => $this->option( 'htmlclass' ),
+							'class'        => $this->option( 'css_class' ),
 						) );
 						return $instance->html();
 					}
