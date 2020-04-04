@@ -5,8 +5,8 @@ Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
 **Tags:** Woocommerce,wc,Quick buy,add to cart,affiliate, cart, checkout, commerce, configurable, digital, download, downloadable, e-commerce, ecommerce, inventory, reports, sales, sell, shipping, shop, shopping, stock, store, tax, variable, widgets, woothemes, wordpress ecommerce  
 **Donate link:** http://paypal.me/varunsridharan23  
 **Requires at least:** 3.0  
-**Tested up to:** 5.3.2  
-**Stable tag:** 2.4  
+**Tested up to:** 5.4  
+**Stable tag:** 2.5  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html    
 
@@ -30,6 +30,7 @@ When User Clicks This Button. The Current product Will Be Added To Cart And The 
 > 7. <a href="https://wordpress.org/plugins/yith-woocommerce-product-bundles/">YITH Product Bundles</a>
 > 8. <a href="https://wordpress.org/plugins/yith-woocommerce-product-add-ons/">YITH WooCommerce Product Add-Ons</a>
 > 9. <a href="https://wordpress.org/plugins/yith-woocommerce-subscription/">YITH WooCommerce Subscription</a>
+> 10. <a href="https://wordpress.org/plugins/added-to-cart-popup-woocommerce/">WooCommerce added to cart popup (Ajax)</a>
 
 
 **Settings Available Under**
@@ -166,11 +167,21 @@ Please open an issue at <a href="https://github.com/varunsridharan/woocommerce-q
 
 ## Changelog 
 
+
+### 2.5 - 04/04/2020 
+* Fixed : Integration Issue with WooCommerce added to cart popup (Ajax)
+* Fixed : https://wordpress.org/support/topic/quickbuy-button-shortcode/
+* Tested : With Latest WooCommerce - 4.0.1
+* Tested : With Latest WordPress - 5.4
+* Updated : WPOnion Framework To 1.4.5
+* Updated : VSP Framework To 0.8.0
+
+
 ### 2.4 - 30/01/2020 
 * Fixed : Shortcode Issue - https://wordpress.org/support/topic/fatal-error-uncaught-error-call-to-a-member-function-is_in_stock-on-string/
 * Fixed : Button Render issue - https://github.com/varunsridharan/woocommerce-quick-buy/issues/27
-* Tested : With Latest WooCommerce
-* Tested : With Latest WordPress
+* Tested : With Latest WooCommerce - 3.9.1
+* Tested : With Latest WordPress - 5.3.2
 
 
 ### 2.3 - 05/12/2019 

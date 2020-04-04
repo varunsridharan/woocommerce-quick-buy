@@ -9,7 +9,6 @@
 		},
 	};
 	$( () => {
-
 		const $document = $( document );
 
 		$document.on( 'click', '.wcqb_button', function() {
@@ -23,7 +22,9 @@
 			if( submit_btn.is( ':disabled' ) ) {
 				$( 'html, body' ).animate( { scrollTop: submit_btn.offset().top - 200 }, 900 );
 			} else {
-				productform.find( '[type="submit"]' ).click();
+				let $submit_btn = productform.find( '[type="submit"]' );
+				$submit_btn.attr( 'name', 'wcqb-' + $submit_btn.attr( 'name' ) );
+				$submit_btn.click();
 			}
 		} );
 

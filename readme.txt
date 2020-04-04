@@ -142,6 +142,7 @@ Please open an issue at <a href="https://github.com/varunsridharan/woocommerce-q
 
 = 2.5 - 04/04/2020 = 
 * Fixed : Integration Issue with WooCommerce added to cart popup (Ajax)
+* Fixed : https://wordpress.org/support/topic/quickbuy-button-shortcode/
 * Tested : With Latest WooCommerce - 4.0.1
 * Tested : With Latest WordPress - 5.4
 * Updated : WPOnion Framework To 1.4.5
