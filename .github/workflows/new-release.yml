@@ -1,4 +1,4 @@
-name: New Release
+name: On Release
 
 on:
   push:
@@ -6,20 +6,18 @@ on:
       - "*"
 
 jobs:
-  build:
+  WordPress_Publisher:
     runs-on: ubuntu-latest
     steps:
-      - name: Checking Out Plugin Data
+      - name: Fetching Repository
         uses: actions/checkout@v1
       - name: Installing Composer
         uses: pxgamer/composer-action@master
         with:
           command: install --no-dev
-      - name: WordPress Plugin Deploy
+      - name: Publishing Release To WordPress
         uses: varunsridharan/action-wp-org-deploy@master
         with:
           WORDPRESS_PASSWORD: ${{ secrets.WP_PASSWORD }}
           WORDPRESS_USERNAME: ${{ secrets.WP_USERNAME }}
           SLUG: ${{ secrets.WP_SLUG }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
