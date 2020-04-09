@@ -82,16 +82,16 @@
         },
         {
             "name": "varunsridharan/sweetalert2-php",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/varunsridharan/sweetalert2-php.git",
-                "reference": "d6f7eb37bd28d22bfb56176a51a558e5d71cd954"
+                "reference": "123ba880d4c25b6840ed8015a7bacc2666b67184"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/varunsridharan/sweetalert2-php/zipball/d6f7eb37bd28d22bfb56176a51a558e5d71cd954",
-                "reference": "d6f7eb37bd28d22bfb56176a51a558e5d71cd954",
+                "url": "https://api.github.com/repos/varunsridharan/sweetalert2-php/zipball/123ba880d4c25b6840ed8015a7bacc2666b67184",
+                "reference": "123ba880d4c25b6840ed8015a7bacc2666b67184",
                 "shasum": ""
             },
             "type": "library",
@@ -131,20 +131,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-03-16T13:02:30+00:00"
+            "time": "2020-04-06T04:19:14+00:00"
         },
         {
             "name": "varunsridharan/vsp-framework",
-            "version": "0.8.0",
+            "version": "0.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/varunsridharan/vsp-framework.git",
-                "reference": "f6bf8d32e281369209f056c5c435dc394a3b0a90"
+                "reference": "288e4009a2e91ae02a995f02157df22911b6ce48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/varunsridharan/vsp-framework/zipball/f6bf8d32e281369209f056c5c435dc394a3b0a90",
-                "reference": "f6bf8d32e281369209f056c5c435dc394a3b0a90",
+                "url": "https://api.github.com/repos/varunsridharan/vsp-framework/zipball/288e4009a2e91ae02a995f02157df22911b6ce48",
+                "reference": "288e4009a2e91ae02a995f02157df22911b6ce48",
                 "shasum": ""
             },
             "require": {
@@ -186,11 +186,15 @@
                     "type": "custom"
                 },
                 {
-                    "url": "https://github.com/varunsridharan",
+                    "url": "https://github.com/varunsridharan23",
                     "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/varunsridharan",
+                    "type": "patreon"
                 }
             ],
-            "time": "2020-03-17T02:45:42+00:00"
+            "time": "2020-04-08T02:28:50+00:00"
         },
         {
             "name": "varunsridharan/wp-ajaxer",
@@ -590,7 +594,7 @@
         },
         {
             "name": "varunsridharan/wpallimport_rapidaddon",
-            "version": "546.546",
+            "version": "552.552",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vsp-libs/wp-all-import-rapid-addon.git",
@@ -619,16 +623,16 @@
         },
         {
             "name": "wponion/wponion",
-            "version": "1.4.5",
+            "version": "1.4.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wponion/wponion.git",
-                "reference": "85332ea342fff00cb7bd87f5f5764de0be1b602b"
+                "reference": "50b0f89cec58b6a2143beb13754e01fc1c36a017"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wponion/wponion/zipball/85332ea342fff00cb7bd87f5f5764de0be1b602b",
-                "reference": "85332ea342fff00cb7bd87f5f5764de0be1b602b",
+                "url": "https://api.github.com/repos/wponion/wponion/zipball/50b0f89cec58b6a2143beb13754e01fc1c36a017",
+                "reference": "50b0f89cec58b6a2143beb13754e01fc1c36a017",
                 "shasum": ""
             },
             "require": {
@@ -701,7 +705,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-04-03T01:13:18+00:00"
+            "time": "2020-04-06T07:13:57+00:00"
         }
     ],
     "packages-dev": [
