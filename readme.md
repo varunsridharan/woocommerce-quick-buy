@@ -6,7 +6,7 @@ Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
 **Donate link:** http://paypal.me/varunsridharan23  
 **Requires at least:** 3.0  
 **Tested up to:** 5.4  
-**Stable tag:** 2.5  
+**Stable tag:** 2.6  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html    
 
@@ -166,6 +166,11 @@ Please open an issue at <a href="https://github.com/varunsridharan/woocommerce-q
 
 
 ## Changelog 
+
+### 2.6 - 09/04/2020 
+* Fixed : https://wordpress.org/support/topic/button-deletes-cart-items-regardless-option-turned-off/
+* Updated : WPOnion Framework To 1.4.5.1
+* Updated : VSP Framework To 0.8.2
 
 
 ### 2.5 - 04/04/2020 

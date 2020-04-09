@@ -96,8 +96,8 @@ if ( ! class_exists( 'WC_Quick_Buy' ) ) {
 		public function admin_init() {
 			if ( vsp_is_admin() && ! vsp_is_ajax() ) {
 				wponion_plugin_links( $this->file() )
-					->action_link_before( 'settings', '⚙️ ' . __( 'Settings' ), admin_url( 'admin.php?page=quick-buy' ) )
-					->row_link( '📚 ' . __( 'Documentation' ), 'https://wordpress.org/plugins/woocommerce-quick-buy' );
+					->action_link_before( 'settings', '⚙️ ' . __( 'Settings', 'wc-quick-buy' ), admin_url( 'admin.php?page=quick-buy' ) )
+					->row_link( '📚 ' . __( 'Documentation', 'wc-quick-buy' ), 'https://wordpress.org/plugins/woocommerce-quick-buy' );
 			}
 		}
 	}
