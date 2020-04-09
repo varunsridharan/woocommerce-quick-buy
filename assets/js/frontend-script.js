@@ -9,7 +9,8 @@
 		},
 	};
 	$( () => {
-		const $document = $( document );
+		const $document  = $( document );
+		let $submit_name = false;
 
 		$document.on( 'click', '.wcqb_button', function() {
 			let product_id  = $( this ).attr( 'data-product-id' ),
@@ -19,12 +20,15 @@
 			productform.find( 'input[name=quick_buy]' ).remove();
 			productform.append( '<input type="hidden" value="true" name="quick_buy" />' );
 
+			if( false === $submit_name ) {
+				$submit_name = submit_btn.attr( 'name' );
+			}
+
 			if( submit_btn.is( ':disabled' ) ) {
 				$( 'html, body' ).animate( { scrollTop: submit_btn.offset().top - 200 }, 900 );
 			} else {
-				let $submit_btn = productform.find( '[type="submit"]' );
-				$submit_btn.attr( 'name', 'wcqb-' + $submit_btn.attr( 'name' ) );
-				$submit_btn.click();
+				submit_btn.attr( 'name', 'wcqb-' + $submit_name );
+				submit_btn.click();
 			}
 		} );
 

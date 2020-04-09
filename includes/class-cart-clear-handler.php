@@ -29,7 +29,7 @@ if ( ! class_exists( '\WC_Quick_Buy\Cart_Clear_Handler' ) ) {
 		 * @return mixed
 		 */
 		public function validate_and_clear( $dummy ) {
-			if ( Helper::is_add_to_cart_request() ) {
+			if ( Helper::is_add_to_cart_request() && false !== Helper::option( 'auto_clear_cart' ) ) {
 				\VSP\Helper::wc_clear_cart_if_notempty();
 			}
 			return $dummy;

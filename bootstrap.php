@@ -89,5 +89,16 @@ if ( ! class_exists( 'WC_Quick_Buy' ) ) {
 			wp_register_style( 'wcqb-admin-style', $this->plugin_url( 'assets/css/admin.css' ) );
 			wp_register_script( 'wcqb-admin-script', $this->plugin_url( 'assets/js/admin-script.js' ) );
 		}
+
+		/**
+		 * On Admin Init.
+		 */
+		public function admin_init() {
+			if ( vsp_is_admin() && ! vsp_is_ajax() ) {
+				wponion_plugin_links( $this->file() )
+					->action_link_before( 'settings', '⚙️ ' . __( 'Settings' ), admin_url( 'admin.php?page=quick-buy' ) )
+					->row_link( '📚 ' . __( 'Documentation' ), 'https://wordpress.org/plugins/woocommerce-quick-buy' );
+			}
+		}
 	}
 }

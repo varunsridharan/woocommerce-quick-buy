@@ -20,7 +20,7 @@ if ( ! class_exists( '\WC_Quick_Buy\Add_To_Cart_Redirect' ) ) {
 		 */
 		public function __construct() {
 			add_filter( 'woocommerce_add_to_cart_redirect', array( $this, 'quick_buy_redirect' ), 99 );
-			add_action( 'wp_loaded', array( $this, 'add_to_cart_action' ), -1 );
+			add_action( 'wp_loaded', array( $this, 'add_to_cart_action' ), 100 );
 		}
 
 		/**
