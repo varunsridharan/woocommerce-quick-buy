@@ -36,4 +36,4 @@ wp-pot.json
 .wordpress-org
 .wporgassetsignore
 .wporgignore
-./src/
+/src/
