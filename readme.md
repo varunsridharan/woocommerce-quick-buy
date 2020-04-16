@@ -6,7 +6,7 @@ Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
 **Donate link:** http://paypal.me/varunsridharan23  
 **Requires at least:** 3.0  
 **Tested up to:** 5.4  
-**Stable tag:** 2.6  
+**Stable tag:** 2.7  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html    
 
@@ -140,13 +140,11 @@ The manual installation method involves downloading our plugin and uploading it 
 
 ## Frequently Asked Questions 
 
-** How I Can Get Support For This Plugin**
+**How I Can Get Support For This Plugin**
 
-* http://varunsridharan.in/plugin-support/ 
 * https://wordpress.org/support/plugin/woocommerce-quick-buy 
 * https://github.com/varunsridharan/woocommerce-quick-buy
 * Email : varunsridharan23@gmail.com 
-* Email : plugin@varunsridharan.in
 
 **I have an idea for your plugin!**  
 That's great. We are always open to your input, and we would like to add anything we think will be useful to a lot of people. Please send your comment/idea to varunsridharan23@gmail.com
@@ -166,6 +164,12 @@ Please open an issue at <a href="https://github.com/varunsridharan/woocommerce-q
 
 
 ## Changelog 
+
+### 2.7 - 16/04/2020 
+* Fixed : Improved Autoload Speed
+* Updated : WPOnion Framework To 1.4.5.2
+* Updated : VSP Framework To 0.8.4
+
 
 ### 2.6 - 09/04/2020 
 * Fixed : https://wordpress.org/support/topic/button-deletes-cart-items-regardless-option-turned-off/

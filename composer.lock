@@ -135,16 +135,16 @@
         },
         {
             "name": "varunsridharan/vsp-framework",
-            "version": "0.8.2",
+            "version": "0.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/varunsridharan/vsp-framework.git",
-                "reference": "288e4009a2e91ae02a995f02157df22911b6ce48"
+                "reference": "529dd237b7d644de5f6afe4a5030f4988e1bdd23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/varunsridharan/vsp-framework/zipball/288e4009a2e91ae02a995f02157df22911b6ce48",
-                "reference": "288e4009a2e91ae02a995f02157df22911b6ce48",
+                "url": "https://api.github.com/repos/varunsridharan/vsp-framework/zipball/529dd237b7d644de5f6afe4a5030f4988e1bdd23",
+                "reference": "529dd237b7d644de5f6afe4a5030f4988e1bdd23",
                 "shasum": ""
             },
             "require": {
@@ -155,10 +155,12 @@
                 "varunsridharan/wp-plugin-version-management": ">=1.0",
                 "varunsridharan/wp-post": ">=1.0",
                 "varunsridharan/wp-transient-api": ">=1.0",
-                "varunsridharan/wpallimport_rapidaddon": "*"
+                "varunsridharan/wpallimport_rapidaddon": "*",
+                "wponion/wponion": "*"
             },
             "require-dev": {
-                "varunsridharan/php-classmap-generator": "*"
+                "varunsridharan/php-classmap-generator": "*",
+                "varunsridharan/wp-cli-textdomain": "^1.1"
             },
             "type": "library",
             "autoload": {
@@ -180,21 +182,7 @@
             ],
             "description": "Simple & Lightweight WP Plugin Framework",
             "homepage": "https://github.com/varunsridharan/vsp-framework",
-            "funding": [
-                {
-                    "url": "https://paypal.me/varunsridharan23",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/varunsridharan23",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/varunsridharan",
-                    "type": "patreon"
-                }
-            ],
-            "time": "2020-04-08T02:28:50+00:00"
+            "time": "2020-04-16T01:10:30+00:00"
         },
         {
             "name": "varunsridharan/wp-ajaxer",
@@ -594,7 +582,7 @@
         },
         {
             "name": "varunsridharan/wpallimport_rapidaddon",
-            "version": "554.554",
+            "version": "557.557",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vsp-libs/wp-all-import-rapid-addon.git",
@@ -623,16 +611,16 @@
         },
         {
             "name": "wponion/wponion",
-            "version": "1.4.5.1",
+            "version": "1.4.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wponion/wponion.git",
-                "reference": "50b0f89cec58b6a2143beb13754e01fc1c36a017"
+                "reference": "1cfc6330747768ffee4ec285189726ea88af1e01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wponion/wponion/zipball/50b0f89cec58b6a2143beb13754e01fc1c36a017",
-                "reference": "50b0f89cec58b6a2143beb13754e01fc1c36a017",
+                "url": "https://api.github.com/repos/wponion/wponion/zipball/1cfc6330747768ffee4ec285189726ea88af1e01",
+                "reference": "1cfc6330747768ffee4ec285189726ea88af1e01",
                 "shasum": ""
             },
             "require": {
@@ -691,21 +679,7 @@
                 "wponion",
                 "wponion-framework"
             ],
-            "funding": [
-                {
-                    "url": "https://paypal.me/varunsridharan23",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/varunsridharan",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/varunsridharan",
-                    "type": "patreon"
-                }
-            ],
-            "time": "2020-04-06T07:13:57+00:00"
+            "time": "2020-04-15T01:34:37+00:00"
         }
     ],
     "packages-dev": [
