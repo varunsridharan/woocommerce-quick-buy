@@ -2,32 +2,35 @@
   "name"        : "varunsridharan/woocommerce-quick-buy",
   "description" : "Add Quick buy button to redirect user to checkout / cart immediately when he click quick buy button",
   "support"     : {
-	"email"  : "varunsridharan23@gmail.com",
-	"issues" : "https://github.com/varunsridharan/woocommerce-quick-buy/issues/",
-	"source" : "https://github.com/varunsridharan/woocommerce-quick-buy/"
+    "email"  : "varunsridharan23@gmail.com",
+    "issues" : "https://github.com/varunsridharan/woocommerce-quick-buy/issues/",
+    "source" : "https://github.com/varunsridharan/woocommerce-quick-buy/"
   },
   "homepage"    : "https://wordpress.org/plugins/woocommerce-quick-buy",
   "license"     : "GPL-3.0-or-later",
   "require"     : {
-	"wponion/wponion"              : "*",
-	"varunsridharan/vsp-framework" : "*"
+    "wponion/wponion"              : "*",
+    "varunsridharan/vsp-framework" : "*"
   },
   "require-dev" : {
-	"varunsridharan/wp-cli-textdomain" : "*",
-	"varunsridharan/wp2github-md"      : "*"
+    "varunsridharan/wp-cli-textdomain"      : "*",
+    "varunsridharan/wp2github-md"           : "*",
+    "mustangostang/spyc"                    : "*",
+    "varunsridharan/php-classmap-generator" : "*"
   },
   "scripts"     : {
-	"makepot"        : "makepot ./wp-pot.json",
-	"add-textdomain" : "add-textdomain -i wc-quick-buy ./",
+    "makepot"        : "makepot ./wp-pot.json",
+    "add-textdomain" : "add-textdomain -i wc-quick-buy ./",
     "wp2githubmd"    : "wp2gitthub-md \"woocommerce-quick-buy\" \"./readme.txt\" ",
-	"build"          : [ "@add-textdomain", "@makepot", "@wp2githubmd" ]
+    "classmaps"      : "classmap-generator \"includes/\" ./classmaps.php",
+    "build"          : [ "@classmaps", "@makepot", "@add-textdomain", "@wp2githubmd" ]
   },
   "authors"     : [
-	{
-	  "name"     : "Varun Sridharan",
-	  "email"    : "varunsridharan23@gmail.com",
-	  "homepage" : "http://varunsridharan.in",
-	  "role"     : "Developer"
-	}
+    {
+      "name"     : "Varun Sridharan",
+      "email"    : "varunsridharan23@gmail.com",
+      "homepage" : "http://varunsridharan.in",
+      "role"     : "Developer"
+    }
   ]
 }

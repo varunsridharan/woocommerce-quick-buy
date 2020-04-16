@@ -34,6 +34,9 @@ if ( ! class_exists( 'WC_Quick_Buy' ) ) {
 				'autoloader'   => array(
 					'namespace' => 'WC_Quick_Buy',
 					'base_path' => $this->plugin_path( 'includes/' ),
+					'options'   => array(
+						'classmap' => $this->plugin_path( 'classmaps.php' ),
+					),
 				),
 			);
 			$options['settings_page'] = array(
