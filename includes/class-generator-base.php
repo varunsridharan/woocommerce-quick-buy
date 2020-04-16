@@ -12,34 +12,45 @@ if ( ! class_exists( '\WC_Quick_Buy\Generator_Base' ) ) {
 	 * @author Varun Sridharan <varunsridharan23@gmail.com>
 	 */
 	class Generator_Base {
-
 		/**
+		 * Stores Product Type for which it generates.
+		 *
 		 * @var bool|string|int
 		 */
 		protected $product_type = false;
 
 		/**
+		 * Stores Product ID for which it generates
+		 *
 		 * @var bool|string|int
 		 */
 		protected $product_id = false;
 
 		/**
+		 * Stores \WC_Product Instance for which it generates
+		 *
 		 * @var bool|\WC_Product
 		 */
 		protected $product = false;
 
 		/**
-		 * @var bool|\WC_Product
+		 * Custom Arguments.
+		 *
+		 * @var array|bool
 		 */
 		protected $args = false;
 
 		/**
-		 * @var bool
+		 * Stores Generated HTML.
+		 *
+		 * @var string|bool
 		 */
 		protected $html = false;
 
 
 		/**
+		 * Returns Current Product.
+		 *
 		 * @return bool|\WC_Product
 		 */
 		public function product() {
@@ -47,6 +58,8 @@ if ( ! class_exists( '\WC_Quick_Buy\Generator_Base' ) ) {
 		}
 
 		/**
+		 * Returns Current Product ID.
+		 *
 		 * @return bool|int|string
 		 */
 		public function product_id() {
@@ -58,6 +71,8 @@ if ( ! class_exists( '\WC_Quick_Buy\Generator_Base' ) ) {
 		}
 
 		/**
+		 * Returns Product Type.
+		 *
 		 * @return bool|int|string
 		 */
 		public function product_type() {
@@ -69,6 +84,8 @@ if ( ! class_exists( '\WC_Quick_Buy\Generator_Base' ) ) {
 		}
 
 		/**
+		 * Generates A Product Instance.
+		 *
 		 * @param $product
 		 *
 		 * @return bool
@@ -84,6 +101,5 @@ if ( ! class_exists( '\WC_Quick_Buy\Generator_Base' ) ) {
 			$this->product = $product;
 			return true;
 		}
-
 	}
 }

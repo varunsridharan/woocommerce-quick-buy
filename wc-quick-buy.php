@@ -37,14 +37,14 @@ if ( function_exists( 'wponion_load' ) ) {
 
 if ( ! function_exists( 'wc_quick_buy_init' ) ) {
 	/**
+	 * Inits WC Quick Buy Plugin Once VSP Framework is Loaded.
+	 *
 	 * @return bool|\WC_Quick_Buy
 	 */
 	function wc_quick_buy_init() {
-		if ( ! vsp_add_wc_required_notice( WCQB_NAME ) ) {
-			if ( ! vsp_is_ajax() || ! vsp_is_cron() ) {
-				require_once __DIR__ . '/bootstrap.php';
-				return wc_quick_buy();
-			}
+		if ( ! vsp_add_wc_required_notice( WCQB_NAME ) && ( ! vsp_is_ajax() || ! vsp_is_cron() ) ) {
+			require_once __DIR__ . '/bootstrap.php';
+			return wc_quick_buy();
 		}
 		return false;
 	}

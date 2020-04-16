@@ -7,6 +7,8 @@ use WC_Quick_Buy\Helper;
 if ( ! trait_exists( '\WC_Quick_Buy\Admin\Settings\General' ) ) {
 	trait General {
 		/**
+		 * Generates Basic Config Fields.
+		 *
 		 * @param \WPO\Container $builder
 		 */
 		public function general( $builder ) {
@@ -20,6 +22,8 @@ if ( ! trait_exists( '\WC_Quick_Buy\Admin\Settings\General' ) ) {
 		}
 
 		/**
+		 * Generates Basic Config Fields.
+		 *
 		 * @param \WPO\Container $builder
 		 */
 		private function basic_config( $builder ) {
@@ -47,10 +51,14 @@ if ( ! trait_exists( '\WC_Quick_Buy\Admin\Settings\General' ) ) {
 		}
 
 		/**
+		 * Generate Product Config Fields.
+		 *
 		 * @param \WPO\Container $builder
+		 *
+		 * @uses \WC_Quick_Buy\Helper::product_types()
+		 * @uses \WC_Quick_Buy\Helper::get_all_product_types()
 		 */
 		private function product_config( $builder ) {
-			#$builder->subheading( __( 'Product Configuration' ) );
 			$builder->select( 'enabled_product_types', __( 'Enabled Product Types', 'wc-quick-buy' ) )
 				->options( array( '\WC_Quick_Buy\Helper', 'product_types' ) )
 				->style( 'width:40%;' )
@@ -82,7 +90,7 @@ if ( ! trait_exists( '\WC_Quick_Buy\Admin\Settings\General' ) ) {
 					'placement' => 'top-left',
 				) )
 				->style( 'width:50%;' )
-				->options( Helper::get_all_product_types() )
+				->options( array( '\WC_Quick_Buy\Helper', 'get_all_product_types' ) )
 				->multiple( true )
 				->select_framework( 'select2' )
 				->desc_field( array(
@@ -93,7 +101,11 @@ if ( ! trait_exists( '\WC_Quick_Buy\Admin\Settings\General' ) ) {
 		}
 
 		/**
+		 * Generates Redirect Related Fields.
+		 *
 		 * @param \WPO\Container $builder
+		 *
+		 * @uses \WC_Quick_Buy\Helper::redirect_locations()
 		 */
 		private function redirect_config( $builder ) {
 			$builder->subheading( __( 'Redirect Configuration', 'wc-quick-buy' ) );
@@ -111,7 +123,12 @@ if ( ! trait_exists( '\WC_Quick_Buy\Admin\Settings\General' ) ) {
 		}
 
 		/**
+		 * Generates Button Placement Related Fields.
+		 *
 		 * @param \WPO\Container $builder
+		 *
+		 * @uses \WC_Quick_Buy\Helper::single_product_placement()
+		 * @uses \WC_Quick_Buy\Helper::shop_page_placement()
 		 */
 		private function single_product_placement( $builder ) {
 			#$builder->subheading( __( 'Quick Buy Button Placement' ) );

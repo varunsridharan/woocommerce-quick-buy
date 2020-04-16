@@ -30,6 +30,8 @@ if ( ! class_exists( '\WC_Quick_Buy\URL_Generator' ) ) {
 		}
 
 		/**
+		 * Generates HTML A Tag.
+		 *
 		 * @return bool|mixed|string
 		 */
 		public function html() {

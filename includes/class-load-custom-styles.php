@@ -22,6 +22,8 @@ if ( ! class_exists( '\WC_Quick_Buy\Load_Custom_Styles' ) ) {
 		}
 
 		/**
+		 * Returns Custom Quick Buy Style.
+		 *
 		 * @return string
 		 */
 		private function render_quick_buy_style() {

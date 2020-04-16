@@ -23,6 +23,7 @@ if ( ! class_exists( '\WC_Quick_Buy\Shortcodes\Button' ) ) {
 
 		/**
 		 * Return's Default Value.
+		 *
 		 * @return array
 		 */
 		protected function defaults() {
@@ -37,6 +38,7 @@ if ( ! class_exists( '\WC_Quick_Buy\Shortcodes\Button' ) ) {
 
 		/**
 		 * Generates Shortcode Output.
+		 *
 		 * @return mixed|string
 		 */
 		protected function output() {

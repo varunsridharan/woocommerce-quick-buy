@@ -11,6 +11,8 @@ if ( ! trait_exists( '\WC_Quick_Buy\Admin\Settings\Button_Styling' ) ) {
 	 */
 	trait Button_Styling {
 		/**
+		 * Generates Button Styleing Field.
+		 *
 		 * @param \WPO\Container $builder
 		 */
 		public function button_styling( $builder ) {
@@ -19,6 +21,8 @@ if ( ! trait_exists( '\WC_Quick_Buy\Admin\Settings\Button_Styling' ) ) {
 		}
 
 		/**
+		 * Generates Basic Button Options.
+		 *
 		 * @param \WPO\Container $builder
 		 */
 		private function basic_button( $builder ) {
@@ -30,7 +34,11 @@ if ( ! trait_exists( '\WC_Quick_Buy\Admin\Settings\Button_Styling' ) ) {
 
 
 		/**
+		 * Generate Button Preset Options.
+		 *
 		 * @param \WPO\Container $builder
+		 *
+		 * @uses \WC_Quick_Buy\Helper::button_presets()
 		 */
 		private function presets( $builder ) {
 			$builder->select( 'button_style_styles', __( 'Button Style', 'wc-quick-buy' ) )

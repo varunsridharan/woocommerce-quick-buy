@@ -42,6 +42,8 @@ if ( ! class_exists( '\WC_Quick_Buy\URL_Endpoint' ) ) {
 		}
 
 		/**
+		 * Add's To Cart if Quick Buy Sent Request.
+		 *
 		 * @param $query
 		 *
 		 * @return mixed

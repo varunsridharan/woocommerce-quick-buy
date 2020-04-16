@@ -60,6 +60,8 @@ if ( ! class_exists( '\WC_Quick_Buy\Helper' ) ) {
 		}
 
 		/**
+		 * Returns Single Product Placement Options.
+		 *
 		 * @static
 		 * @return array
 		 */
@@ -74,6 +76,8 @@ if ( ! class_exists( '\WC_Quick_Buy\Helper' ) ) {
 		}
 
 		/**
+		 * Returns Shop Page Placement Options.
+		 *
 		 * @static
 		 * @return array
 		 */
@@ -86,6 +90,8 @@ if ( ! class_exists( '\WC_Quick_Buy\Helper' ) ) {
 		}
 
 		/**
+		 * Returns Button Presets Options.
+		 *
 		 * @static
 		 * @return array
 		 */
@@ -163,6 +169,8 @@ if ( ! class_exists( '\WC_Quick_Buy\Helper' ) ) {
 		}
 
 		/**
+		 * Checks if is_add_to_cart request made by Quick Buy.
+		 *
 		 * @static
 		 * @return bool
 		 */
