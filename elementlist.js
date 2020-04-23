@@ -1,0 +1,3 @@
+
+var ApiGen = ApiGen || {};
+ApiGen.elements = [["c","WC_Quick_Buy"],["f","wc_quick_buy()"],["c","WC_Quick_Buy\\Add_To_Cart_Redirect"],["c","WC_Quick_Buy\\Admin\\Settings"],["c","WC_Quick_Buy\\Admin\\Settings\\Button_Styling"],["c","WC_Quick_Buy\\Admin\\Settings\\General"],["c","WC_Quick_Buy\\Button_Generator"],["c","WC_Quick_Buy\\Button_Placement"],["c","WC_Quick_Buy\\Cart_Clear_Handler"],["c","WC_Quick_Buy\\Generator_Base"],["c","WC_Quick_Buy\\Helper"],["c","WC_Quick_Buy\\Load_Custom_Styles"],["c","WC_Quick_Buy\\Shortcodes\\Button"],["c","WC_Quick_Buy\\Shortcodes\\Link"],["c","WC_Quick_Buy\\URL_Endpoint"],["c","WC_Quick_Buy\\URL_Generator"],["f","wc_quick_buy_init()"]];
