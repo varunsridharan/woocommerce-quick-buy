@@ -2,6 +2,8 @@
 
 namespace WC_Quick_Buy;
 
+defined( 'ABSPATH' ) || exit;
+
 use WC_Product;
 
 if ( ! class_exists( '\WC_Quick_Buy\Generator_Base' ) ) {

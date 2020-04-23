@@ -2,6 +2,8 @@
 
 namespace WC_Quick_Buy;
 
+defined( 'ABSPATH' ) || exit;
+
 if ( ! class_exists( '\WC_Quick_Buy\Helper' ) ) {
 	/**
 	 * Class Helper

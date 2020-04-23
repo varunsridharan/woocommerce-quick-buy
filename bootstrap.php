@@ -1,10 +1,8 @@
 <?php
 
-use VSP\Framework;
+defined( 'ABSPATH' ) || exit;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	die;
-}
+use VSP\Framework;
 
 if ( ! class_exists( 'WC_Quick_Buy' ) ) {
 	/**

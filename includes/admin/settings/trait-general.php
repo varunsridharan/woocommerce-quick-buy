@@ -2,7 +2,7 @@
 
 namespace WC_Quick_Buy\Admin\Settings;
 
-use WC_Quick_Buy\Helper;
+defined( 'ABSPATH' ) || exit;
 
 if ( ! trait_exists( '\WC_Quick_Buy\Admin\Settings\General' ) ) {
 	trait General {

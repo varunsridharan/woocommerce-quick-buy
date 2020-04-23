@@ -2,6 +2,8 @@
 
 namespace WC_Quick_Buy\Shortcodes;
 
+defined( 'ABSPATH' ) || exit;
+
 use VSP\Modules\Shortcode;
 use WC_Product;
 use WC_Quick_Buy\Helper;

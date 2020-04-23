@@ -2,6 +2,8 @@
 
 namespace WC_Quick_Buy\Admin\Settings;
 
+defined( 'ABSPATH' ) || exit;
+
 if ( ! trait_exists( '\WC_Quick_Buy\Admin\Settings\Button_Styling' ) ) {
 	/**
 	 * Trait Button_Styling

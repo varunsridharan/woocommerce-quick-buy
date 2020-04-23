@@ -2,6 +2,8 @@
 
 namespace WC_Quick_Buy;
 
+defined( 'ABSPATH' ) || exit;
+
 use VSP\Base;
 
 if ( ! class_exists( '\WC_Quick_Buy\Button_Placement' ) ) {
