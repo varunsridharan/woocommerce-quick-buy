@@ -24,12 +24,12 @@ if ( ! class_exists( '\WC_Quick_Buy\Admin\Settings' ) ) {
 			$this->general( $this->builder->container( 'general', __( 'General', 'wc-quick-buy' ) ) );
 			$this->button_styling( $this->builder->container( 'button_styling', __( 'Button Styling', 'wc-quick-buy' ) ) );
 
-			$this->builder->container( 'docs', __( 'Documentation' ), 'wpoic-book' )
+			$this->builder->container( 'docs', __( 'Documentation', 'wc-quick-buy' ), 'wpoic-book' )
 				->container_class( 'wpo-text-success' )
 				->href( 'https://wordpress.org/plugins/woocommerce-quick-buy/' )
 				->attribute( 'target', '_blank' );
 
-			$this->builder->container( 'sysinfo', __( 'System Info' ), ' wpoic-info ' )
+			$this->builder->container( 'sysinfo', __( 'System Info', 'wc-quick-buy' ), ' wpoic-info ' )
 				->callback( 'wponion_sysinfo' )
 				->set_var( 'developer', 'varunsridharan23@gmail.com' );
 		}

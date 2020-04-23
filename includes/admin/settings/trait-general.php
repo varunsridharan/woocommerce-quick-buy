@@ -5,6 +5,12 @@ namespace WC_Quick_Buy\Admin\Settings;
 defined( 'ABSPATH' ) || exit;
 
 if ( ! trait_exists( '\WC_Quick_Buy\Admin\Settings\General' ) ) {
+	/**
+	 * Trait General
+	 *
+	 * @package WC_Quick_Buy\Admin\Settings
+	 * @author Varun Sridharan <varunsridharan23@gmail.com>
+	 */
 	trait General {
 		/**
 		 * Generates Basic Config Fields.
