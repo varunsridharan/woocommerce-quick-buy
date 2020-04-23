@@ -21,8 +21,8 @@ if ( ! class_exists( '\WC_Quick_Buy\Admin\Settings' ) ) {
 		 * Registers Fields.
 		 */
 		protected function fields() {
-			$this->general( $this->builder->container( 'general', __( 'General', 'wc-quick-buy' ) ) );
-			$this->button_styling( $this->builder->container( 'button_styling', __( 'Button Styling', 'wc-quick-buy' ) ) );
+			$this->general( $this->builder->container( 'general', __( 'General', 'wc-quick-buy' ), 'wpoic-settings' ) );
+			$this->button_styling( $this->builder->container( 'button_styling', __( 'Button Styling', 'wc-quick-buy' ), 'wpoic-brush' ) );
 
 			$this->builder->container( 'docs', __( 'Documentation', 'wc-quick-buy' ), 'wpoic-book' )
 				->container_class( 'wpo-text-success' )

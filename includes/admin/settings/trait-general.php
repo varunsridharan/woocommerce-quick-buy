@@ -18,9 +18,9 @@ if ( ! trait_exists( '\WC_Quick_Buy\Admin\Settings\General' ) ) {
 		 * @param \WPO\Container $builder
 		 */
 		public function general( $builder ) {
-			$general       = $builder->container( 'general', __( 'General', 'wc-quick-buy' ) );
-			$product       = $builder->container( 'product', __( 'Product', 'wc-quick-buy' ) );
-			$btn_placement = $builder->container( 'button-placement', __( 'Button Placement', 'wc-quick-buy' ) );
+			$general       = $builder->container( 'general', __( 'General', 'wc-quick-buy' ), 'wpoic-gear' );
+			$product       = $builder->container( 'product', __( 'Product', 'wc-quick-buy' ), 'wpoic-database' );
+			$btn_placement = $builder->container( 'button-placement', __( 'Button Placement', 'wc-quick-buy' ), 'wpoic-display' );
 			$this->basic_config( $general );
 			$this->redirect_config( $general );
 			$this->product_config( $product );
