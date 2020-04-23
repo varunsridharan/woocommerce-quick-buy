@@ -70,6 +70,7 @@ if ( ! trait_exists( '\WC_Quick_Buy\Admin\Settings\General' ) ) {
 				->option( 'hard', __( 'Hide', 'wc-quick-buy' ) )
 				->option( 'soft', __( 'Non Clickable', 'wc-quick-buy' ) )
 				->option( 'remove', __( 'Remove', 'wc-quick-buy' ) )
+				->style( 'width: 10%;' )
 				->option( 'none', __( 'None', 'wc-quick-buy' ) )
 				->select_framework( 'select2' )
 				->desc_field( array(
