@@ -35,6 +35,7 @@ When User Clicks This Button. The Current product Will Be Added To Cart And The 
 **Settings Available Under**
 > Woocommerce Settings ==> Products ==> WC Quick Buy
 
+<h3>Shortcodes</h3>
 
 **`[wc_quick_buy]`**
 This can be used anywhere inside the website

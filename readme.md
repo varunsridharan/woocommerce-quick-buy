@@ -5,8 +5,9 @@ Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
 **Tags:** Woocommerce,wc,Quick buy,add to cart,affiliate, cart, checkout, commerce, configurable, digital, download, downloadable, e-commerce, ecommerce, inventory, reports, sales, sell, shipping, shop, shopping, stock, store, tax, variable, widgets, woothemes, wordpress ecommerce  
 **Donate link:** http://paypal.me/varunsridharan23  
 **Requires at least:** 3.0  
-**Tested up to:** 5.4  
-**Stable tag:** 2.7.1  
+**Tested up to:** 5.5  
+**Stable tag:** 2.7.2  
+**Requires PHP:** 7.0  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html    
 
@@ -20,7 +21,6 @@ When User Clicks This Button. The Current product Will Be Added To Cart And The 
 [youtube https://www.youtube.com/watch?v=z_RgdNVZvj4]
 
 **Supported & Tested Product Types**
-
 > 1. <a href="http://woocommerce.com/">WC Simple Product</a>
 > 2. <a href="http://woocommerce.com/">WC Grouped Product</a>
 > 3. <a href="http://woocommerce.com/">WC Variable / Variation Product</a>
@@ -34,34 +34,29 @@ When User Clicks This Button. The Current product Will Be Added To Cart And The 
 
 
 **Settings Available Under**
-`Woocommerce Settings ==> Products ==> WC Quick Buy`
+> Woocommerce Settings ==> Products ==> WC Quick Buy
 
-**Available Shortcodes**
-> 1. [wc_quick_buy] -- Used in product loop eg : Product Listing / Single Product Page
-> 2. [wc_quick_buy_link] -- Can be used anywhere 
+<h3>Shortcodes</h3>
 
-**`[wc_quick_buy]` Shortcode Args**
-<code>
-1. product : product id to generate quick buy button Eg : [wc_quick_buy product="22"]
-2. label : custom text for generated button Eg : [wc_quick_buy label="Hurry Up!!"]
-3. hide_in_cart : Enter "yes"  to hide the button if the same product already in cart or enter "no"
-</code>
+**`[wc_quick_buy]`**
+This can be used anywhere inside the website
 
-**`[wc_quick_buy_link]` Shortcode Args**
-<code>
-1. product : product id to generate quick buy button Eg : [wc_quick_buy_link product="22"]
-2. label : custom text for generated button Eg : [wc_quick_buy_link label="Hurry Up!!"]
-3. qty : Enter custom qty for a html button / link [wc_quick_buy_link qty="10"]
-4. type : Use button to get a html a tag generated : [wc_quick_buy_link type="button"] or use link to get site url with quick buy values : [wc_quick_buy_link type="link"]
-5. htmlclass : You can give your custom css class name in shortcode to add it in button.
-6. hide_in_cart : Enter "yes" to hide the button if the same product already in cart or enter "no"
-</code>
+> 1. product : product id to generate quick buy button Eg : [wc_quick_buy product="22"]
+> 2. label : custom text for generated button Eg : [wc_quick_buy label="Hurry Up!!"]
+> 3. hide_in_cart : Enter "yes"  to hide the button if the same product already in cart or enter "no"
+> 4. css_class : You can give your custom css class name in shortcode to add it in button.
+> 5. qty : Enter custom qty for a html button / link [wc_quick_buy qty="10"]
+
+**`[wc_quick_buy_link]`**
+This can be used to generate sharable link
+> 1. product : product id to generate quick buy button Eg : [wc_quick_buy_link product="22"]
+> 2. qty : Enter custom qty for a html button / link [wc_quick_buy_link qty="10"]
 
 **Example Shortcode To Get Clickable Button**
 > [wc_quick_buy product="33"  label="Hurry UP!!" qty="100"]
 
 **Example Shortcode To Get Product's Quick Buy URL**
-> [wc_quick_buy_link product="33"  label="Hurry UP!!" qty="100"]
+> [wc_quick_buy_link product="33"  qty="100"]
 
 
 ## Upgrade Notice 
@@ -164,6 +159,15 @@ Please open an issue at <a href="https://github.com/varunsridharan/woocommerce-q
 
 
 ## Changelog 
+
+
+### 2.7.2 - 12/06/2020 
+* Improved performance
+* Added : Hook to disable quick buy render for each product
+* Added : option to set no redirect
+* Updated : WPOnion Framework To 1.5.1
+* Updated : VSP Framework To 1.8.9.1
+
 
 ### 2.7.1 - 23/04/2020 
 * Updated : WPOnion Framework To 1.4.5.3
