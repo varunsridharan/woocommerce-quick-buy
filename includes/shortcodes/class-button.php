@@ -21,7 +21,7 @@ if ( ! class_exists( '\WC_Quick_Buy\Shortcodes\Button' ) ) {
 		 *
 		 * @var string
 		 */
-		protected $shortcode_name = 'wc_quick_buy';
+		protected $name = 'wc_quick_buy';
 
 		/**
 		 * Return's Default Value.
@@ -45,7 +45,7 @@ if ( ! class_exists( '\WC_Quick_Buy\Shortcodes\Button' ) ) {
 		 */
 		protected function output() {
 			global $product;
-			$shortcode_product = ( empty( $this->options['product'] ) ) ? $product : wc_get_product( $this->options['product'] );
+			$shortcode_product = ( empty( $this->option( 'product' ) ) ) ? $product : wc_get_product( $this->option( 'product' ) );
 
 			if ( $shortcode_product ) {
 				if ( $shortcode_product->is_in_stock() ) {

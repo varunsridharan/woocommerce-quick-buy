@@ -17,23 +17,22 @@ if ( ! class_exists( 'WC_Quick_Buy' ) ) {
 		 * @throws \Exception
 		 */
 		public function __construct() {
-			$this->name      = WCQB_NAME;
-			$this->file      = WCQB_FILE;
-			$this->version   = WCQB_VERSION;
-			$this->slug      = 'wc-quick-buy';
-			$this->db_slug   = 'wcqb';
-			$this->hook_slug = 'wc_quick_buy';
-
 			$options                  = array(
+				'name'         => WCQB_NAME,
+				'version'      => WCQB_VERSION,
+				'file'         => WCQB_FILE,
+				'slug'         => 'wc-quick-buy',
+				'db_slug'      => 'wcqb',
+				'hook_slug'    => 'wc_quick_buy',
 				'addons'       => false,
 				'logging'      => false,
 				'system_tools' => false,
 				'localizer'    => false,
 				'autoloader'   => array(
 					'namespace' => 'WC_Quick_Buy',
-					'base_path' => $this->plugin_path( 'includes/' ),
+					'base_path' => $this->plugin_path( 'includes/', WCQB_FILE ),
 					'options'   => array(
-						'classmap' => $this->plugin_path( 'classmaps.php' ),
+						'classmap' => $this->plugin_path( 'classmaps.php', WCQB_FILE ),
 					),
 				),
 			);
@@ -47,7 +46,7 @@ if ( ! class_exists( 'WC_Quick_Buy' ) ) {
 				'extra_js'       => array( 'wcqb-admin-script' ),
 				'extra_css'      => array( 'wcqb-admin-style' ),
 				'menu'           => array(
-					'page_title' => $this->plugin_name(),
+					'page_title' => WCQB_NAME,
 					'menu_title' => __( 'Quick Buy', 'wc-quick-buy' ),
 					'submenu'    => 'woocommerce',
 					'menu_slug'  => 'quick-buy',

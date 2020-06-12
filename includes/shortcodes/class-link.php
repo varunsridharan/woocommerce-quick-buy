@@ -22,7 +22,7 @@ if ( ! class_exists( '\WC_Quick_Buy\Shortcodes\Link' ) ) {
 		 *
 		 * @var string
 		 */
-		protected $shortcode_name = 'wc_quick_buy_link';
+		protected $name = 'wc_quick_buy_link';
 
 		/**
 		 * Returns Default Args.
@@ -43,7 +43,7 @@ if ( ! class_exists( '\WC_Quick_Buy\Shortcodes\Link' ) ) {
 		 */
 		protected function output() {
 			global $product;
-			$shortcode_product = ( empty( $this->options['product'] ) ) ? $product : wc_get_product( $this->options['product'] );
+			$shortcode_product = ( empty( $this->option( 'product' ) ) ) ? $product : wc_get_product( $this->option( 'product' ) );
 			if ( $shortcode_product instanceof WC_Product && method_exists( $shortcode_product, 'is_in_stock' ) ) {
 				if ( $shortcode_product->is_in_stock() ) {
 					$quick_buy_link_product_types = Helper::option( 'enabled_product_types' );
