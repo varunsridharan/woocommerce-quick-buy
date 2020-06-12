@@ -4,77 +4,74 @@ namespace WC_Quick_Buy;
 
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( '\WC_Quick_Buy\URL_Generator' ) ) {
+/**
+ * Class URL_Generator
+ *
+ * @package WC_Quick_Buy
+ * @author Varun Sridharan <varunsridharan23@gmail.com>
+ */
+class URL_Generator extends Generator_Base {
 	/**
-	 * Class URL_Generator
+	 * Button_Generator constructor.
 	 *
-	 * @package WC_Quick_Buy
-	 * @author Varun Sridharan <varunsridharan23@gmail.com>
+	 * @param $args
 	 */
-	class URL_Generator extends Generator_Base {
-		/**
-		 * Button_Generator constructor.
-		 *
-		 * @param $args
-		 */
-		public function __construct( $args ) {
-			$args = wp_parse_args( $args, array(
-				'product' => false,
-				'qty'     => Helper::option( 'quantity', 1 ),
-				'seo'     => true,
-			) );
+	public function __construct( $args ) {
+		$args = wp_parse_args( $args, array(
+			'product' => false,
+			'qty'     => Helper::option( 'quantity', 1 ),
+			'seo'     => true,
+		) );
 
-			if ( empty( $args['qty'] ) ) {
-				$args['qty'] = 1;
-			}
-
-			$this->args = $args;
+		if ( empty( $args['qty'] ) ) {
+			$args['qty'] = 1;
 		}
 
-		/**
-		 * Generates HTML A Tag.
-		 *
-		 * @return bool|mixed|string
-		 */
-		public function html() {
-			if ( false === $this->html ) {
-				$args = $this->args;
-				if ( ! $this->init_product( $args['product'] ) ) {
-					return false;
-				}
+		$this->args = $args;
+	}
 
-				$types = Helper::option( 'enabled_product_types' );
-				$types = ( ! is_array( $types ) ) ? array() : $types;
+	/**
+	 * Generates HTML A Tag.
+	 *
+	 * @return bool|mixed|string
+	 */
+	public function html() {
+		if ( false === $this->html ) {
+			$args = $this->args;
+			if ( ! $this->init_product( $args['product'] ) ) {
+				return false;
+			}
 
-				if ( is_array( $types ) && ! in_array( 'all', $types, true ) && ! in_array( $this->product_type(), $types, true ) ) {
-					return '';
-				}
+			$types = Helper::option( 'enabled_product_types' );
+			$types = ( ! is_array( $types ) ) ? array() : $types;
 
-				if ( true === $args['seo'] ) {
-					$string = Helper::option( 'url_endpoint', '' );
-					if ( ! empty( $string ) ) {
-						$data = array(
-							'{sku}'  => $this->product->get_sku(),
-							'{id}'   => $this->product_id(),
-							'{qty}'  => $args['qty'],
-							'{slug}' => $this->product->get_slug(),
-						);
-						$url  = str_replace( array_keys( $data ), $data, $string );
-						if ( ! empty( $url ) ) {
-							$this->html = site_url() . '/' . trim( $url, '/' );
-						}
+			if ( is_array( $types ) && ! in_array( 'all', $types, true ) && ! in_array( $this->product_type(), $types, true ) ) {
+				return '';
+			}
+
+			if ( true === $args['seo'] ) {
+				$string = Helper::option( 'url_endpoint', '' );
+				if ( ! empty( $string ) ) {
+					$data = array(
+						'{sku}'  => $this->product->get_sku(),
+						'{id}'   => $this->product_id(),
+						'{qty}'  => $args['qty'],
+						'{slug}' => $this->product->get_slug(),
+					);
+					$url  = str_replace( array_keys( $data ), $data, $string );
+					if ( ! empty( $url ) ) {
+						$this->html = site_url() . '/' . trim( $url, '/' );
 					}
-				} else {
-					$this->html = add_query_arg( array(
-						'quantity'    => $args['qty'],
-						'add-to-cart' => $this->product->get_id(),
-						'quick_buy'   => true,
-					), $this->product->add_to_cart_url() );
 				}
-				$this->html = empty( $this->html ) ? false : $this->html;
+			} else {
+				$this->html = add_query_arg( array(
+					'quantity'    => $args['qty'],
+					'add-to-cart' => $this->product->get_id(),
+					'quick_buy'   => true,
+				), $this->product->add_to_cart_url() );
 			}
-			return $this->html;
+			$this->html = empty( $this->html ) ? false : $this->html;
 		}
-
+		return $this->html;
 	}
 }

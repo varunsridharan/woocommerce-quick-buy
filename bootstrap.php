@@ -43,8 +43,7 @@ if ( ! class_exists( 'WC_Quick_Buy' ) ) {
 				'is_single_page' => 'submenu',
 				'ajax'           => true,
 				'search'         => false,
-				'extra_js'       => array( 'wcqb-admin-script' ),
-				'extra_css'      => array( 'wcqb-admin-style' ),
+				'assets'         => array( 'wcqb-admin-script', 'wcqb-admin-style' ),
 				'menu'           => array(
 					'page_title' => WCQB_NAME,
 					'menu_title' => __( 'Quick Buy', 'wc-quick-buy' ),
