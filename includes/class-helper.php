@@ -36,7 +36,7 @@ final class Helper {
 			'cart'       => __( 'Cart', 'wc-quick-buy' ),
 			'checkout'   => __( 'Checkout', 'wc-quick-buy' ),
 			'custom'     => __( 'Custom URL', 'wc-quick-buy' ),
-			'noredirect' => __( 'No Redirect' ),
+			'noredirect' => __( 'No Redirect', 'wc-quick-buy' ),
 		);
 	}
 

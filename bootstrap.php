@@ -95,12 +95,12 @@ if ( ! class_exists( 'WC_Quick_Buy' ) ) {
 		public function admin_init() {
 			if ( vsp_is_admin() && ! vsp_is_ajax() ) {
 				wponion_plugin_links( $this->file() )
-					->action_link_before( 'settings', __( '⚙️ Settings' ), admin_url( 'admin.php?page=quick-buy' ) )
-					->action_link_after( 'sysinfo', __( 'ℹ️ System Info' ), admin_url( 'admin.php?page=quick-buy&container-id=sysinfo' ) )
-					->row_link( __( '📚 F.A.Q' ), 'https://wordpress.org/plugins/woocommerce-quick-buy/faq' )
-					->row_link( __( '📦 View On Github' ), 'https://github.com/varunsridharan/woocommerce-quick-buy' )
-					->row_link( __( '📝 Report An Issue' ), 'https://github.com/varunsridharan/woocommerce-quick-buy/issues' )
-					->row_link( __( '💁🏻 Donate', 'wc-product-subtitle' ), 'https://paypal.me/varunsridharan' );
+					->action_link_before( 'settings', __( '⚙️ Settings', 'wc-quick-buy' ), admin_url( 'admin.php?page=quick-buy' ) )
+					->action_link_after( 'sysinfo', __( 'ℹ️ System Info', 'wc-quick-buy' ), admin_url( 'admin.php?page=quick-buy&container-id=sysinfo' ) )
+					->row_link( __( '📚 F.A.Q', 'wc-quick-buy' ), 'https://wordpress.org/plugins/woocommerce-quick-buy/faq' )
+					->row_link( __( '📦 View On Github', 'wc-quick-buy' ), 'https://github.com/varunsridharan/woocommerce-quick-buy' )
+					->row_link( __( '📝 Report An Issue', 'wc-quick-buy' ), 'https://github.com/varunsridharan/woocommerce-quick-buy/issues' )
+					->row_link( __( '💁🏻 Donate', 'wc-product-subtitle', 'wc-quick-buy' ), 'https://paypal.me/varunsridharan' );
 			}
 		}
 	}
