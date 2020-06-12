@@ -80,17 +80,20 @@ if ( ! class_exists( '\WC_Quick_Buy\Button_Placement' ) ) {
 		 */
 		public function shop_page_button() {
 			global $product;
-			$quick_buy_link_product_types = Helper::option( 'quick_buy_link_product_types' );
-			$quick_buy_link_product_types = ( ! is_array( $quick_buy_link_product_types ) ) ? array( 'simple' ) : $quick_buy_link_product_types;
 
-			/* @var \WC_Product $product */
-			if ( in_array( $product->get_type(), $quick_buy_link_product_types, true ) ) {
-				$args     = array(
-					'product' => $product,
-					'type'    => 'link',
-				);
-				$instance = new Button_Generator( $args );
-				echo $instance->html();
+			if ( apply_filters( 'wc_quick_buy_allow_render_button', true, $product, false ) ) {
+				$quick_buy_link_product_types = Helper::option( 'quick_buy_link_product_types' );
+				$quick_buy_link_product_types = ( ! is_array( $quick_buy_link_product_types ) ) ? array( 'simple' ) : $quick_buy_link_product_types;
+
+				/* @var \WC_Product $product */
+				if ( in_array( $product->get_type(), $quick_buy_link_product_types, true ) ) {
+					$args     = array(
+						'product' => $product,
+						'type'    => 'link',
+					);
+					$instance = new Button_Generator( $args );
+					echo $instance->html();
+				}
 			}
 		}
 
@@ -99,9 +102,11 @@ if ( ! class_exists( '\WC_Quick_Buy\Button_Placement' ) ) {
 		 */
 		public function single_product_page_button() {
 			global $product;
-			$args     = array( 'product' => $product );
-			$instance = new Button_Generator( $args );
-			echo $instance->html();
+			if ( apply_filters( 'wc_quick_buy_allow_render_button', true, $product, true ) ) {
+				$args     = array( 'product' => $product );
+				$instance = new Button_Generator( $args );
+				echo $instance->html();
+			}
 		}
 	}
 }
