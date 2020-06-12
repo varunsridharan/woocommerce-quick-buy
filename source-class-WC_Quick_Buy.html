@@ -214,12 +214,12 @@
 </span><span id="95" class="l">        <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> admin_init() {
 </span><span id="96" class="l">            <span class="php-keyword1">if</span> ( vsp_is_admin() &amp;&amp; ! vsp_is_ajax() ) {
 </span><span id="97" class="l">                wponion_plugin_links( <span class="php-var">$this</span>-&gt;<span class="php-keyword2">file</span>() )
-</span><span id="98" class="l">                    -&gt;action_link_before( <span class="php-quote">'settings'</span>, __( <span class="php-quote">'⚙️ Settings'</span> ), admin_url( <span class="php-quote">'admin.php?page=quick-buy'</span> ) )
-</span><span id="99" class="l">                    -&gt;action_link_after( <span class="php-quote">'sysinfo'</span>, __( <span class="php-quote">'ℹ️ System Info'</span> ), admin_url( <span class="php-quote">'admin.php?page=quick-buy&amp;container-id=sysinfo'</span> ) )
-</span><span id="100" class="l">                    -&gt;row_link( __( <span class="php-quote">'📚 F.A.Q'</span> ), <span class="php-quote">'https://wordpress.org/plugins/woocommerce-quick-buy/faq'</span> )
-</span><span id="101" class="l">                    -&gt;row_link( __( <span class="php-quote">'📦 View On Github'</span> ), <span class="php-quote">'https://github.com/varunsridharan/woocommerce-quick-buy'</span> )
-</span><span id="102" class="l">                    -&gt;row_link( __( <span class="php-quote">'📝 Report An Issue'</span> ), <span class="php-quote">'https://github.com/varunsridharan/woocommerce-quick-buy/issues'</span> )
-</span><span id="103" class="l">                    -&gt;row_link( __( <span class="php-quote">'💁🏻 Donate'</span>, <span class="php-quote">'wc-product-subtitle'</span> ), <span class="php-quote">'https://paypal.me/varunsridharan'</span> );
+</span><span id="98" class="l">                    -&gt;action_link_before( <span class="php-quote">'settings'</span>, __( <span class="php-quote">'⚙️ Settings'</span>, <span class="php-quote">'wc-quick-buy'</span> ), admin_url( <span class="php-quote">'admin.php?page=quick-buy'</span> ) )
+</span><span id="99" class="l">                    -&gt;action_link_after( <span class="php-quote">'sysinfo'</span>, __( <span class="php-quote">'ℹ️ System Info'</span>, <span class="php-quote">'wc-quick-buy'</span> ), admin_url( <span class="php-quote">'admin.php?page=quick-buy&amp;container-id=sysinfo'</span> ) )
+</span><span id="100" class="l">                    -&gt;row_link( __( <span class="php-quote">'📚 F.A.Q'</span>, <span class="php-quote">'wc-quick-buy'</span> ), <span class="php-quote">'https://wordpress.org/plugins/woocommerce-quick-buy/faq'</span> )
+</span><span id="101" class="l">                    -&gt;row_link( __( <span class="php-quote">'📦 View On Github'</span>, <span class="php-quote">'wc-quick-buy'</span> ), <span class="php-quote">'https://github.com/varunsridharan/woocommerce-quick-buy'</span> )
+</span><span id="102" class="l">                    -&gt;row_link( __( <span class="php-quote">'📝 Report An Issue'</span>, <span class="php-quote">'wc-quick-buy'</span> ), <span class="php-quote">'https://github.com/varunsridharan/woocommerce-quick-buy/issues'</span> )
+</span><span id="103" class="l">                    -&gt;row_link( __( <span class="php-quote">'💁🏻 Donate'</span>, <span class="php-quote">'wc-product-subtitle'</span>, <span class="php-quote">'wc-quick-buy'</span> ), <span class="php-quote">'https://paypal.me/varunsridharan'</span> );
 </span><span id="104" class="l">            }
 </span><span id="105" class="l">        }
 </span><span id="106" class="l">    }
