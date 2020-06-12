@@ -41,17 +41,16 @@ if ( ! class_exists( '\WC_Quick_Buy\Add_To_Cart_Redirect' ) ) {
 			}
 
 			\WC_Form_Handler::add_to_cart_action();
-			exit;
 		}
 
 		/**
 		 * Fetches Proper Redirect Url From DB And Returns It.
 		 *
-		 * @return bool|string
+		 * @return null|bool|array
 		 */
 		private function get_redirect_url() {
 			$redirect = Helper::option( 'redirect_location' );
-			$url      = false;
+			$url      = null;
 			switch ( $redirect ) {
 				case 'cart':
 				case 'checkout':
@@ -81,20 +80,18 @@ if ( ! class_exists( '\WC_Quick_Buy\Add_To_Cart_Redirect' ) ) {
 		 * @return string
 		 */
 		public function quick_buy_redirect( $url ) {
-			if ( Helper::is_add_to_cart_request() ) {
-				$redirect = $this->get_redirect_url();
-				$redirect = ( ! is_array( $redirect ) ) ? array( 'url' => false ) : $redirect;
-
-				if ( isset( $redirect['type'] ) && isset( $redirect['url'] ) && ! empty( $redirect['url'] ) ) {
-					if ( 'internal' === $redirect['type'] ) {
-						return $redirect['url'];
-					} elseif ( 'custom' === $redirect['type'] ) {
-						wp_safe_redirect( $redirect['url'] );
-						exit;
-					}
-				}
+			$redirect = $this->get_redirect_url();
+			$redirect = ( ! is_array( $redirect ) ) ? array( 'url' => false ) : $redirect;
+			if ( false === $redirect['url'] ) {
+				add_filter( 'option_woocommerce_cart_redirect_after_add', '__return_false' );
 			}
-			return $url;
+
+			if ( Helper::is_add_to_cart_request() && ! empty( $redirect['url'] ) && 'custom' === $redirect['type'] ) {
+				wp_redirect( $redirect['url'] );
+				exit;
+			}
+
+			return ( is_null( $redirect['url'] ) ) ? $url : $redirect['url'];
 		}
 	}
 }

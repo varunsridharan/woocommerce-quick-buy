@@ -37,9 +37,10 @@ if ( ! class_exists( '\WC_Quick_Buy\Helper' ) ) {
 		 */
 		public static function redirect_locations() {
 			return array(
-				'cart'     => __( 'Cart', 'wc-quick-buy' ),
-				'checkout' => __( 'Checkout', 'wc-quick-buy' ),
-				'custom'   => __( 'Custom URL', 'wc-quick-buy' ),
+				'cart'       => __( 'Cart', 'wc-quick-buy' ),
+				'checkout'   => __( 'Checkout', 'wc-quick-buy' ),
+				'custom'     => __( 'Custom URL', 'wc-quick-buy' ),
+				'noredirect' => __( 'No Redirect' ),
 			);
 		}
 
