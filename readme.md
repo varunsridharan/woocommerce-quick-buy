@@ -79,23 +79,11 @@ but I made sure that new settings are easy to configure. if you do have any issu
 ### 3. WC Quick Buy Settings
 ![WC Quick Buy Settings](https://ps.w.org/woocommerce-quick-buy/assets/screenshot-3.jpg)
 
-### 4. Product Listing View With Before AddToCart 
-![Product Listing View With Before AddToCart ](https://ps.w.org/woocommerce-quick-buy/assets/screenshot-4.jpg)
+### 4. WC Quick Buy Settings
+![WC Quick Buy Settings](https://ps.w.org/woocommerce-quick-buy/assets/screenshot-4.jpg)
 
-### 5. Product Listing View With After AddToCart 
-![Product Listing View With After AddToCart ](https://ps.w.org/woocommerce-quick-buy/assets/screenshot-5.jpg)
-
-### 6. Single Product View With Before AddToCart
-[missing image]
-
-### 7. Single Product View With After AddToCart
-[missing image]
-
-### 8. Single Product View With With To AddToCart
-[missing image]
-
-### 9. Single Product View With With To AddToCart
-[missing image]
+### 5. WC Quick Buy Settings
+![WC Quick Buy Settings](https://ps.w.org/woocommerce-quick-buy/assets/screenshot-5.jpg)
 
 
 

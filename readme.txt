@@ -70,12 +70,8 @@ but I made sure that new settings are easy to configure. if you do have any issu
 1. WC Quick Buy Settings
 2. WC Quick Buy Settings
 3. WC Quick Buy Settings
-4. Product Listing View With Before AddToCart 
-5. Product Listing View With After AddToCart 
-6. Single Product View With Before AddToCart
-7. Single Product View With After AddToCart
-8. Single Product View With With To AddToCart
-9. Single Product View With With To AddToCart
+4. WC Quick Buy Settings
+5. WC Quick Buy Settings
 
 == Installation ==
 
