@@ -6,7 +6,7 @@ Tags: Woocommerce,wc,Quick buy,add to cart,affiliate, cart, checkout, commerce, 
 Donate link: http://paypal.me/varunsridharan23
 Requires at least: 3.0
 Tested up to: 5.5
-Stable tag: 2.7.2
+Stable tag: 2.7.3
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
@@ -128,6 +128,10 @@ Please open an issue at <a href="https://github.com/varunsridharan/woocommerce-q
 
 
 == Changelog ==
+
+= 2.7.3 - 14/06/2020 =
+* Fixed : Fatal Error When Using Along Side Elementor Plugin
+* Updated : WPOnion Framework To 1.5.2
 
 = 2.7.2 - 12/06/2020 =
 * Improved performance

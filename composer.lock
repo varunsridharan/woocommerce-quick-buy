@@ -656,16 +656,16 @@
         },
         {
             "name": "wponion/wponion",
-            "version": "1.5.1",
+            "version": "1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wponion/wponion.git",
-                "reference": "e78483366fba1dc5f44a3065a436daaf3d17e0da"
+                "reference": "3a9d5af0b234c6beb02ebc1f4d718044b8119344"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wponion/wponion/zipball/e78483366fba1dc5f44a3065a436daaf3d17e0da",
-                "reference": "e78483366fba1dc5f44a3065a436daaf3d17e0da",
+                "url": "https://api.github.com/repos/wponion/wponion/zipball/3a9d5af0b234c6beb02ebc1f4d718044b8119344",
+                "reference": "3a9d5af0b234c6beb02ebc1f4d718044b8119344",
                 "shasum": ""
             },
             "require": {
@@ -738,7 +738,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-06-06T07:07:44+00:00"
+            "time": "2020-06-14T08:28:52+00:00"
         }
     ],
     "packages-dev": [
@@ -1057,7 +1057,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v5.1.0",
+            "version": "v5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
