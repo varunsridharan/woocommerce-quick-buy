@@ -81,15 +81,20 @@ class Add_To_Cart_Redirect extends Base {
 	public function quick_buy_redirect( $url ) {
 		$redirect = $this->get_redirect_url();
 		$redirect = ( ! is_array( $redirect ) ) ? array( 'url' => false ) : $redirect;
+
 		if ( false === $redirect['url'] ) {
 			add_filter( 'option_woocommerce_cart_redirect_after_add', '__return_false' );
 		}
 
-		if ( Helper::is_add_to_cart_request() && ! empty( $redirect['url'] ) && 'custom' === $redirect['type'] ) {
+		if ( ! Helper::is_add_to_cart_request() ) {
+			return $url;
+		}
+
+		if ( ! empty( $redirect['url'] ) && 'custom' === $redirect['type'] ) {
 			wp_redirect( $redirect['url'] );
 			exit;
 		}
 
-		return ( is_null( $redirect['url'] ) ) ? $url : $redirect['url'];
+		return ( ! empty( $redirect['url'] ) ) ? $redirect['url'] : $url;
 	}
 }
