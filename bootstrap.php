@@ -58,6 +58,15 @@ if ( ! class_exists( 'WC_Quick_Buy' ) ) {
 		 * Inits All Basic Classes.
 		 */
 		public function init_class() {
+			$this->add_action( 'woocommerce_init', 'on_wc_init' );
+		}
+
+		/**
+		 * Runs On WC Init.
+		 *
+		 * @since {NEWVERSION}
+		 */
+		public function on_wc_init() {
 			$this->_instance( '\WC_Quick_Buy\Add_To_Cart_Redirect' );
 			$this->_instance( '\WC_Quick_Buy\URL_Endpoint' );
 			$this->_instance( '\WC_Quick_Buy\Button_Placement' );
