@@ -617,22 +617,22 @@
         },
         {
             "name": "varunsridharan/wpallimport_rapidaddon",
-            "version": "88913999",
+            "version": "164946927",
             "source": {
                 "type": "git",
-                "url": "https://github.com/varunsridharan/wp-all-import-rapid-addon.git",
-                "reference": "d8d9365b3079c4de22014c860c12479b2319c22a"
+                "url": "https://github.com/varunsridharan/wpallimport_rapidaddon.git",
+                "reference": "6f1db90abffa7bdd9a44dda76647056330f374c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/varunsridharan/wp-all-import-rapid-addon/zipball/d8d9365b3079c4de22014c860c12479b2319c22a",
-                "reference": "d8d9365b3079c4de22014c860c12479b2319c22a",
+                "url": "https://api.github.com/repos/varunsridharan/wpallimport_rapidaddon/zipball/6f1db90abffa7bdd9a44dda76647056330f374c5",
+                "reference": "6f1db90abffa7bdd9a44dda76647056330f374c5",
                 "shasum": ""
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "\\": "./src"
+                    "Varunsridharan\\WordPress\\": "./src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -648,24 +648,28 @@
                     "type": "custom"
                 },
                 {
+                    "url": "https://www.buymeacoffee.com/varunsridharan",
+                    "type": "custom"
+                },
+                {
                     "url": "https://github.com/varunsridharan",
                     "type": "github"
                 }
             ],
-            "time": "2020-04-27T09:03:13+00:00"
+            "time": "2020-07-24T15:24:24+00:00"
         },
         {
             "name": "wponion/wponion",
-            "version": "1.5.2",
+            "version": "1.5.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wponion/wponion.git",
-                "reference": "3a9d5af0b234c6beb02ebc1f4d718044b8119344"
+                "reference": "6a0e5522029cc92ab8db363d7b7d99bcd8bb90b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wponion/wponion/zipball/3a9d5af0b234c6beb02ebc1f4d718044b8119344",
-                "reference": "3a9d5af0b234c6beb02ebc1f4d718044b8119344",
+                "url": "https://api.github.com/repos/wponion/wponion/zipball/6a0e5522029cc92ab8db363d7b7d99bcd8bb90b2",
+                "reference": "6a0e5522029cc92ab8db363d7b7d99bcd8bb90b2",
                 "shasum": ""
             },
             "require": {
@@ -738,7 +742,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-06-14T08:28:52+00:00"
+            "time": "2020-07-29T01:42:10+00:00"
         }
     ],
     "packages-dev": [
@@ -867,16 +871,16 @@
         },
         {
             "name": "mck89/peast",
-            "version": "v1.10.3",
+            "version": "v1.10.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mck89/peast.git",
-                "reference": "6d1100f39f684c9e004f808b27f6c824b083d8d8"
+                "reference": "e11664ef53ba2a4ca1d16d8bc73fcc317cd65d3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mck89/peast/zipball/6d1100f39f684c9e004f808b27f6c824b083d8d8",
-                "reference": "6d1100f39f684c9e004f808b27f6c824b083d8d8",
+                "url": "https://api.github.com/repos/mck89/peast/zipball/e11664ef53ba2a4ca1d16d8bc73fcc317cd65d3d",
+                "reference": "e11664ef53ba2a4ca1d16d8bc73fcc317cd65d3d",
                 "shasum": ""
             },
             "require": {
@@ -888,7 +892,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.10.3-dev"
+                    "dev-master": "1.10.4-dev"
                 }
             },
             "autoload": {
@@ -908,7 +912,7 @@
                 }
             ],
             "description": "Peast is PHP library that generates AST for JavaScript code",
-            "time": "2020-04-03T09:06:20+00:00"
+            "time": "2020-06-21T17:16:08+00:00"
         },
         {
             "name": "mustache/mustache",
@@ -1057,7 +1061,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v5.1.1",
+            "version": "v5.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -1253,16 +1257,16 @@
         },
         {
             "name": "wp-cli/i18n-command",
-            "version": "v2.2.3",
+            "version": "v2.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/i18n-command.git",
-                "reference": "7a5d483d872dfec1b89d88d348666ecd59454d52"
+                "reference": "b02ecdc9a57f9633740c254d19749118b7411f0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/i18n-command/zipball/7a5d483d872dfec1b89d88d348666ecd59454d52",
-                "reference": "7a5d483d872dfec1b89d88d348666ecd59454d52",
+                "url": "https://api.github.com/repos/wp-cli/i18n-command/zipball/b02ecdc9a57f9633740c254d19749118b7411f0f",
+                "reference": "b02ecdc9a57f9633740c254d19749118b7411f0f",
                 "shasum": ""
             },
             "require": {
@@ -1306,7 +1310,7 @@
             ],
             "description": "Provides internationalization tools for WordPress projects.",
             "homepage": "https://github.com/wp-cli/i18n-command",
-            "time": "2020-06-04T07:07:10+00:00"
+            "time": "2020-07-08T15:20:38+00:00"
         },
         {
             "name": "wp-cli/mustangostang-spyc",

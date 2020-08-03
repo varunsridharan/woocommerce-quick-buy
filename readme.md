@@ -6,7 +6,7 @@ Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
 **Donate link:** http://paypal.me/varunsridharan23  
 **Requires at least:** 3.0  
 **Tested up to:** 5.5  
-**Stable tag:** 2.7.3  
+**Stable tag:** 2.7.4  
 **Requires PHP:** 7.0  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html    
@@ -71,19 +71,19 @@ but I made sure that new settings are easy to configure. if you do have any issu
 
 ## Screenshots 
 ### 1. WC Quick Buy Settings
-![WC Quick Buy Settings](https://ps.w.org/woocommerce-quick-buy/assets/screenshot-1.jpg)
+[missing image]
 
 ### 2. WC Quick Buy Settings
-![WC Quick Buy Settings](https://ps.w.org/woocommerce-quick-buy/assets/screenshot-2.jpg)
+[missing image]
 
 ### 3. WC Quick Buy Settings
-![WC Quick Buy Settings](https://ps.w.org/woocommerce-quick-buy/assets/screenshot-3.jpg)
+[missing image]
 
 ### 4. WC Quick Buy Settings
-![WC Quick Buy Settings](https://ps.w.org/woocommerce-quick-buy/assets/screenshot-4.jpg)
+[missing image]
 
 ### 5. WC Quick Buy Settings
-![WC Quick Buy Settings](https://ps.w.org/woocommerce-quick-buy/assets/screenshot-5.jpg)
+[missing image]
 
 
 
@@ -147,6 +147,15 @@ Please open an issue at <a href="https://github.com/varunsridharan/woocommerce-q
 
 
 ## Changelog 
+
+
+### 2.7.4 - 03/08/2020 
+* Fixed : Fatal Error When Editing Product Page
+* Fixed : AddToCart Button Redirects To Quick Buy Page.
+* Updated : WPOnion Framework To 1.5.3.2
+* Updated : VSP Framework To 0.8.9.3
+* Tested : WordPress 5.4.2
+* Tested : WooCommerce 4.3.1
 
 
 ### 2.7.3 - 14/06/2020 
