@@ -617,16 +617,16 @@
         },
         {
             "name": "varunsridharan/wpallimport_rapidaddon",
-            "version": "164946927",
+            "version": "212412172",
             "source": {
                 "type": "git",
                 "url": "https://github.com/varunsridharan/wpallimport_rapidaddon.git",
-                "reference": "6f1db90abffa7bdd9a44dda76647056330f374c5"
+                "reference": "97716ba02b595ab13704f73740b66942ff05ec5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/varunsridharan/wpallimport_rapidaddon/zipball/6f1db90abffa7bdd9a44dda76647056330f374c5",
-                "reference": "6f1db90abffa7bdd9a44dda76647056330f374c5",
+                "url": "https://api.github.com/repos/varunsridharan/wpallimport_rapidaddon/zipball/97716ba02b595ab13704f73740b66942ff05ec5e",
+                "reference": "97716ba02b595ab13704f73740b66942ff05ec5e",
                 "shasum": ""
             },
             "type": "library",
@@ -656,7 +656,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-07-24T15:24:24+00:00"
+            "time": "2020-08-17T17:32:29+00:00"
         },
         {
             "name": "wponion/wponion",
