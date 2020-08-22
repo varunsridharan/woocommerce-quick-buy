@@ -6,7 +6,7 @@ Plugin URL: https://wordpress.org/plugins/woocommerce-quick-buy/
 **Donate link:** http://paypal.me/varunsridharan23  
 **Requires at least:** 3.0  
 **Tested up to:** 5.5  
-**Stable tag:** 2.7.4  
+**Stable tag:** 2.7.5  
 **Requires PHP:** 7.0  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html    
@@ -147,6 +147,12 @@ Please open an issue at <a href="https://github.com/varunsridharan/woocommerce-q
 
 
 ## Changelog 
+
+
+### 2.7.5 - 22/08/2020 
+* Fixed : Add To Cart Permalink Issue
+* Tested : WordPress 5.5
+* Tested : WooCommerce 4.4.1
 
 
 ### 2.7.4 - 03/08/2020 
