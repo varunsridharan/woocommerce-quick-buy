@@ -58,6 +58,7 @@ if ( ! class_exists( 'WC_Quick_Buy' ) ) {
 		 * Inits All Basic Classes.
 		 */
 		public function init_class() {
+			$this->_instance( '\WC_Quick_Buy\URL_Endpoint' );
 			$this->add_action( 'woocommerce_init', 'on_wc_init' );
 		}
 
@@ -68,7 +69,6 @@ if ( ! class_exists( 'WC_Quick_Buy' ) ) {
 		 */
 		public function on_wc_init() {
 			$this->_instance( '\WC_Quick_Buy\Add_To_Cart_Redirect' );
-			$this->_instance( '\WC_Quick_Buy\URL_Endpoint' );
 			$this->_instance( '\WC_Quick_Buy\Button_Placement' );
 			$this->_instance( '\WC_Quick_Buy\Cart_Clear_Handler' );
 			$this->_instance( '\WC_Quick_Buy\Shortcodes\Button' );
