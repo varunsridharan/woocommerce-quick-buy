@@ -155,21 +155,21 @@
 </span><span id="36" class="l">        <span class="php-var">$builder</span>-&gt;switcher( <span class="php-quote">'auto_clear_cart'</span>, __( <span class="php-quote">'Auto Clear Cart ?'</span>, <span class="php-quote">'wc-quick-buy'</span> ) )
 </span><span id="37" class="l">            -&gt;desc_field( __( <span class="php-quote">'if Enabled then cart contents will be auto cleared if quick buy button used.'</span>, <span class="php-quote">'wc-quick-buy'</span> ) );
 </span><span id="38" class="l">
-</span><span id="39" class="l">        <span class="php-var">$builder</span>-&gt;select( <span class="php-quote">'url_type'</span>, __( <span class="php-quote">'WordPress URL Type'</span> ) )
+</span><span id="39" class="l">        <span class="php-var">$builder</span>-&gt;select( <span class="php-quote">'url_type'</span>, __( <span class="php-quote">'WordPress URL Type'</span>, <span class="php-quote">'wc-quick-buy'</span> ) )
 </span><span id="40" class="l">            -&gt;style( <span class="php-quote">'width:20%;'</span> )
 </span><span id="41" class="l">            -&gt;wrap_id( <span class="php-quote">'url_type'</span> )
 </span><span id="42" class="l">            -&gt;select_framework( <span class="php-quote">'select2'</span> )
 </span><span id="43" class="l">            -&gt;option( <span class="php-quote">'site_url'</span>, <span class="php-keyword1">array</span>(
-</span><span id="44" class="l">                <span class="php-quote">'label'</span>      =&gt; __( <span class="php-quote">'Site URL'</span> ),
+</span><span id="44" class="l">                <span class="php-quote">'label'</span>      =&gt; __( <span class="php-quote">'Site URL'</span>, <span class="php-quote">'wc-quick-buy'</span> ),
 </span><span id="45" class="l">                <span class="php-quote">'attributes'</span> =&gt; <span class="php-keyword1">array</span>( <span class="php-quote">'data-url'</span> =&gt; trailingslashit( site_url() ) ),
 </span><span id="46" class="l">            ) )
 </span><span id="47" class="l">            -&gt;option( <span class="php-quote">'home_url'</span>, <span class="php-keyword1">array</span>(
-</span><span id="48" class="l">                <span class="php-quote">'label'</span>      =&gt; __( <span class="php-quote">'Home URL'</span> ),
+</span><span id="48" class="l">                <span class="php-quote">'label'</span>      =&gt; __( <span class="php-quote">'Home URL'</span>, <span class="php-quote">'wc-quick-buy'</span> ),
 </span><span id="49" class="l">                <span class="php-quote">'attributes'</span> =&gt; <span class="php-keyword1">array</span>( <span class="php-quote">'data-url'</span> =&gt; trailingslashit( home_url() ) ),
 </span><span id="50" class="l">            ) )
 </span><span id="51" class="l">            -&gt;desc_field( <span class="php-keyword1">array</span>(
-</span><span id="52" class="l">                __( <span class="php-quote">'**Site Url** : Retrieves the URL for the current site where WordPress application files `(e.g. wp-blog-header.php or the wp-admin/ folder)` are accessible.'</span> ),
-</span><span id="53" class="l">                __( <span class="php-quote">'**Home Url** : Retrieves the URL for the current site where the front end is accessible.'</span> ),
+</span><span id="52" class="l">                __( <span class="php-quote">'**Site Url** : Retrieves the URL for the current site where WordPress application files `(e.g. wp-blog-header.php or the wp-admin/ folder)` are accessible.'</span>, <span class="php-quote">'wc-quick-buy'</span> ),
+</span><span id="53" class="l">                __( <span class="php-quote">'**Home Url** : Retrieves the URL for the current site where the front end is accessible.'</span>, <span class="php-quote">'wc-quick-buy'</span> ),
 </span><span id="54" class="l">            ) );
 </span><span id="55" class="l">
 </span><span id="56" class="l">        <span class="php-var">$builder</span>-&gt;text( <span class="php-quote">'url_endpoint'</span>, __( <span class="php-quote">'URL Endpoint'</span>, <span class="php-quote">'wc-quick-buy'</span> ) )
