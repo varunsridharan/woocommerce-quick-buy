@@ -147,7 +147,7 @@
 </span><span id="28" class="l">            <span class="php-quote">'hide_in_cart'</span> =&gt; Helper::option( <span class="php-quote">'hide_if_in_cart'</span> ),
 </span><span id="29" class="l">            <span class="php-quote">'preset'</span>       =&gt; Helper::option( <span class="php-quote">'button_style_styles'</span> ),
 </span><span id="30" class="l">        ) );
-</span><span id="31" class="l">        <span class="php-var">$args</span>[<span class="php-quote">'hide_in_cart'</span>] = wponion_validate_bool_val( <span class="php-var">$args</span>[<span class="php-quote">'hide_in_cart'</span>] );
+</span><span id="31" class="l">        <span class="php-var">$args</span>[<span class="php-quote">'hide_in_cart'</span>] = wponion_is_bool_val( <span class="php-var">$args</span>[<span class="php-quote">'hide_in_cart'</span>] );
 </span><span id="32" class="l">        <span class="php-var">$args</span>[<span class="php-quote">'hide_in_cart'</span>] = ( <span class="php-quote">'on'</span> === <span class="php-var">$args</span>[<span class="php-quote">'hide_in_cart'</span>] ) ? <span class="php-keyword1">true</span> : <span class="php-var">$args</span>[<span class="php-quote">'hide_in_cart'</span>];
 </span><span id="33" class="l">        <span class="php-var">$args</span>[<span class="php-quote">'hide_in_cart'</span>] = ( <span class="php-quote">'off'</span> === <span class="php-var">$args</span>[<span class="php-quote">'hide_in_cart'</span>] ) ? <span class="php-keyword1">false</span> : <span class="php-var">$args</span>[<span class="php-quote">'hide_in_cart'</span>];
 </span><span id="34" class="l">        <span class="php-var">$this</span>-&gt;args           = <span class="php-var">$args</span>;
