@@ -36,21 +36,21 @@ trait General {
 		$builder->switcher( 'auto_clear_cart', __( 'Auto Clear Cart ?', 'wc-quick-buy' ) )
 			->desc_field( __( 'if Enabled then cart contents will be auto cleared if quick buy button used.', 'wc-quick-buy' ) );
 
-		$builder->select( 'url_type', __( 'WordPress URL Type' ) )
+		$builder->select( 'url_type', __( 'WordPress URL Type', 'wc-quick-buy' ) )
 			->style( 'width:20%;' )
 			->wrap_id( 'url_type' )
 			->select_framework( 'select2' )
 			->option( 'site_url', array(
-				'label'      => __( 'Site URL' ),
+				'label'      => __( 'Site URL', 'wc-quick-buy' ),
 				'attributes' => array( 'data-url' => trailingslashit( site_url() ) ),
 			) )
 			->option( 'home_url', array(
-				'label'      => __( 'Home URL' ),
+				'label'      => __( 'Home URL', 'wc-quick-buy' ),
 				'attributes' => array( 'data-url' => trailingslashit( home_url() ) ),
 			) )
 			->desc_field( array(
-				__( '**Site Url** : Retrieves the URL for the current site where WordPress application files `(e.g. wp-blog-header.php or the wp-admin/ folder)` are accessible.' ),
-				__( '**Home Url** : Retrieves the URL for the current site where the front end is accessible.' ),
+				__( '**Site Url** : Retrieves the URL for the current site where WordPress application files `(e.g. wp-blog-header.php or the wp-admin/ folder)` are accessible.', 'wc-quick-buy' ),
+				__( '**Home Url** : Retrieves the URL for the current site where the front end is accessible.', 'wc-quick-buy' ),
 			) );
 
 		$builder->text( 'url_endpoint', __( 'URL Endpoint', 'wc-quick-buy' ) )

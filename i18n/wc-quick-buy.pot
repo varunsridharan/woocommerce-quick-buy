@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Quick Buy For WooCommerce plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Quick Buy For WooCommerce 2.7.5\n"
+"Project-Id-Version: Quick Buy For WooCommerce 2.8\n"
 "Report-Msgid-Bugs-To: https:\/\/wordpress.org\/support\/plugin\/woocommerce-quick-buy\n\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: varunsridharan23@gmail.com\n\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-08-22T11:24:35+05:30\n"
+"POT-Creation-Date: 2020-08-27T11:42:34+05:30\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.2.0\n"
 "X-Domain: wc-quick-buy\n"
@@ -44,11 +44,12 @@ msgid "Quick Buy"
 msgstr ""
 
 #: bootstrap.php:107
-msgid "⚙️ Settings"
+msgid "Settings"
 msgstr ""
 
 #: bootstrap.php:108
-msgid "ℹ️ System Info"
+#: includes/admin/class-settings.php:31
+msgid "System Info"
 msgstr ""
 
 #: bootstrap.php:109
@@ -74,10 +75,6 @@ msgstr ""
 
 #: includes/admin/class-settings.php:26
 msgid "Documentation"
-msgstr ""
-
-#: includes/admin/class-settings.php:31
-msgid "System Info"
 msgstr ""
 
 #: includes/admin/settings/trait-button-styling.php:30
@@ -145,137 +142,157 @@ msgid "if Enabled then cart contents will be auto cleared if quick buy button us
 msgstr ""
 
 #: includes/admin/settings/trait-general.php:39
-msgid "URL Endpoint"
+msgid "WordPress URL Type"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:45
-msgid "Customize the URL Endpoint for Quick Buy URL Action"
-msgstr ""
-
-#: includes/admin/settings/trait-general.php:46
-msgid "1. `{id}` : Product ID"
-msgstr ""
-
-#: includes/admin/settings/trait-general.php:47
-msgid "2. `{slug}` : Product Slug"
+#: includes/admin/settings/trait-general.php:44
+msgid "Site URL"
 msgstr ""
 
 #: includes/admin/settings/trait-general.php:48
-msgid "3. `{sku}` : Product SKU"
-msgstr ""
-
-#: includes/admin/settings/trait-general.php:49
-msgid "4. `{qty}` : Quantity"
+msgid "Home URL"
 msgstr ""
 
 #: includes/admin/settings/trait-general.php:52
-msgid "If Quick Buy Link Not Working. Then Try Updating Permalink "
+msgid "**Site Url** : Retrieves the URL for the current site where WordPress application files `(e.g. wp-blog-header.php or the wp-admin/ folder)` are accessible."
+msgstr ""
+
+#: includes/admin/settings/trait-general.php:53
+msgid "**Home Url** : Retrieves the URL for the current site where the front end is accessible."
+msgstr ""
+
+#: includes/admin/settings/trait-general.php:56
+msgid "URL Endpoint"
+msgstr ""
+
+#: includes/admin/settings/trait-general.php:63
+msgid "Customize the URL Endpoint for Quick Buy URL Action"
+msgstr ""
+
+#: includes/admin/settings/trait-general.php:64
+msgid "1. `{id}` : Product ID"
+msgstr ""
+
+#: includes/admin/settings/trait-general.php:65
+msgid "2. `{slug}` : Product Slug"
+msgstr ""
+
+#: includes/admin/settings/trait-general.php:66
+msgid "3. `{sku}` : Product SKU"
 msgstr ""
 
 #: includes/admin/settings/trait-general.php:67
+msgid "4. `{qty}` : Quantity"
+msgstr ""
+
+#: includes/admin/settings/trait-general.php:70
+msgid "If Quick Buy Link Not Working. Then Try Updating Permalink "
+msgstr ""
+
+#: includes/admin/settings/trait-general.php:85
 msgid "Enabled Product Types"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:72
+#: includes/admin/settings/trait-general.php:90
 msgid "`Quick Buy` Button Will Be Generated Only For Selected Product Types"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:74
+#: includes/admin/settings/trait-general.php:92
 msgid "Auto Hide Button"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:75
+#: includes/admin/settings/trait-general.php:93
 msgid "Hide"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:76
+#: includes/admin/settings/trait-general.php:94
 msgid "Non Clickable"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:77
+#: includes/admin/settings/trait-general.php:95
 msgid "Remove"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:79
+#: includes/admin/settings/trait-general.php:97
 #: includes/class-helper.php:95
 msgid "None"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:82
+#: includes/admin/settings/trait-general.php:100
 msgid "1. if `Hide` Selected then button will be **hidden** untill product removed from cart / purchase is completed"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:83
+#: includes/admin/settings/trait-general.php:101
 msgid "2. if `Non Clickable` Selected then button will be **disabled** untill product removed from cart / purchase is completed"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:84
+#: includes/admin/settings/trait-general.php:102
 msgid "3. if `Remove` Selected then button will not be rendered & button also will not be shown even if product removed from cart via ajax "
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:87
+#: includes/admin/settings/trait-general.php:105
 msgid "Cart Quantity"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:90
+#: includes/admin/settings/trait-general.php:108
 msgid " You can set min product Quantity. works only with shop page (`Product listing`) & `[wc_quick_buy_link]` shortcode"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:92
+#: includes/admin/settings/trait-general.php:110
 msgid "Shop Page Enabled Types"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:95
+#: includes/admin/settings/trait-general.php:113
 msgid "EXPERIMENTAL"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:103
+#: includes/admin/settings/trait-general.php:121
 msgid "Selected Product Types Will Get `Quick Buy` Button Generated Only in Places Where Products are listed. example places like ***Shop*** / ***Archive*** / ***Search***"
 msgstr ""
 
 #. translators: Added Red Color Description
-#: includes/admin/settings/trait-general.php:105
+#: includes/admin/settings/trait-general.php:123
 msgid "%1$s Note : Not All Product Types Will Work. only product types that are related to simple will work. and product types like variable / will not work. %2$s"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:117
+#: includes/admin/settings/trait-general.php:135
 msgid "Redirect Configuration"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:118
+#: includes/admin/settings/trait-general.php:136
 msgid "Location"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:119
+#: includes/admin/settings/trait-general.php:137
 msgid "Location To Redirect Once Product Added To Cart"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:124
+#: includes/admin/settings/trait-general.php:142
 msgid "Custom Redirect Location"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:126
+#: includes/admin/settings/trait-general.php:144
 msgid "Enter a full url if custom selected in redirect location"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:141
+#: includes/admin/settings/trait-general.php:159
 msgid "Single Product Page Placement"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:145
+#: includes/admin/settings/trait-general.php:163
 msgid "Where the button need to be added in single product page "
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:146
-#: includes/admin/settings/trait-general.php:155
+#: includes/admin/settings/trait-general.php:164
+#: includes/admin/settings/trait-general.php:173
 msgid "if `Disabled` selected then you need to modify your **WooCommerce** template and quick buy shortcode"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:150
+#: includes/admin/settings/trait-general.php:168
 msgid "Shop Page Placement"
 msgstr ""
 
-#: includes/admin/settings/trait-general.php:154
+#: includes/admin/settings/trait-general.php:172
 msgid "Where the button need to be added in shop page "
 msgstr ""
 
