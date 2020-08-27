@@ -36,9 +36,27 @@ trait General {
 		$builder->switcher( 'auto_clear_cart', __( 'Auto Clear Cart ?', 'wc-quick-buy' ) )
 			->desc_field( __( 'if Enabled then cart contents will be auto cleared if quick buy button used.', 'wc-quick-buy' ) );
 
+		$builder->select( 'url_type', __( 'WordPress URL Type' ) )
+			->style( 'width:20%;' )
+			->wrap_id( 'url_type' )
+			->select_framework( 'select2' )
+			->option( 'site_url', array(
+				'label'      => __( 'Site URL' ),
+				'attributes' => array( 'data-url' => trailingslashit( site_url() ) ),
+			) )
+			->option( 'home_url', array(
+				'label'      => __( 'Home URL' ),
+				'attributes' => array( 'data-url' => trailingslashit( home_url() ) ),
+			) )
+			->desc_field( array(
+				__( '**Site Url** : Retrieves the URL for the current site where WordPress application files `(e.g. wp-blog-header.php or the wp-admin/ folder)` are accessible.' ),
+				__( '**Home Url** : Retrieves the URL for the current site where the front end is accessible.' ),
+			) );
+
 		$builder->text( 'url_endpoint', __( 'URL Endpoint', 'wc-quick-buy' ) )
 			->field_default( 'quick-buy/{id}/{qty}' )
 			->style( 'width:350px' )
+			->wrap_id( 'url_endpoint' )
 			->placeholder( 'quick-buy/{id}/{sku}/{qty}' )
 			->prefix( trailingslashit( site_url() ) )
 			->desc_field( array(

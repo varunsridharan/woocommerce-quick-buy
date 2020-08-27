@@ -28,7 +28,7 @@ class Button_Generator extends Generator_Base {
 			'hide_in_cart' => Helper::option( 'hide_if_in_cart' ),
 			'preset'       => Helper::option( 'button_style_styles' ),
 		) );
-		$args['hide_in_cart'] = wponion_validate_bool_val( $args['hide_in_cart'] );
+		$args['hide_in_cart'] = wponion_is_bool_val( $args['hide_in_cart'] );
 		$args['hide_in_cart'] = ( 'on' === $args['hide_in_cart'] ) ? true : $args['hide_in_cart'];
 		$args['hide_in_cart'] = ( 'off' === $args['hide_in_cart'] ) ? false : $args['hide_in_cart'];
 		$this->args           = $args;

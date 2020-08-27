@@ -60,7 +60,7 @@ class URL_Generator extends Generator_Base {
 					);
 					$url  = str_replace( array_keys( $data ), $data, $string );
 					if ( ! empty( $url ) ) {
-						$this->html = site_url() . '/' . trim( $url, '/' );
+						$this->html = vsp_slashit( Helper::get_valid_wp_url() ) . trim( $url, '/' );
 					}
 				}
 			} else {

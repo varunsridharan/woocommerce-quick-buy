@@ -167,4 +167,15 @@ final class Helper {
 	public static function is_add_to_cart_request() {
 		return isset( $_REQUEST['quick_buy'] ) && ! empty( $_REQUEST['quick_buy'] );
 	}
+
+	/**
+	 * Fetches Valid URL For Site.
+	 *
+	 * @static
+	 * @return string|void
+	 * @since {NEWVERSION}
+	 */
+	public static function get_valid_wp_url() {
+		return ( 'home_url' === self::option( 'url_type' ) ) ? home_url() : site_url();
+	}
 }
