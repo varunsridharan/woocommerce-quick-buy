@@ -51,17 +51,20 @@ class URL_Endpoint extends Base {
 	 * @throws \Exception
 	 */
 	public function addtocart_if_quickbuy( $query ) {
-		if ( ! isset( $query->query_vars['quickbuy_id'] ) && ! isset( $query->query_vars['quickbuy_sku'] ) ) {
+		if ( ! isset( $query->query_vars['quickbuy_id'] ) && ! isset( $query->query_vars['quickbuy_sku'] ) && ! isset( $query->query_vars['quickbuy_slug'] ) ) {
 			return $query;
 		}
 
-		$qty  = ( isset( $query->query_vars['quickbuy_qty'] ) ) ? $query->query_vars['quickbuy_qty'] : Helper::option( 'quantity' );
-		$type = ( isset( $query->query_vars['quickbuy_sku'] ) && ! isset( $query->query_vars['quickbuy_id'] ) ) ? 'sku' : 'id';
-		$id   = ( isset( $query->query_vars['quickbuy_id'] ) ) ? $query->query_vars['quickbuy_id'] : false;
-		$sku  = ( isset( $query->query_vars['quickbuy_sku'] ) ) ? $query->query_vars['quickbuy_sku'] : false;
+		$qty = ( isset( $query->query_vars['quickbuy_qty'] ) ) ? $query->query_vars['quickbuy_qty'] : Helper::option( 'quantity' );
+		$id  = ( isset( $query->query_vars['quickbuy_id'] ) ) ? $query->query_vars['quickbuy_id'] : false;
 
-		if ( 'sku' === $type && false === $id ) {
-			$id = wc_get_product_id_by_sku( $sku );
+		if ( isset( $query->query_vars['quickbuy_sku'] ) ) {
+			$id = wc_get_product_id_by_sku( $query->query_vars['quickbuy_sku'] );
+		}
+
+		if ( isset( $query->query_vars['quickbuy_slug'] ) ) {
+			$product = get_page_by_path( $query->query_vars['quickbuy_slug'], OBJECT, 'product' );
+			$id      = ( isset( $product->ID ) ) ? $product->ID : false;
 		}
 
 		if ( false !== $id ) {
@@ -71,6 +74,11 @@ class URL_Endpoint extends Base {
 			do_action( 'wc_quick_buy_endpoint_add_to_cart_after' );
 			wp_safe_redirect( Helper::redirect_url() );
 			exit;
+		} else {
+			/*global $wp_query;
+			$wp_query->set_404();
+			status_header( 404 );
+			nocache_headers();*/
 		}
 
 		return $query;
