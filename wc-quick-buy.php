@@ -3,7 +3,7 @@
  * Plugin Name:       Quick Buy For WooCommerce
  * Plugin URI:        https://wordpress.org/plugins/woocommerce-quick-buy/
  * Description:       Add Quick buy button to redirect user to checkout / cart immediately when he click quick buy button
- * Version:           2.8.1
+ * Version:           2.8.2
  * Author:            Varun Sridharan
  * Author URI:        http://varunsridharan.in
  * Text Domain:       wc-quick-buy
@@ -11,14 +11,14 @@
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * GitHub Plugin URI: https://github.com/varunsridharan/woocommerce-quick-buy
  * Domain Path:       /i18n
- * WC requires at least: 2.0
- * WC tested up to: 4.4.1
+ * WC requires at least: 3.0
+ * WC tested up to: 5.1.0
  */
 
 defined( 'ABSPATH' ) || exit;
 
 defined( 'WCQB_FILE' ) || define( 'WCQB_FILE', __FILE__ );
-defined( 'WCQB_VERSION' ) || define( 'WCQB_VERSION', '2.8.1' );
+defined( 'WCQB_VERSION' ) || define( 'WCQB_VERSION', '2.8.2' );
 defined( 'WCQB_NAME' ) || define( 'WCQB_NAME', __( 'Quick Buy For WooCommerce', 'wc-quick-buy' ) );
 
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
