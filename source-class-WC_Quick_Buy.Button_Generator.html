@@ -235,7 +235,7 @@
 </span><span id="116" class="l">                <span class="php-quote">'id'</span>    =&gt; <span class="php-quote">'quick_buy_'</span> . <span class="php-var">$this</span>-&gt;product_id() . <span class="php-quote">'_container'</span>,
 </span><span id="117" class="l">            ) ), <span class="php-var">$this</span>-&gt;product_id(), <span class="php-var">$this</span>-&gt;product_type(), <span class="php-var">$this</span> );
 </span><span id="118" class="l">            <span class="php-var">$this</span>-&gt;html = <span class="php-quote">'&lt;div '</span> . <span class="php-var">$wrap_attr</span> . <span class="php-quote">' &gt;'</span>;
-</span><span id="119" class="l">            <span class="php-var">$this</span>-&gt;html .= <span class="php-keyword2">sprintf</span>( <span class="php-quote">'&lt;%1$s %3$s&gt;%2$s&lt;/%1$s&gt;'</span>, <span class="php-var">$tag</span>, <span class="php-var">$args</span>[<span class="php-quote">'label'</span>], wponion_array_to_html_attributes( <span class="php-var">$attrs</span> ) );
+</span><span id="119" class="l">            <span class="php-var">$this</span>-&gt;html .= <span class="php-keyword2">sprintf</span>( <span class="php-quote">'&lt;%1$s %3$s&gt;%2$s&lt;/%1$s&gt;'</span>, esc_html( <span class="php-var">$tag</span> ), esc_html( <span class="php-var">$args</span>[<span class="php-quote">'label'</span>] ), wponion_array_to_html_attributes( <span class="php-var">$attrs</span> ) );
 </span><span id="120" class="l">            <span class="php-var">$this</span>-&gt;html .= <span class="php-quote">'&lt;/div&gt;'</span>;
 </span><span id="121" class="l">        }
 </span><span id="122" class="l">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;html;
