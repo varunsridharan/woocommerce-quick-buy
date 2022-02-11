@@ -130,7 +130,7 @@ Please open an issue at <a href="https://github.com/varunsridharan/woocommerce-q
 == Changelog ==
 
 = 2.8.2 27/03/2021 =
-* Updated : WPOnion Framework To 1.5.7
+* Updated : WPOnion Framework To 1.5.3.7
 * Updated : VSP Framework To 0.8.9.8
 * Tested : WordPress 5.7
 * Tested : WooCommerce 5.1.0

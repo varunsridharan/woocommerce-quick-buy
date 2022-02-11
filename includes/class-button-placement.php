@@ -30,7 +30,8 @@ class Button_Placement extends Base {
 		global $product;
 		/* @var \WC_Product $product */
 		if ( null !== $product && method_exists( $product, 'get_id' ) ) {
-			echo '<input type="hidden" id="wc_quick_buy_hook_' . $product->get_id() . '" value="' . $product->get_id() . '"  />';
+			$pid = esc_attr( $product->get_id() );
+			echo "<input type=\"hidden\" id=\"wc_quick_buy_hook_$pid\" value=\"$pid\"/>";
 		}
 	}
 
