@@ -211,7 +211,7 @@
 </span><span id="92" class="l">                    <span class="php-quote">'type'</span>    =&gt; <span class="php-quote">'link'</span>,
 </span><span id="93" class="l">                );
 </span><span id="94" class="l">                <span class="php-var">$instance</span> = <span class="php-keyword1">new</span> Button_Generator( <span class="php-var">$args</span> );
-</span><span id="95" class="l">                <span class="php-keyword1">echo</span> <span class="php-var">$instance</span>-&gt;html();
+</span><span id="95" class="l">                <span class="php-keyword1">echo</span> wp_kses_post( <span class="php-var">$instance</span>-&gt;html() );
 </span><span id="96" class="l">            }
 </span><span id="97" class="l">        }
 </span><span id="98" class="l">    }
@@ -224,7 +224,7 @@
 </span><span id="105" class="l">        <span class="php-keyword1">if</span> ( apply_filters( <span class="php-quote">'wc_quick_buy_allow_render_button'</span>, <span class="php-keyword1">true</span>, <span class="php-var">$product</span>, <span class="php-keyword1">true</span> ) ) {
 </span><span id="106" class="l">            <span class="php-var">$args</span>     = <span class="php-keyword1">array</span>( <span class="php-quote">'product'</span> =&gt; <span class="php-var">$product</span> );
 </span><span id="107" class="l">            <span class="php-var">$instance</span> = <span class="php-keyword1">new</span> Button_Generator( <span class="php-var">$args</span> );
-</span><span id="108" class="l">            <span class="php-keyword1">echo</span> <span class="php-var">$instance</span>-&gt;html();
+</span><span id="108" class="l">            <span class="php-keyword1">echo</span> wp_kses_post( <span class="php-var">$instance</span>-&gt;html() );
 </span><span id="109" class="l">        }
 </span><span id="110" class="l">    }
 </span><span id="111" class="l">}
