@@ -92,7 +92,7 @@ class Button_Placement extends Base {
 					'type'    => 'link',
 				);
 				$instance = new Button_Generator( $args );
-				echo $instance->html();
+				echo wp_kses_post( $instance->html() );
 			}
 		}
 	}
@@ -105,7 +105,7 @@ class Button_Placement extends Base {
 		if ( apply_filters( 'wc_quick_buy_allow_render_button', true, $product, true ) ) {
 			$args     = array( 'product' => $product );
 			$instance = new Button_Generator( $args );
-			echo $instance->html();
+			echo wp_kses_post( $instance->html() );
 		}
 	}
 }

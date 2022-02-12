@@ -6,7 +6,7 @@ Tags: Woocommerce,wc,Quick buy,add to cart,affiliate, cart, checkout, commerce, 
 Donate link: http://paypal.me/varunsridharan23
 Requires at least: 3.0
 Tested up to: 5.9
-Stable tag: 2.8.3
+Stable tag: 2.8.4
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
@@ -128,6 +128,11 @@ Please open an issue at <a href="https://github.com/varunsridharan/woocommerce-q
 
 
 == Changelog ==
+
+= 2.8.4 12/02/2022 =
+* Updated : Filterd XSS attacks in Strings
+* Tested : WordPress 5.9
+* Tested : WooCommerce 6.2.0
 
 = 2.8.3 11/02/2022 =
 * Updated : Filterd XSS attacks in Strings
